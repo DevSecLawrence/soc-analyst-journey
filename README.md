@@ -38,7 +38,7 @@ month-02/
 ```
 
 ## How To Review
-Start with `month-01/day-01/` once Day 1 is pushed.
+Start with `month-01/day-01/`
 
 Each day contains:
 - A written analysis
