@@ -3,17 +3,6 @@
 This repo is a public SOC analyst portfolio built through daily hands-on labs. Each day includes evidence (artifacts) and reasoning (write-ups).
 
 ## What This Demonstrates
-
-## Repo Structure
-
-## How To Review
-- Supporting artifacts (PCAPs/logs/scripts) referenced in the write-up
-
-# SOC Analyst Journey (180-Day Execution)
-
-This repo is a public SOC analyst portfolio built through daily hands-on labs. Each day includes evidence (artifacts) and reasoning (write-ups).
-
-## What This Demonstrates
 - Packet and protocol analysis (PCAP-based)
 - Log interpretation and field extraction
 - SIEM investigation thinking (Splunk/Elastic/KQL as the roadmap progresses)
@@ -27,10 +16,11 @@ Example layout (files appear as work is completed):
 month-01/
   day-01/
     day01-osi-analysis.md
-    day01-pcap-samples/
-      layer1-failure.pcapng
-      layer3-failure.pcapng
-      layer7-failure.pcapng
+    pcap-samples/
+      day01-normal traffic.pcapng
+      day01-layer1-failure.pcapng
+      day01-layer3-failure.pcapng
+      day01-layer7-failure.pcapng
   day-02/
     ...
 month-02/
