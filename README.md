@@ -1,2 +1,31 @@
-# soc-analyst-journey
-Public SOC analyst portfolio: daily labs with PCAPs, detections, scripts, and investigation write-ups.
+# SOC Analyst Journey (180-Day Execution)
+
+This repo is a public SOC analyst portfolio built through daily hands-on labs. Each day includes evidence (artifacts) and reasoning (write-ups).
+
+## What This Demonstrates
+- Packet and protocol analysis (PCAP-based)
+- Log interpretation and field extraction
+- SIEM investigation thinking (Splunk/Elastic/KQL as the roadmap progresses)
+- Detection engineering fundamentals (rules, queries, and false-positive reasoning)
+- Clear analyst communication: conclusions, assumptions, uncertainties
+
+## Repo Structure
+month-01/
+  day-01/
+    day01-osi-analysis.md
+    day01-pcap-samples/
+      layer1-failure.pcapng
+      layer3-failure.pcapng
+      layer7-failure.pcapng
+  day-02/
+    ...
+
+## How To Review
+Start with month-01/day-01/day01-osi-analysis.md.
+Each day contains:
+- A written analysis
+- Supporting artifacts (PCAPs/logs/scripts) referenced in the write-up
+
+## Safety / Scope
+All activity is local and controlled. No external targeting.
+Sensitive data is avoided in public artifacts.
