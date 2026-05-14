@@ -19,4 +19,4 @@
 
 ## Notes
 - In Wireshark, I watched SEQ, ACK, flags, and the connection state.
-- I kept everything local so the test stayed controlled.
+- I kept everything local so the test stayed controlled and everything was safe.
