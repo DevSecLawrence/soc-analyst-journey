@@ -1,0 +1,210 @@
+No.,Time,Delta ,Source,Destination,Protocol,Length,TCP Segment Len,Info
+7,28.0161247,0,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0x926f A www.exploit-db.com
+8,28.01631791,0.000193212,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0x0b71 AAAA www.exploit-db.com
+9,28.46348266,0.447164754,10.230.184.187,10.230.184.102,DNS,94,,Standard query response 0x926f A www.exploit-db.com A 192.124.249.13
+10,29.94145246,1.4779698,10.230.184.102,10.230.184.187,DNS,88,,Standard query 0x2928 A contile.services.mozilla.com
+11,30.00246483,0.061012364,10.230.184.187,10.230.184.102,DNS,212,,Standard query response 0x2928 A contile.services.mozilla.com CNAME mozilla.map.fastly.net A 146.75.89.91 NS ns1.fastly.net NS ns2.fastly.net NS ns3.fastly.net NS ns4.fastly.net
+31,33.02166787,3.01920304,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0x926f A www.exploit-db.com
+32,33.02556355,0.003895688,10.230.184.187,10.230.184.102,DNS,94,,Standard query response 0x926f A www.exploit-db.com A 192.124.249.13
+33,33.0258687,0.000305145,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0x0b71 AAAA www.exploit-db.com
+36,33.088262,0.062393296,10.230.184.187,10.230.184.102,DNS,138,,Standard query response 0x0b71 AAAA www.exploit-db.com SOA ns1.gandi.net
+52,33.45274201,0.364480011,10.230.184.102,10.230.184.187,DNS,82,,Standard query 0x8fa1 A ocsp.starfieldtech.com
+60,33.48904994,0.036307929,10.230.184.187,10.230.184.102,DNS,203,,Standard query response 0x8fa1 A ocsp.starfieldtech.com CNAME ocsp.godaddy.com.akadns.net A 192.124.249.22 A 192.124.249.36 A 192.124.249.24 A 192.124.249.23 A 192.124.249.41
+61,33.48936258,0.000312644,10.230.184.102,10.230.184.187,DNS,82,,Standard query 0x81bf AAAA ocsp.starfieldtech.com
+62,33.5280327,0.038670116,10.230.184.187,10.230.184.102,DNS,186,,Standard query response 0x81bf AAAA ocsp.starfieldtech.com CNAME ocsp.godaddy.com.akadns.net SOA internal.akadns.net
+122,50.16593612,16.63790342,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0xc093 A www.google.com
+123,50.16609597,0.00015985,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x8a90 AAAA www.google.com
+124,50.17190629,0.005810321,10.230.184.187,10.230.184.102,DNS,202,,Standard query response 0xc093 A www.google.com A 142.251.153.119 A 142.251.154.119 A 142.251.157.119 A 142.251.150.119 A 142.251.155.119 A 142.251.156.119 A 142.251.151.119 A 142.251.152.119
+125,50.22814172,0.056235429,10.230.184.187,10.230.184.102,DNS,298,,Standard query response 0x8a90 AAAA www.google.com AAAA 2001:4860:4829:7700:: AAAA 2001:4860:4827:7700:: AAAA 2001:4860:482c:7700:: AAAA 2001:4860:482a:7700:: AAAA 2001:4860:4826:7700:: AAAA 2001:4860:482b:7700:: AAAA 2001:4860:4828:7700:: AAAA 2001:4860:482d:7700::
+131,50.35294107,0.124799352,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0xc9c9 A github.com
+132,50.37788399,0.024942915,10.230.184.187,10.230.184.102,DNS,309,,Standard query response 0xc9c9 A github.com A 140.82.121.4 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
+133,50.37808132,0.000197331,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0xbfc8 AAAA github.com
+134,50.40960709,0.031525777,10.230.184.187,10.230.184.102,DNS,154,,Standard query response 0xbfc8 AAAA github.com SOA ns-1707.awsdns-21.co.uk
+142,50.44194966,0.03234257,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0x8b83 A o.pki.goog
+143,50.44247137,0.000521709,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0x6080 AAAA o.pki.goog
+144,50.47228835,0.029816981,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0x8b83 A o.pki.goog CNAME pki-goog.l.google.com A 142.251.29.94
+145,50.48865788,0.016369522,10.230.184.187,10.230.184.102,DNS,133,,Standard query response 0x6080 AAAA o.pki.goog CNAME pki-goog.l.google.com AAAA 2c0f:fb50:4003:801::2003
+163,50.7982448,0.309586922,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0xebe5 A ocsp.sectigo.com
+169,50.861182,0.062937203,10.230.184.187,10.230.184.102,DNS,158,,Standard query response 0xebe5 A ocsp.sectigo.com CNAME ocsp.comodoca.com.cdn.cloudflare.net A 172.64.149.23 A 104.18.38.233
+170,50.86146659,0.000284592,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x9ae4 AAAA ocsp.sectigo.com
+172,50.88871734,0.027250749,10.230.184.187,10.230.184.102,DNS,182,,Standard query response 0x9ae4 AAAA ocsp.sectigo.com CNAME ocsp.comodoca.com.cdn.cloudflare.net AAAA 2a06:98c1:310a::6812:26e9 AAAA 2606:4700:4408::ac40:9517
+248,54.73259822,3.843880878,10.230.184.102,10.230.184.187,DNS,83,,Standard query 0x6c26 A github.githubassets.com
+249,54.73273415,0.000135928,10.230.184.102,10.230.184.187,DNS,89,,Standard query 0x16e7 A avatars.githubusercontent.com
+250,54.73273652,0.000002377,10.230.184.102,10.230.184.187,DNS,89,,Standard query 0xa0e4 AAAA avatars.githubusercontent.com
+251,54.73648894,0.003752419,10.230.184.187,10.230.184.102,DNS,147,,Standard query response 0x6c26 A github.githubassets.com A 185.199.111.215 A 185.199.110.215 A 185.199.109.215 A 185.199.108.215
+252,54.73706169,0.000572743,10.230.184.102,10.230.184.187,DNS,83,,Standard query 0x9f24 AAAA github.githubassets.com
+253,54.76964969,0.032588,10.230.184.187,10.230.184.102,DNS,153,,Standard query response 0x16e7 A avatars.githubusercontent.com A 185.199.108.133 A 185.199.109.133 A 185.199.110.133 A 185.199.111.133
+254,54.77147301,0.001823326,10.230.184.187,10.230.184.102,DNS,201,,Standard query response 0xa0e4 AAAA avatars.githubusercontent.com AAAA 2606:50c0:8000::154 AAAA 2606:50c0:8001::154 AAAA 2606:50c0:8002::154 AAAA 2606:50c0:8003::154
+255,54.77352755,0.002054538,10.230.184.187,10.230.184.102,DNS,195,,Standard query response 0x9f24 AAAA github.githubassets.com AAAA 2606:50c0:8000::215 AAAA 2606:50c0:8001::215 AAAA 2606:50c0:8003::215 AAAA 2606:50c0:8002::215
+2309,93.15089722,38.37736967,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0x9fda A wikipedia.org
+2311,93.29410173,0.143204507,10.230.184.187,10.230.184.102,DNS,89,,Standard query response 0x9fda A wikipedia.org A 185.15.58.224
+2312,93.29494815,0.000846423,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0xa3d8 AAAA wikipedia.org
+2420,98.15269839,4.857750236,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0x9fda A wikipedia.org
+2421,98.15690763,0.004209242,10.230.184.187,10.230.184.102,DNS,89,,Standard query response 0x9fda A wikipedia.org A 185.15.58.224
+2422,98.1575828,0.000675165,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0xa3d8 AAAA wikipedia.org
+2423,98.18595731,0.028374515,10.230.184.187,10.230.184.102,DNS,101,,Standard query response 0xa3d8 AAAA wikipedia.org AAAA 2a02:ec80:600:ed1a::1
+2449,98.58628383,0.400326523,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0x770e A wikipedia.org
+2450,98.58650208,0.000218243,10.230.184.102,10.230.184.187,DNS,73,,Standard query 0x070b AAAA wikipedia.org
+2451,98.59226724,0.005765161,10.230.184.187,10.230.184.102,DNS,89,,Standard query response 0x770e A wikipedia.org A 185.15.58.224
+2452,98.59226788,0.000000642,10.230.184.187,10.230.184.102,DNS,101,,Standard query response 0x070b AAAA wikipedia.org AAAA 2a02:ec80:600:ed1a::1
+2631,100.7209517,2.128683775,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0x1b4b A www.wikipedia.org
+2632,100.8011407,0.080188998,10.230.184.187,10.230.184.102,DNS,122,,Standard query response 0x1b4b A www.wikipedia.org CNAME dyna.wikimedia.org A 185.15.58.224
+2634,100.8012899,0.000149275,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0xae4f AAAA www.wikipedia.org
+2637,100.8435508,0.042260879,10.230.184.187,10.230.184.102,DNS,134,,Standard query response 0xae4f AAAA www.wikipedia.org CNAME dyna.wikimedia.org AAAA 2a02:ec80:600:ed1a::1
+2640,100.8572001,0.013649332,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x22d3 A alive.github.com
+2641,100.8576472,0.000447089,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x78ee AAAA alive.github.com
+2643,100.8968576,0.039210403,10.230.184.187,10.230.184.102,DNS,111,,Standard query response 0x22d3 A alive.github.com CNAME live.github.com A 140.82.114.26
+2729,102.0326447,1.13578707,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0x1e25 A upload.wikimedia.org
+2730,102.1091336,0.076488877,10.230.184.187,10.230.184.102,DNS,96,,Standard query response 0x1e25 A upload.wikimedia.org A 185.15.58.240
+2732,102.1102639,0.001130323,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0xc62c AAAA upload.wikimedia.org
+2735,102.1372478,0.026983916,10.230.184.187,10.230.184.102,DNS,108,,Standard query response 0xc62c AAAA upload.wikimedia.org AAAA 2a02:ec80:600:ed1a::2:b
+2801,103.4586846,1.321436733,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x4269 A en.wikipedia.org
+2804,103.4815352,0.022850676,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0x4269 A en.wikipedia.org CNAME dyna.wikimedia.org A 185.15.58.224
+2805,103.4842011,0.002665891,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x266d AAAA en.wikipedia.org
+2806,103.4882446,0.004043471,10.230.184.187,10.230.184.102,DNS,136,,Standard query response 0x266d AAAA en.wikipedia.org CNAME dyna.wikimedia.org AAAA 2a02:ec80:600:ed1a::1
+3090,105.0944219,1.606177339,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0x34ae A collector.github.com
+3091,105.0945968,0.000174887,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0xf5ab AAAA collector.github.com
+3092,105.1490487,0.054451845,10.230.184.187,10.230.184.102,DNS,129,,Standard query response 0x34ae A collector.github.com CNAME glb-db52c2cf8be544.github.com A 140.82.113.22
+3093,105.1506271,0.001578428,10.230.184.187,10.230.184.102,DNS,197,,Standard query response 0xf5ab AAAA collector.github.com CNAME glb-db52c2cf8be544.github.com SOA ns-1707.awsdns-21.co.uk
+3199,105.864122,0.713494865,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x22d3 A alive.github.com
+3200,105.867708,0.003586056,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0x22d3 A alive.github.com CNAME live.github.com A 140.82.114.26
+3201,105.868289,0.00058099,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x78ee AAAA alive.github.com
+3209,105.9321784,0.063889413,10.230.184.187,10.230.184.102,DNS,160,,Standard query response 0x78ee AAAA alive.github.com CNAME live.github.com SOA dns1.p08.nsone.net
+3210,105.9368176,0.004639211,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0xbf5e A alive.github.com
+3211,105.9409892,0.004171605,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0xbf5e A alive.github.com CNAME live.github.com A 140.82.114.26
+3212,105.9413299,0.000340659,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x3c5c AAAA alive.github.com
+3213,105.9443181,0.002988232,10.230.184.187,10.230.184.102,DNS,105,,Standard query response 0x3c5c AAAA alive.github.com CNAME live.github.com
+3236,106.0732752,0.128957036,10.230.184.102,10.230.184.187,DNS,92,,Standard query 0x8120 A api.individual.githubcopilot.com
+3239,106.105502,0.032226869,10.230.184.187,10.230.184.102,DNS,166,,Standard query response 0x8120 A api.individual.githubcopilot.com CNAME api.githubcopilot.com CNAME glb-db52c2cf8be544.github.com A 140.82.113.21
+3240,106.1061775,0.000675476,10.230.184.102,10.230.184.187,DNS,92,,Standard query 0x2c23 AAAA api.individual.githubcopilot.com
+3241,106.1097828,0.003605348,10.230.184.187,10.230.184.102,DNS,170,,Standard query response 0x2c23 AAAA api.individual.githubcopilot.com CNAME api.githubcopilot.com CNAME glb-db52c2cf8be544.github.com
+3411,107.5439047,1.434121819,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0xce04 A api.github.com
+3421,107.6585433,0.114638597,10.230.184.187,10.230.184.102,DNS,313,,Standard query response 0xce04 A api.github.com A 140.82.121.6 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
+3422,107.6591279,0.000584596,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0xa03a AAAA api.github.com
+4838,133.7346079,26.07548,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0xbaa3 A www.google.com
+4839,133.734843,0.00023517,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x35a7 AAAA www.google.com
+4841,133.7534517,0.018608696,10.230.184.187,10.230.184.102,DNS,202,,Standard query response 0xbaa3 A www.google.com A 142.251.152.119 A 142.251.153.119 A 142.251.154.119 A 142.251.157.119 A 142.251.150.119 A 142.251.155.119 A 142.251.156.119 A 142.251.151.119
+4845,133.7534534,0.000001633,10.230.184.187,10.230.184.102,DNS,298,,Standard query response 0x35a7 AAAA www.google.com AAAA 2001:4860:482d:7700:: AAAA 2001:4860:4828:7700:: AAAA 2001:4860:482b:7700:: AAAA 2001:4860:4826:7700:: AAAA 2001:4860:482a:7700:: AAAA 2001:4860:482c:7700:: AAAA 2001:4860:4827:7700:: AAAA 2001:4860:4829:7700::
+4897,134.0387736,0.285320235,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0x71bb A fonts.gstatic.com
+4901,134.1269665,0.088192878,10.230.184.187,10.230.184.102,DNS,93,,Standard query response 0x71bb A fonts.gstatic.com A 142.251.39.99
+4902,134.1272322,0.000265738,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0x79b9 AAAA fonts.gstatic.com
+4914,134.1873224,0.06009016,10.230.184.187,10.230.184.102,DNS,105,,Standard query response 0x79b9 AAAA fonts.gstatic.com AAAA 2a00:1450:4009:c04::5e
+4958,134.7168291,0.529506739,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x8443 A lh3.google.com
+4959,134.7209766,0.004147475,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0xe2f6 A www.gstatic.com
+4963,134.7583628,0.037386185,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0xc051 A csp.withgoogle.com
+4967,134.7884877,0.030124921,10.230.184.187,10.230.184.102,DNS,110,,Standard query response 0x8443 A lh3.google.com CNAME lh2.l.google.com A 142.251.36.46
+4968,134.7884882,0.000000503,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0xe2f6 A www.gstatic.com A 172.217.22.99
+4969,134.7892975,0.000809305,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x8640 AAAA lh3.google.com
+4970,134.7895628,0.000265299,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x3fc9 AAAA www.gstatic.com
+4985,134.8034085,0.013845748,10.230.184.187,10.230.184.102,DNS,94,,Standard query response 0xc051 A csp.withgoogle.com A 172.217.22.209
+4987,134.803938,0.000529506,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0xf455 AAAA csp.withgoogle.com
+5017,134.8571191,0.053181097,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0x3fc9 AAAA www.gstatic.com AAAA 2a00:1450:4007:81a::2003
+5018,134.8571192,0.000000047,10.230.184.187,10.230.184.102,DNS,106,,Standard query response 0xf455 AAAA csp.withgoogle.com AAAA 2a00:1450:4007:81d::2011
+5019,134.8579639,0.000844661,10.230.184.187,10.230.184.102,DNS,122,,Standard query response 0x8640 AAAA lh3.google.com CNAME lh2.l.google.com AAAA 2a00:1450:4006:814::200e
+5347,137.6422352,2.784271383,10.230.184.102,10.230.184.187,DNS,88,,Standard query 0x15a0 A ogads-pa.clients6.google.com
+5348,137.6424747,0.000239464,10.230.184.102,10.230.184.187,DNS,88,,Standard query 0x36a5 AAAA ogads-pa.clients6.google.com
+5352,137.6920866,0.049611914,10.230.184.187,10.230.184.102,DNS,104,,Standard query response 0x15a0 A ogads-pa.clients6.google.com A 172.217.22.170
+5353,137.6920871,0.000000477,10.230.184.187,10.230.184.102,DNS,116,,Standard query response 0x36a5 AAAA ogads-pa.clients6.google.com AAAA 2c0f:fb50:4003:800::200a
+5361,137.7168465,0.024759425,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xbb8a A waa-pa.clients6.google.com
+5367,137.7713379,0.054491431,10.230.184.187,10.230.184.102,DNS,102,,Standard query response 0xbb8a A waa-pa.clients6.google.com A 172.217.22.170
+5368,137.7762964,0.004958479,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0x5d8e AAAA waa-pa.clients6.google.com
+5373,137.7896015,0.013305059,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x2146 A play.google.com
+5374,137.8002978,0.010696364,10.230.184.187,10.230.184.102,DNS,114,,Standard query response 0x5d8e AAAA waa-pa.clients6.google.com AAAA 2c0f:fb50:4003:803::200a
+5376,137.8167927,0.016494887,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0x2146 A play.google.com A 142.251.142.14
+5377,137.8309414,0.014148701,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x0c48 AAAA play.google.com
+5381,137.8652983,0.034356888,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0x0c48 AAAA play.google.com AAAA 2a00:1450:4007:809::200e
+5445,138.1939583,0.328660005,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0x6f42 A o.pki.goog
+5458,138.2739436,0.079985257,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0x6f42 A o.pki.goog CNAME pki-goog.l.google.com A 142.251.216.99
+5482,138.3356616,0.06171801,10.230.184.102,10.230.184.187,DNS,85,,Standard query 0x6caa A lh3.googleusercontent.com
+5494,138.3939937,0.058332083,10.230.184.187,10.230.184.102,DNS,130,,Standard query response 0x6caa A lh3.googleusercontent.com CNAME googlehosted.l.googleusercontent.com A 142.251.39.193
+5495,138.3942915,0.000297778,10.230.184.102,10.230.184.187,DNS,85,,Standard query 0xdcd7 AAAA lh3.googleusercontent.com
+5521,138.4418948,0.0476033,10.230.184.187,10.230.184.102,DNS,142,,Standard query response 0xdcd7 AAAA lh3.googleusercontent.com CNAME googlehosted.l.googleusercontent.com AAAA 2a00:1450:4007:80f::2001
+5962,140.9472716,2.50537687,10.230.184.102,10.230.184.187,DNS,79,,Standard query 0x149b A accounts.google.com
+5963,140.9476924,0.000420782,10.230.184.102,10.230.184.187,DNS,79,,Standard query 0x4c99 AAAA accounts.google.com
+5965,141.0169907,0.06929831,10.230.184.187,10.230.184.102,DNS,95,,Standard query response 0x149b A accounts.google.com A 142.250.102.84
+5966,141.0169912,0.000000433,10.230.184.187,10.230.184.102,DNS,107,,Standard query response 0x4c99 AAAA accounts.google.com AAAA 2a00:1450:4025:402::54
+6044,141.0733306,0.056339426,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x1829 A ogs.google.com
+6048,141.1151388,0.04180825,10.230.184.187,10.230.184.102,DNS,111,,Standard query response 0x1829 A ogs.google.com CNAME www3.l.google.com A 216.58.223.238
+6049,141.1159567,0.000817893,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0x2b2e AAAA ogs.google.com
+6051,141.1480819,0.032125202,10.230.184.187,10.230.184.102,DNS,123,,Standard query response 0x2b2e AAAA ogs.google.com CNAME www3.l.google.com AAAA 2c0f:fb50:4003:802::200e
+6296,142.4402354,1.292153468,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x3289 A ssl.gstatic.com
+6301,142.4817282,0.041492802,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0x3289 A ssl.gstatic.com A 142.251.216.35
+6302,142.4829279,0.001199709,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0xbd8b AAAA ssl.gstatic.com
+6306,142.5057561,0.022828173,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0xbd8b AAAA ssl.gstatic.com AAAA 2a00:1450:4007:80f::2003
+6717,162.4325089,19.92675278,10.230.184.102,10.230.184.187,DNS,78,,Standard query 0x8480 A www.exploit-db.com
+6720,162.435013,0.002504171,10.230.184.187,10.230.184.102,DNS,94,,Standard query response 0x8480 A www.exploit-db.com A 192.124.249.13
+6764,170.0610216,7.626008612,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0x58cd A example.org
+6765,170.1222623,0.061240698,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0x58cd A example.org A 104.20.26.136 A 172.66.157.237
+6766,170.1224613,0.000198989,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0x82ce AAAA example.org
+6767,170.1525139,0.030052577,10.230.184.187,10.230.184.102,DNS,127,,Standard query response 0x82ce AAAA example.org AAAA 2606:4700:10::6814:1a88 AAAA 2606:4700:10::ac42:9ded
+7191,333.4425752,163.2900613,10.230.184.102,10.230.184.187,DNS,97,,Standard query 0x2ae6 A firefox.settings.services.mozilla.com
+7192,333.4803939,0.03781875,10.230.184.187,10.230.184.102,DNS,221,,Standard query response 0x2ae6 A firefox.settings.services.mozilla.com CNAME mozilla.map.fastly.net A 146.75.89.91 NS ns1.fastly.net NS ns2.fastly.net NS ns3.fastly.net NS ns4.fastly.net
+7259,335.7474583,2.267064365,10.230.184.102,10.230.184.187,DNS,95,,Standard query 0x43ff A content-signature-2.cdn.mozilla.net
+7260,335.7504155,0.002957191,10.230.184.187,10.230.184.102,DNS,111,,Standard query response 0x43ff A content-signature-2.cdn.mozilla.net A 34.160.144.191
+7313,444.7167863,108.9663708,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xd5f7 A waa-pa.clients6.google.com
+7314,444.7188163,0.002029933,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0xf2b1 A play.google.com
+7315,444.7716574,0.05284109,10.230.184.187,10.230.184.102,DNS,102,,Standard query response 0xd5f7 A waa-pa.clients6.google.com A 142.251.216.106
+7316,444.7716577,0.000000362,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0xf2b1 A play.google.com A 142.251.142.14
+7317,444.7719336,0.000275861,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xaef4 AAAA waa-pa.clients6.google.com
+7318,444.7720688,0.000135266,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0xf6b0 AAAA play.google.com
+7319,444.8312975,0.059228678,10.230.184.187,10.230.184.102,DNS,114,,Standard query response 0xaef4 AAAA waa-pa.clients6.google.com AAAA 2a00:1450:4007:81a::200a
+7320,444.8312982,0.000000693,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0xf6b0 AAAA play.google.com AAAA 2a00:1450:4007:809::200e
+7663,745.7297728,300.8984746,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0x4dc7 A waa-pa.clients6.google.com
+7664,745.73163,0.001857137,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x5898 A play.google.com
+7665,745.779478,0.047848094,10.230.184.187,10.230.184.102,DNS,102,,Standard query response 0x4dc7 A waa-pa.clients6.google.com A 172.217.22.42
+7666,745.779794,0.000315964,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xe9c4 AAAA waa-pa.clients6.google.com
+7667,745.7883492,0.008555194,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0x5898 A play.google.com A 142.251.216.46
+7668,745.7887796,0.000430396,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0x51a7 AAAA play.google.com
+7669,745.8344161,0.045636507,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xe2e2 A waa-pa.clients6.google.com
+7670,745.8348382,0.000422065,10.230.184.102,10.230.184.187,DNS,75,,Standard query 0xc4b8 A play.google.com
+7671,745.8890202,0.054182038,10.230.184.187,10.230.184.102,DNS,114,,Standard query response 0xe9c4 AAAA waa-pa.clients6.google.com AAAA 2a00:1450:4006:814::200a
+7672,745.8890206,0.000000382,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0x51a7 AAAA play.google.com AAAA 2a00:1450:4007:812::200e
+7681,745.939194,0.050173373,10.230.184.187,10.230.184.102,DNS,91,,Standard query response 0xc4b8 A play.google.com A 142.251.216.46
+7762,746.7320685,0.792874526,10.230.184.102,10.230.184.187,DNS,79,,Standard query 0xd2c3 A accounts.google.com
+7770,746.8232047,0.091136186,10.230.184.187,10.230.184.102,DNS,95,,Standard query response 0xd2c3 A accounts.google.com A 172.217.76.84
+7771,746.8234971,0.000292406,10.230.184.102,10.230.184.187,DNS,79,,Standard query 0x67fc AAAA accounts.google.com
+7782,746.868819,0.045321883,10.230.184.187,10.230.184.102,DNS,107,,Standard query response 0x67fc AAAA accounts.google.com AAAA 2a00:1450:4009:c19::54
+7855,750.8402249,3.971405896,10.230.184.102,10.230.184.187,DNS,86,,Standard query 0xe2e2 A waa-pa.clients6.google.com
+7913,809.2939713,58.45374646,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0xd2e2 A example.org
+7917,814.3014833,5.007511934,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0xd2e2 A example.org
+7918,814.5131011,0.211617834,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0x3ee7 A www.wikipedia.org
+7931,817.0345332,2.521432114,10.230.184.102,10.230.184.187,DNS,83,,Standard query 0x3d5a A github.githubassets.com
+7932,817.0348237,0.000290534,10.230.184.102,10.230.184.187,DNS,89,,Standard query 0x55c3 A avatars.githubusercontent.com
+7933,817.0348265,0.000002786,10.230.184.102,10.230.184.187,DNS,89,,Standard query 0x28c4 AAAA avatars.githubusercontent.com
+7934,817.0368383,0.002011763,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0xe4d7 A github.com
+7935,817.0413122,0.004473957,10.230.184.187,10.230.184.102,DNS,153,,Standard query response 0x55c3 A avatars.githubusercontent.com A 185.199.111.133 A 185.199.110.133 A 185.199.109.133 A 185.199.108.133
+7936,817.0413127,0.000000408,10.230.184.187,10.230.184.102,DNS,201,,Standard query response 0x28c4 AAAA avatars.githubusercontent.com AAAA 2606:50c0:8003::154 AAAA 2606:50c0:8002::154 AAAA 2606:50c0:8001::154 AAAA 2606:50c0:8000::154
+7938,817.1458053,0.104492673,10.230.184.187,10.230.184.102,DNS,147,,Standard query response 0x3d5a A github.githubassets.com A 185.199.108.215 A 185.199.109.215 A 185.199.110.215 A 185.199.111.215
+7939,817.1461113,0.000305931,10.230.184.102,10.230.184.187,DNS,83,,Standard query 0xf444 AAAA github.githubassets.com
+7940,817.1473808,0.001269526,10.230.184.187,10.230.184.102,DNS,309,,Standard query response 0xe4d7 A github.com A 140.82.121.4 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
+7943,817.1514594,0.004078615,10.230.184.187,10.230.184.102,DNS,195,,Standard query response 0xf444 AAAA github.githubassets.com AAAA 2606:50c0:8002::215 AAAA 2606:50c0:8003::215 AAAA 2606:50c0:8001::215 AAAA 2606:50c0:8000::215
+8012,818.773073,1.621613598,10.230.184.102,10.230.184.187,DNS,89,,Standard query 0xe852 A avatars.githubusercontent.com
+8013,818.7733725,0.000299504,10.230.184.102,10.230.184.187,DNS,83,,Standard query 0xa3f4 A github.githubassets.com
+8015,818.7798471,0.006474574,10.230.184.187,10.230.184.102,DNS,153,,Standard query response 0xe852 A avatars.githubusercontent.com A 185.199.108.133 A 185.199.111.133 A 185.199.110.133 A 185.199.109.133
+8016,818.7798474,0.000000348,10.230.184.187,10.230.184.102,DNS,147,,Standard query response 0xa3f4 A github.githubassets.com A 185.199.111.215 A 185.199.110.215 A 185.199.109.215 A 185.199.108.215
+8054,819.3026753,0.522827863,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0xf245 A example.org
+8055,819.3067393,0.004063966,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0xf245 A example.org A 172.66.157.237 A 104.20.26.136
+8056,819.3069275,0.000188204,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0xa246 AAAA example.org
+8065,819.3795953,0.072667825,10.230.184.187,10.230.184.102,DNS,127,,Standard query response 0xa246 AAAA example.org AAAA 2606:4700:10::6814:1a88 AAAA 2606:4700:10::ac42:9ded
+8066,819.3898755,0.010280254,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0x211f A example.org
+8067,819.3903461,0.000470574,10.230.184.102,10.230.184.187,DNS,71,,Standard query 0x7319 AAAA example.org
+8068,819.3981011,0.007755002,10.230.184.187,10.230.184.102,DNS,103,,Standard query response 0x211f A example.org A 104.20.26.136 A 172.66.157.237
+8069,819.3981014,0.000000282,10.230.184.187,10.230.184.102,DNS,127,,Standard query response 0x7319 AAAA example.org AAAA 2606:4700:10::ac42:9ded AAAA 2606:4700:10::6814:1a88
+8086,819.5194389,0.12133755,10.230.184.102,10.230.184.187,DNS,77,,Standard query 0x3ee7 A www.wikipedia.org
+8090,819.5396059,0.020166974,10.230.184.187,10.230.184.102,DNS,125,,Standard query response 0x3ee7 A www.wikipedia.org CNAME dyna.wikimedia.org A 185.15.58.224
+8210,820.2802076,0.740601671,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0xbc2e A upload.wikimedia.org
+8216,820.3290094,0.048801803,10.230.184.187,10.230.184.102,DNS,96,,Standard query response 0xbc2e A upload.wikimedia.org A 185.15.58.240
+9144,881.2295022,60.90049279,10.230.184.102,10.230.184.187,DNS,70,,Standard query 0x62e6 A github.com
+9146,881.2766584,0.04715624,10.230.184.102,10.230.184.187,DNS,80,,Standard query 0x5c0d A collector.github.com
+9147,881.3424517,0.065793314,10.230.184.102,10.230.184.187,DNS,92,,Standard query 0x7e0f A api.individual.githubcopilot.com
+9148,881.3721627,0.029711008,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x5d29 A alive.github.com
+9149,881.3723719,0.000209126,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0xd717 AAAA alive.github.com
+9150,881.3772501,0.004878199,10.230.184.187,10.230.184.102,DNS,309,,Standard query response 0x62e6 A github.com A 140.82.121.3 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
+9151,881.3772504,0.000000288,10.230.184.187,10.230.184.102,DNS,166,,Standard query response 0x7e0f A api.individual.githubcopilot.com CNAME api.githubcopilot.com CNAME glb-db52c2cf8be544.github.com A 140.82.113.22
+9152,881.3796503,0.002399933,10.230.184.187,10.230.184.102,DNS,105,,Standard query response 0xd717 AAAA alive.github.com CNAME live.github.com
+9153,881.3806938,0.001043465,10.230.184.187,10.230.184.102,DNS,352,,Standard query response 0x5c0d A collector.github.com CNAME glb-db52c2cf8be544.github.com A 140.82.112.21 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
+9157,881.4168867,0.03619291,10.230.184.187,10.230.184.102,DNS,111,,Standard query response 0x5d29 A alive.github.com CNAME live.github.com A 140.82.112.26
+9158,881.4254416,0.008554899,10.230.184.102,10.230.184.187,DNS,76,,Standard query 0x5393 A alive.github.com
+9159,881.4292324,0.003790866,10.230.184.187,10.230.184.102,DNS,121,,Standard query response 0x5393 A alive.github.com CNAME live.github.com A 140.82.112.26
+9164,881.5665957,0.137363313,10.230.184.102,10.230.184.187,DNS,74,,Standard query 0xf837 A api.github.com
+9170,881.6854422,0.118846461,10.230.184.187,10.230.184.102,DNS,313,,Standard query response 0xf837 A api.github.com A 140.82.121.6 NS dns1.p08.nsone.net NS dns2.p08.nsone.net NS dns3.p08.nsone.net NS dns4.p08.nsone.net NS ns-1283.awsdns-32.org NS ns-1707.awsdns-21.co.uk NS ns-421.awsdns-52.com NS ns-520.awsdns-01.net
