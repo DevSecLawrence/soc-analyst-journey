@@ -12,3 +12,9 @@ I assumed ARP replies only show up after a request, but the gratuitous ARP traff
 
 ## Uncertainty I Have
 I am still not sure how to reliably separate legitimate gratuitous ARP (DHCP changes, VM MAC changes, failover) from malicious spoofing just by passively watching packets.
+
+## PCAP File
+The raw packet capture used for this analysis is available at:
+- `pcap-samples/day04-arp-baseline.pcap`
+
+You can open this in Wireshark to repeat the analysis or apply additional filters.
