@@ -6,7 +6,7 @@ So for this one I decided to step up from the previous days. Instead of using a 
 
 ![Capture filter set to `tcp port 80` in Wireshark](./screenshots/Screenshot_2026-05-18_20_01_53.png)
 
-I visited five sites — neverssl.com, example.com, httpforever.com, and two others. `testphp.vulnweb.com` didn't open at all which is actually something worth noting — a site designed for security testing being unreachable means I couldn't do that part of the exercise. I'll come back to it.
+I visited three sites — neverssl.com, example.com, httpforever.com. `testphp.vulnweb.com` didn't open at all which is actually something worth noting — a site designed for security testing being unreachable means I couldn't do that part of the exercise. I'll come back to it.
 
 ![HTTP Forever page shown alongside live packet list (capture in progress)](./screenshots/Screenshot_2026-05-18_20_11_57.png)
 
@@ -34,7 +34,7 @@ The biggest takeaway from today is that plain HTTP is genuinely dangerous. Every
 
 ## Assumption I Made
 
-I assumed that visiting five different sites would give me a variety of cookie and PII examples to document. That wasn't true — none of the sites I visited showed cookies and none had PII in the URLs. That's because the sites I picked were intentionally simple HTTP test sites with no login or session management.
+I assumed that visiting three different sites would give me a variety of cookie and PII examples to document. That wasn't true — none of the sites I visited showed cookies and none had PII in the URLs. That's because the sites I picked were intentionally simple HTTP test sites with no login or session management.
 
 The exercise would look very different on a real HTTP site with user accounts. The cookies and PII are there in real traffic — I just need a better target. I'll revisit this with `testphp.vulnweb.com` when it's back online.
 
