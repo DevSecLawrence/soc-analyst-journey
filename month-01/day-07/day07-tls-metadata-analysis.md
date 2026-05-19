@@ -34,8 +34,6 @@ The bigger picture: TLS encrypts CONTENT but not METADATA. You can't read what s
 - How long the session lasts
 - Packet sizes and timing
 
-This is why TLS fingerprinting works. Different tools have different TLS implementations — they send different ciphers, different extensions, in different orders. Tools like JA3 create hashes of that "fingerprint" and attackers know their malware's fingerprint will match.
-
 That's the foundation for Day 7 right here: encryption isn't invisible. It just hides the content, not the behavior.
 
 ## Assumption I Made
