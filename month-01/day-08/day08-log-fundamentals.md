@@ -20,6 +20,8 @@ different, and that difference matters a lot in a SOC context.
 Collected using:
  sudo journalctl -n 20 --no-pager > ~/day08-syslog-sample.txt
 
+![Syslog sample in terminal](./screenshots/Screenshot_2026-05-20_13-56-15.png)
+
  A typical line looks like this:
  May 20 13:56:15 kali systemd[1]: Started systemd-hostnamed.service
 
@@ -57,6 +59,8 @@ curl http://localhost              # normal GET - 200
 curl http://localhost/doesnotexist # missing page - 404
 curl http://localhost/admin        # probing admin panel - 404
 curl -A "Mozilla/5.0 Googlebot" http://localhost  # spoofed UA
+
+![Apache request generation in Ubuntu terminal](./screenshots/Screenshot%20from%202026-05-20%2013-36-30.png)
 
 The log output:
     ::1 - - [20/May/2026:13:36:07 +0100] "GET / HTTP/1.1" 200 10926 "-" "curl/8.5.0"
@@ -99,6 +103,8 @@ pattern is the detection.
 
 Opened Event Viewer → Windows Logs → Security → filtered for 
 Event ID 4624 → copied the XML from the Details tab.
+
+![Windows Security Event Viewer filtered to Event ID 4624](./screenshots/Screenshot%202026-05-20%20132233.png)
 
 The event:
 ```xml
