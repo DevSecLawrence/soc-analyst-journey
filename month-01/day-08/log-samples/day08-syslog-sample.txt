@@ -1,0 +1,20 @@
+May 20 13:56:08 kali kernel: 12:56:08.381513 dndHGCM   DnD: Received message HOST_DND_FN_GH_REQ_PENDING (0x258) from host
+May 20 13:56:08 kali kernel: 12:56:08.382959 dnd       No guest source window
+May 20 13:56:15 kali dbus-daemon[592]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service' requested by ':1.67' (uid=1000 pid=7567 comm="xfce4-screenshooter --region")
+May 20 13:56:15 kali systemd[1]: Starting systemd-hostnamed.service - Hostname Service...
+May 20 13:56:15 kali systemd[1]: Started systemd-hostnamed.service - Hostname Service.
+May 20 13:56:15 kali dbus-daemon[592]: [system] Successfully activated service 'org.freedesktop.hostname1'
+May 20 13:56:15 kali dbus-daemon[592]: [system] Activating via systemd: service name='org.freedesktop.Avahi' unit='dbus-org.freedesktop.Avahi.service' requested by ':1.69' (uid=1000 pid=7756 comm="/usr/libexec/gvfsd-dnssd --spawner :1.24 /org/gtk/")
+May 20 13:56:15 kali dbus-daemon[592]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.Avahi.service': Unit dbus-org.freedesktop.Avahi.service not found.
+May 20 13:56:15 kali gvfsd-wsdd[7762]: Failed to spawn the wsdd daemon: Failed to execute child process “wsdd” (No such file or directory)
+May 20 13:56:15 kali gvfsd-network[7746]: Couldn't create directory monitor on wsdd:///. Error: Automount failed: Failed to spawn the underlying wsdd daemon.
+May 20 13:56:45 kali systemd[1]: systemd-hostnamed.service: Deactivated successfully.
+May 20 13:57:55 kali systemd[1]: Starting systemd-tmpfiles-clean.service - Cleanup of Temporary Directories...
+May 20 13:57:55 kali systemd-tmpfiles[8546]: /usr/lib/tmpfiles.d/legacy.conf:14: Duplicate line for path "/run/lock", ignoring.
+May 20 13:57:55 kali systemd[1]: systemd-tmpfiles-clean.service: Deactivated successfully.
+May 20 13:57:55 kali systemd[1]: Finished systemd-tmpfiles-clean.service - Cleanup of Temporary Directories.
+May 20 14:01:08 kali sudo[10397]: lawrence : TTY=pts/0 ; PWD=/home/lawrence ; USER=root ; COMMAND=/usr/bin/journalctl -n -20 --no-pager
+May 20 14:01:08 kali sudo[10397]: pam_unix(sudo:session): session opened for user root(uid=0) by lawrence(uid=1000)
+May 20 14:01:08 kali sudo[10397]: pam_unix(sudo:session): session closed for user root
+May 20 14:01:47 kali sudo[10745]: lawrence : TTY=pts/0 ; PWD=/home/lawrence ; USER=root ; COMMAND=/usr/bin/journalctl -n 20 --no-pager
+May 20 14:01:47 kali sudo[10745]: pam_unix(sudo:session): session opened for user root(uid=0) by lawrence(uid=1000)

@@ -5,5 +5,5 @@ Collect three different log types (Windows Event Log, Apache/Nginx access log, s
 ## Files
 
 * [Full Analysis](./day08-log-fundamentals.md)
-* [Data](./pcap-samples/)
+* [Data](./log-samples/)
 * [Screenshots](./screenshots/)
