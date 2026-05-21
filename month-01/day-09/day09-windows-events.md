@@ -2,7 +2,7 @@
 
 Capture and analyze key Windows Event IDs, then document what the log fields actually tell you.
 
-## What I did (beginner version)
+## What I did 
 
 - Opened Event Viewer → Windows Logs → Security
 - Filtered the log for `4624`, `4625`, `4688`
