@@ -1,54 +1,65 @@
+
 # Day 09 — Windows Event Log Deep Dive
 
-I tried Day 9 by looking at Windows Event Viewer on my laptop. I turned on the setting so process creation events show the full command line. Then I ran a few normal commands and saved the events and some screenshots.
+For Day 09 I kept it simple: I opened Windows Event Viewer, filtered the Security log for a few important Event IDs, looked at what the fields say, took screenshots, and exported the events.
 
 ## TL;DR
 
-- I turned on command-line logging for process creation so `4688` shows the full command.
-- I ran `ipconfig`, `whoami`, `net user`, `tasklist`, and `systeminfo` and saved the events.
-- Exports are in `event-samples/` and the pictures are in `screenshots/`.
+- I filtered the Security log for `4624`, `4625`, and `4688`.
+- I looked at examples of `4624` (logon) and `4688` (process creation).
+- I exported the filtered events to an `.evtx` file.
 
-## What I did (step by step)
+## What I actually did
 
-1. Turned on command-line logging for process creation in Event Viewer / audit settings.
-2. Ran a few commands from an administrator prompt.
-3. Opened Event Viewer and exported the `4624`, `4625`, and `4688` events to the `event-samples/` folder.
-4. Took screenshots of the `4688` entries that show the command line and saved them in `screenshots/`.
+1. Opened **Event Viewer** → **Windows Logs** → **Security**.
+2. Clicked **Filter Current Log...** and typed: `4624, 4625, 4688`.
+3. Clicked a few events to read the **General** tab (and noticed what fields show up).
+4. Exported the filtered events to: `event-samples/day09-4624,4625,4688.evtx`.
+5. Saved screenshots so I have proof of what I saw.
 
-## Events I saw
+## What I noticed from the screenshots (beginner notes)
 
-- `4624` — Successful logon (who logged in).
-- `4625` — Failed logon (when someone tried and failed).
-- `4688` — Process creation (this shows the exact command when command-line logging is on).
+### 1) Filtering makes the log manageable
 
-## What I learned (plain)
+Before filtering, the Security log is huge. Filtering by Event ID helped me focus on just the events I care about.
 
-- When `4688` has the command line, I can see exactly what someone ran. That helps me know if a command was normal or weird.
-- `4624` helps me see which account was used. `4688` helps me see what the account ran.
-- If there are failed logons (`4625`) right before a strange `4688`, that looks suspicious and should be checked.
+![Filter Current Log](./screenshots/Screenshot%202026-05-21%20173625.png)
 
-## Files and screenshots
+### 2) Event ID 4624 = Successful logon
 
-I put everything in the Day 09 folder:
+This event literally says **"An account was successfully logged on."**
 
-- `month-01/day-09/event-samples/` — exported EVTX/XML files.
-- `month-01/day-09/screenshots/` — three screenshots showing `4688` with the command line.
+From the example I clicked:
 
-![Screenshot 1](./screenshots/Screenshot 2026-05-21 173625.png)
+- **Security ID: SYSTEM** (so the system is the “subject” writing the event)
+- **Account Name: LAWRENCE$** (it ends with `$`, which usually means a computer account)
+- **Account Domain: WORKGROUP**
+- **Computer: Lawrence**
 
-![Screenshot 2](./screenshots/Screenshot 2026-05-21 173833.png)
+![Example 4624](./screenshots/Screenshot%202026-05-21%20173833.png)
 
-![Screenshot 3](./screenshots/Screenshot 2026-05-21 173935.png)
+### 3) Event ID 4688 = Process creation
 
-## Next small steps (what I will do next)
+This event says **"A new process has been created."**
 
-- Practice this again and collect more examples (different users and commands).
-- If you want, I can make a very simple alert for `4688` that looks for `-EncodedCommand` or long base64 strings and show how to run it in Splunk. Do you want that?
+In the example I clicked, I can see:
 
----
+- **Event ID 4688**
+- **Task Category: Process Creation**
+- **Creator Subject shows SYSTEM**
 
-Files created/updated during this exercise:
+I didn’t go deep into the Details tab yet — my goal today was just to locate the event and understand the basic meaning.
 
-- `month-01/day-09/event-samples/` — exported EVTX/XML examples
-- `month-01/day-09/screenshots/` — evidence screenshots
+![Example 4688](./screenshots/Screenshot%202026-05-21%20173935.png)
+
+## What I’m still confused about
+
+- What’s the difference between **Subject** vs **New Logon** fields inside `4624`?
+- How do I reliably tell whether a logon is “normal user activity” vs something suspicious just from Event Viewer?
+- What are the most important fields in the **Details** tab for `4688`?
+
+## Files
+
+- `event-samples/day09-4624,4625,4688.evtx` — my exported Security events
+- `screenshots/` — screenshots of the filter and example events
 
