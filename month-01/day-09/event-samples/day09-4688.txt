@@ -1,0 +1,35 @@
+- <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+- <System>
+  <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}" /> 
+  <EventID>4688</EventID> 
+  <Version>2</Version> 
+  <Level>0</Level> 
+  <Task>13312</Task> 
+  <Opcode>0</Opcode> 
+  <Keywords>0x8020000000000000</Keywords> 
+  <TimeCreated SystemTime="2026-05-22T19:11:45.7475082Z" /> 
+  <EventRecordID>644444</EventRecordID> 
+  <Correlation /> 
+  <Execution ProcessID="4" ThreadID="12056" /> 
+  <Channel>Security</Channel> 
+  <Computer>Lawrence</Computer> 
+  <Security /> 
+  </System>
+- <EventData>
+  <Data Name="SubjectUserSid">S-1-5-18</Data> 
+  <Data Name="SubjectUserName">LAWRENCE$</Data> 
+  <Data Name="SubjectDomainName">WORKGROUP</Data> 
+  <Data Name="SubjectLogonId">0x3e7</Data> 
+  <Data Name="NewProcessId">0xeb4</Data> 
+  <Data Name="NewProcessName">C:\Windows\System32\conhost.exe</Data> 
+  <Data Name="TokenElevationType">%%1936</Data> 
+  <Data Name="ProcessId">0x5e28</Data> 
+  <Data Name="CommandLine">\??\C:\WINDOWS\system32\conhost.exe 0xffffffff -ForceV1</Data> 
+  <Data Name="TargetUserSid">S-1-0-0</Data> 
+  <Data Name="TargetUserName">-</Data> 
+  <Data Name="TargetDomainName">-</Data> 
+  <Data Name="TargetLogonId">0x0</Data> 
+  <Data Name="ParentProcessName">C:\Windows\System32\sdbinst.exe</Data> 
+  <Data Name="MandatoryLabel">S-1-16-16384</Data> 
+  </EventData>
+  </Event>
