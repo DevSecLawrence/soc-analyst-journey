@@ -112,9 +112,11 @@ shows `0x00000001 (1)` and Group Policy shows
  
 Registry and Group Policy confirmations (screenshots):
 
-![Registry ProcessCreationIncludeCmdLine_Enabled](./screenshots/Screenshot 2026-05-21 173625.png)
+![Registry ProcessCreationIncludeCmdLine_Enabled](./screenshots/Screenshot%202026-05-21%20173625.png)
+Registry: `ProcessCreationIncludeCmdLine_Enabled = 1` (confirmed in Registry Editor)
 
-![Group Policy Audit Process Creation](./screenshots/Screenshot 2026-05-21 173833.png)
+![Group Policy Audit Process Creation](./screenshots/Screenshot%202026-05-21%20173833.png)
+Group Policy: `Audit Process Creation = Success` (Advanced Audit Policy view)
 
 ---
 ---
@@ -152,10 +154,11 @@ ran, not just that something ran.
 
 Before/After event screenshots:
 
-![Before - CommandLine Blank](./screenshots/Screenshot 2026-05-21 173935.png)
+![Before - CommandLine Blank](./screenshots/Screenshot%202026-05-21%20173935.png)
+Caption: 4688 events BEFORE enabling command-line logging — CommandLine field empty.
 
-![After - CommandLine Present](./screenshots/Screenshot 2026-05-22 200950.png)
-
+![After - CommandLine Present](./screenshots/Screenshot%202026-05-22%20200950.png)
+Caption: 4688 events AFTER enabling command-line logging — CommandLine populated with executed command.
 ---
 
 ### What Each Command Reveals to a Defender
