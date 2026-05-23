@@ -8,6 +8,8 @@ Installed and started auditd on Kali:
 sudo apt install auditd -y
 sudo systemctl start auditd
 
+![auditd setup and recon commands](./screenshots/Screenshot_2026-05-23_20_01_50.png)
+
 Then added the execve rules to catch every command execution:
 sudo auditctl -a always,exit -F arch=b64 -S execve -k commands
 sudo auditctl -a always,exit -F arch=b32 -S execve -k commands
@@ -49,6 +51,8 @@ box — that context changes everything about how they operate.
 ### Reading the Audit Log
 sudo ausearch -k commands --start today
 
+![audit log output for commands](./screenshots/Screenshot_2026-05-23_20_03_59.png)
+
 One audit entry is actually three linked records:
 
 **PROCTITLE** — the encoded process title. The hex string 
@@ -87,6 +91,8 @@ sudo auditctl -a always,exit -F path=/usr/bin/curl -F perm=x -k network_tools
 sudo auditctl -a always,exit -F path=/usr/bin/wget -F perm=x -k network_tools
 
 Confirmed with `auditctl -l` — all 5 rules showing.
+
+![rules added and confirmed](./screenshots/Screenshot_2026-05-23_20_20_02.png)
 
 Note: the rules file shows them in the old -w format because 
 auditctl -l displays them that way regardless of how you 
@@ -133,6 +139,10 @@ sudo ausearch -k network_tools --start today
 
 The audit trail showed exactly which user ran curl, 
 from which directory, and at what time.
+
+![rule warnings and final rule file](./screenshots/Screenshot_2026-05-23_20_13_39.png)
+![saved rule file](./screenshots/Screenshot_2026-05-23_20_43_16.png)
+![audit sample log output](./screenshots/Screenshot_2026-05-23_20_43_32.png)
 
 ---
 
