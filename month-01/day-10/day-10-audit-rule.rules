@@ -1,0 +1,5 @@
+-w /etc/passwd -p wa -k passwd_changes
+-w /etc/shadow -p wa -k shadow_changes
+-w /usr/bin/sudo -p x -k sudo_usage
+-w /usr/bin/curl -p x -k network_tools
+-w /usr/bin/wget -p x -k network_tools
