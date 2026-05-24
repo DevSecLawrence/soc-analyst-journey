@@ -1,19 +1,3 @@
-# Day 11 - Architecture Design
-
-## Environment Summary
-
-
-## Log Sources
-
-
-## Collection + Transport Plan
-
-
-## Normalization Plan
-
-
-## Retention and Access Plan
-
 # Day 11 — Log Centralization Architecture Design
 
 ## The Company
