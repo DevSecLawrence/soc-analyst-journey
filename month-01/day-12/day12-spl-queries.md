@@ -1,60 +1,106 @@
-# Day 12 — SPL Examples (cheat sheet)
+# Day 12 — SPL Query Reference
 
-## Quick checks
+All queries run against index=main with real lab 
+logs from Ubuntu VM (syslog + auth.log).
 
-1) Show 10 events (sanity check):
-```spl
-index=* | head 10
-```
+---
 
-2) Find events from a specific source:
-```spl
-index=main source="/var/log/auth.log" | table _time host source sourcetype _raw | head 20
-```
+## Foundational Queries
 
-3) Search for a specific IP:
-```spl
-index=* "192.0.2.1" | table _time host source sourcetype src_ip dest_ip user message
-```
+### Q1 — View raw events
+index=main | head 20
+- `index=main` — which dataset to search
+- `head 20` — limit to first 20 results
+- Use this first to confirm data is loaded
 
-4) Count events by sourcetype:
-```spl
-index=* | stats count by sourcetype
-```
+---
 
-5) Top 10 source IPs:
-```spl
-index=* | top limit=10 src_ip
-```
+### Q2 — Count events by sourcetype
+index=main | stats count by sourcetype | sort -count
+- `stats count by sourcetype` — group and count
+- `sort -count` — highest first (- means descending)
+- Use this to understand what data you have before 
+  writing investigation queries
 
-6) Timechart of events (1h buckets):
-```spl
-index=* | timechart span=1h count
-```
+---
 
-## Brute-force detection starter
+### Q3 — Filter by sourcetype
+index=main sourcetype=linux_auth | head 20
+- `sourcetype=linux_auth` — only auth.log events
+- Combine with keywords to narrow further
+- Every query should have a sourcetype filter when 
+  possible — faster and more precise than searching 
+  everything
 
-```spl
-index=main sourcetype=auth OR sourcetype=linux_auth
-| eval fail=if(action=="failure" OR result=="failure" OR status=="FAIL",1,0)
-| bin _time span=5m
-| stats sum(fail) as failures dc(user) as users by _time src_ip
-| where failures > 10
-| sort - failures
-```
+---
 
-Notes:
-- Adjust field names (`action`, `result`, `status`) to match your dataset.
-- Use `table _time src_ip users failures` to present final results.
+### Q4 — Event distribution over time
+index=main | timechart span=1h count
+- `timechart` — always plots against time
+- `span=1h` — bucket events into 1-hour chunks
+- Switch to Visualization tab to see the graph
+- Use this to find when activity spiked
 
-## Parsing tips
-- Use `rex` to extract fields from `_raw` when Splunk didn't extract them:
-```spl
-| rex field=_raw "(?i)(?<src_ip>\b\d{1,3}(?:\.\d{1,3}){3}\b)"
-```
-- `eval` can normalize values, e.g., lowercase a field: `| eval user=lower(user)`
+---
 
-## From query to alert
-- Save the working detection query as a saved search.
-- Configure a schedule (e.g., run every 5 minutes) and an action (email or webhook).
-- Start with `throttle` or higher thresholds to avoid floods of alerts.
+## Investigation Queries
+
+### Q5 — Top source IPs by volume
+index=main | stats count by src_ip | sort -count | head 10
+- Works on network logs (firewall, proxy, web)
+- The top IP by volume is often the attacker
+- A massive gap between #1 and #2 is anomalous
+
+---
+
+### Q6 — Find all sudo usage
+index=main sourcetype=linux_auth sudo | head 20
+- Searches for the word "sudo" in auth.log events
+- Shows who ran sudo, what command, from where
+- Linux equivalent of Windows Event ID 4688
+
+---
+
+### Q7 — Failed SSH login attempts
+index=main sourcetype=linux_auth "Failed password" |
+stats count by host
+- "Failed password" is the exact string in auth.log
+- Use quotes for exact phrase matching in SPL
+- In production this query returns hundreds of hits 
+  from automated internet scanners
+
+---
+
+### Q8 — Table view of web requests
+index=main sourcetype=apache_access |
+table _time, src_ip, uri_path, status, useragent
+- `table` picks specific fields to display
+- `_time` is Splunk's internal timestamp field
+- Use this instead of raw events for readability
+
+---
+
+## SPL Pipeline Pattern
+
+Every SPL query follows this structure:
+index=X sourcetype=Y keyword | command1 | command2
+
+- Everything flows left to right through the pipe
+- Each command processes the output of the previous
+- index and sourcetype always go first
+- Filter before you transform — faster searches
+
+---
+
+## Key Commands Reference
+
+| Command | What it does | Example |
+|---|---|---|
+| head | Limit results | head 20 |
+| stats count by | Group and count | stats count by user |
+| sort | Order results | sort -count |
+| timechart | Plot against time | timechart span=1h count |
+| table | Pick fields to show | table _time, src_ip |
+| where | Filter after stats | where count > 100 |
+| dedup | Remove duplicates | dedup src_ip |
+| eval | Create new fields | eval gb=bytes/1024/1024 |
