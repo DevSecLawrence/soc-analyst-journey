@@ -168,21 +168,4 @@ Now that I can find the failed SSH signal reliably, the next move is:
 3) Trigger when `count > 0` (lab) or `count > N` (real world).
 4) Add an action (Triggered Alerts list / email / webhook).
 
-I can use the walk-through stubs here:
-- `day13-alerts.md`
-- `day13-dashboard.md`
-
 ---
-
-## Full Screenshot Gallery (GitHub Render Check)
-
-If you’re viewing this on GitHub, every image below should render.
-
-![Screenshot 01](screenshots/Screenshot%20from%202026-05-27%2020-45-22.png)
-![Screenshot 02](screenshots/Screenshot%20from%202026-05-27%2020-48-37.png)
-![Screenshot 03](screenshots/Screenshot%20from%202026-05-27%2021-02-03.png)
-![Screenshot 04](screenshots/Screenshot%20from%202026-05-27%2021-02-11.png)
-![Screenshot 05](screenshots/Screenshot%20from%202026-05-27%2021-15-38.png)
-![Screenshot 06](screenshots/Screenshot%20from%202026-05-27%2021-25-40.png)
-![Screenshot 07](screenshots/Screenshot%20from%202026-05-27%2021-25-47.png)
-![Screenshot 08](screenshots/Screenshot%20from%202026-05-27%2021-25-59.png)
