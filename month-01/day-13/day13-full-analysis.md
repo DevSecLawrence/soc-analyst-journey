@@ -6,7 +6,7 @@ Today was me proving (to myself) that I can:
 
 1) generate a real security signal on the box,
 2) confirm it exists in the raw log (`/var/log/auth.log` / `/var/log/syslog`), and
-3) pull it back out in Splunk in a way that’s actually useful.
+3) validate that Splunk is ingesting my log sources, then start shaping those logs into something I can detect on.
 
 This is the part where SIEM stops being “cool dashboards” and turns into: *can I take messy logs and turn them into something I can detect on?*
 
@@ -16,7 +16,7 @@ This is the part where SIEM stops being “cool dashboards” and turns into: *c
 
 - Simulated failed SSH logins locally (invalid user + wrong password).
 - Verified the failures were written to `auth.log`.
-- Queried the same data in Splunk (`index=main`) and explored different ways of grouping/correlating events.
+- Queried my ingested auth/syslog data in Splunk (`index=main`) and explored different ways of grouping/correlating events.
 - Switched over to `syslog` and started measuring which processes were generating the most noise over time.
 
 ---
@@ -47,9 +47,28 @@ What I noticed:
 
 ---
 
-## Step 3 — Pull It Into Splunk (linux_auth)
+## Step 3 — Validate It in Splunk (linux_auth)
 
 At this point I’m thinking: “Okay, the box logged it… now can I actually *find it fast* in Splunk?”
+
+### Proof query (the missing screenshot to make this airtight)
+
+Right now, my screenshots prove Splunk is ingesting `linux_auth` and `syslog`. What I still want (for a clean evidence chain) is one screenshot that shows the exact SSH failure strings (`wronguser` / `Failed password` / `Invalid user`) *inside Splunk*.
+
+Run this in Splunk and capture a screenshot of the Events view:
+```
+index=main sourcetype="linux_auth" (wronguser OR "Failed password" OR "Invalid user")
+| table _time host source sourcetype _raw
+```
+
+If that returns nothing, widen the time range to `All time`, then try:
+```
+index=main sourcetype="linux_auth" sshd ("Failed password" OR "Invalid user")
+| head 50
+```
+
+Screenshot to capture (save into `screenshots/`):
+- `Screenshot - splunk proof wronguser.png` (name can be anything, but include “proof” so it’s easy to find later)
 
 ### Correlation attempt: group events by user (transaction)
 
@@ -68,6 +87,8 @@ index=main sourcetype="linux_auth"
 What I learned from this:
 - `transaction` is powerful, but it’s also easy to “accidentally” create huge transactions.
 - My `duration` came back *massive* (hundreds of thousands of seconds). That’s a clue that I grouped events over too wide a time window.
+
+Also, I didn’t set a real `maxspan` value in the first attempt — that’s on me. For anything detection-ish, I should always put a tight time window.
 
 If I wanted this to behave more like a real detection window, I’d tighten it up like:
 ```
@@ -161,7 +182,7 @@ I also grabbed a screenshot showing raw syslog events and fields (AppArmor denie
 
 ## What I’d Do Next (Turning This Into a Real Alert)
 
-Now that I can find the failed SSH signal reliably, the next move is:
+Now that I can generate the failed SSH signal and verify it in `auth.log` (and Splunk is ingesting my sources), the next move is:
 
 1) Save the search as an alert.
 2) Schedule it (ex: every 5 minutes).
