@@ -3,6 +3,7 @@
 This day covers creating a basic Splunk alert (medium) and building an investigation dashboard with scheduled reports/alerts (hard).
 
 Files
+- Full analysis: [day13-full-analysis.md](day13-full-analysis.md)
 - Alerts walkthrough: [day13-alerts.md](day13-alerts.md)
 - Dashboard walkthrough: [day13-dashboard.md](day13-dashboard.md)
 - Screenshots: [screenshots](screenshots/)
