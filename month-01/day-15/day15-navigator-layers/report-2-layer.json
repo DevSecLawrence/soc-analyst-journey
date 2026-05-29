@@ -1,0 +1,208 @@
+{
+  "name": "Day 15 - Report 2 (XCSSET) - ATT&CK Layer",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques mapped from: https://www.microsoft.com/en-us/security/blog/2025/03/11/new-xcsset-malware-adds-new-obfuscation-persistence-techniques-to-infect-xcode-projects/",
+  "filters": {
+    "platforms": ["macOS"]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "techniques": [
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Infects Xcode projects (developer tool / dependency path)"
+    },
+    {
+      "techniqueID": "T1059.002",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "AppleScript-based stages / compiled apps"
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "JavaScript payload used for Notes data theft"
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Unix shell stages (curl → shell, script chains)"
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Shell config modification for persistence (zsh-related)"
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Archives collected data before upload"
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Collects data from local system"
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Exfiltration over C2 channel"
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "File/directory discovery (Xcode projects, archives, targets)"
+    },
+    {
+      "techniqueID": "T1222.002",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "File/dir permission modifications during staging"
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Hidden files/directories used for staging"
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Downloads additional modules/tools from C2"
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Masquerading via legit-like names/locations (fake apps)"
+    },
+    {
+      "techniqueID": "T1647",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Plist modifications used for stealth/persistence"
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Software discovery (checks for Xcode/Git/etc.)"
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System information discovery (OS, firewall, SIP, CPU)"
+    },
+    {
+      "techniqueID": "T1614.001",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Language/locale discovery"
+    },
+    {
+      "techniqueID": "T1548.006",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "TCC manipulation attempts when access is blocked"
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Multiple decode stages (xxd/Base64) to get final scripts"
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Hidden window / background execution behaviors"
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Deletes temporary artifacts (cleanup)"
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Compiles payload after delivery (run-only compiled apps)"
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Encoded/encrypted payload and module blobs"
+    },
+    {
+      "techniqueID": "T1217",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Browser information discovery (extensions/metadata)"
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Security software discovery (XProtect/MRT checks)"
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System owner/user discovery (username checks)"
+    }
+  ],
+  "gradient": {
+    "colors": ["#ffffff", "#ff6666"],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Observed in report",
+      "color": "#ff6666"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "report_title",
+      "value": "New XCSSET malware adds new obfuscation, persistence techniques to infect Xcode projects"
+    },
+    {
+      "name": "publisher",
+      "value": "Microsoft Threat Intelligence"
+    }
+  ],
+  "links": [
+    {
+      "label": "Report",
+      "url": "https://www.microsoft.com/en-us/security/blog/2025/03/11/new-xcsset-malware-adds-new-obfuscation-persistence-techniques-to-infect-xcode-projects/"
+    }
+  ]
+}
