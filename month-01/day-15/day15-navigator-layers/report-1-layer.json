@@ -1,0 +1,136 @@
+{
+  "name": "Day 15 - Report 1 (DEV-0139) - ATT&CK Layer",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques mapped from: https://www.microsoft.com/en-us/security/blog/2022/12/06/dev-0139-launches-targeted-attacks-against-the-cryptocurrency-industry/",
+  "filters": {
+    "platforms": ["Windows"]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "techniques": [
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Target research + industry-specific context before lure"
+    },
+    {
+      "techniqueID": "T1593.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Target identification via Telegram/social groups"
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Actor registered/used a dedicated C2 domain"
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Weaponized Excel document delivered as lure"
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "User opens file and enables macros"
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "VBA macro used to drop/execute next stages"
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Process execution via Windows native APIs"
+    },
+    {
+      "techniqueID": "T1574.002",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "DLL sideloading + DLL proxying via legit executables"
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Macro obfuscation (UserForm abuse / hidden data)"
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Masquerading with legit DLL names and paths"
+    },
+    {
+      "techniqueID": "T1027.009",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "Staged/embedded payloads loaded at runtime"
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "C2 over common web protocols/ports"
+    },
+    {
+      "techniqueID": "T1132",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Encoded data exchanged with C2"
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Potential data exfiltration over C2"
+    }
+  ],
+  "gradient": {
+    "colors": ["#ffffff", "#ff6666"],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Observed in report",
+      "color": "#ff6666"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "report_title",
+      "value": "DEV-0139 launches targeted attacks against the cryptocurrency industry"
+    },
+    {
+      "name": "publisher",
+      "value": "Microsoft Threat Intelligence"
+    }
+  ],
+  "links": [
+    {
+      "label": "Report",
+      "url": "https://www.microsoft.com/en-us/security/blog/2022/12/06/dev-0139-launches-targeted-attacks-against-the-cryptocurrency-industry/"
+    }
+  ]
+}
