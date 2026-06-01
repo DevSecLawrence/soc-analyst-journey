@@ -58,7 +58,14 @@ in legal proceedings and what proves the
 investigation was conducted properly.
 
 ## Assumption I Made
-- 
+- I assumed containment always meant immediate 
+isolation. NIST corrected that. Premature 
+containment can destroy forensic evidence and 
+alert attackers that they've been detected — 
+causing them to move faster, cover tracks, or 
+deploy additional payloads before you're ready. 
+The right containment decision depends on the 
+specific incident, not a blanket rule.
 
 ## Uncertainty I Have
 - 
