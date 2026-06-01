@@ -4,6 +4,8 @@ I used NIST 800-61 Section 3 to map the IR lifecycle to what a SOC analyst actua
 
 ## Medium Exercise Answers (NIST 800-61 Section 3)
 
+![NIST IR lifecycle reference](./screenshots/Screenshot%202026-06-01%20155433.png)
+
 ### Preparation
 - SOC analyst role: Make sure logging, alerting, and baseline visibility are in place before incidents hit.
 - Escalation decisions: Gaps in telemetry, missing coverage, or lack of IR tooling go to senior staff.
