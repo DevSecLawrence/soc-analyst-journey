@@ -68,4 +68,14 @@ The right containment decision depends on the
 specific incident, not a blanket rule.
 
 ## Uncertainty I Have
-- 
+- I still don't have a clear mental model for 
+deciding when to contain vs when to keep 
+monitoring. NIST gives you the criteria but 
+not a decision tree. In a real incident under 
+time pressure, how do you weigh evidence 
+preservation against damage spreading? I want 
+to see a real IR case study where that decision 
+was made wrong — both ways — and what the 
+consequences were. That's the kind of thing 
+you only learn from experience or from reading 
+post-mortems, not documentation.
