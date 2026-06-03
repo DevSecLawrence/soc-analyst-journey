@@ -1,0 +1,4 @@
+type,value,protocol,first_seen,source
+ip,1.2.3.4,https,2026-06-03,pcap
+domain,bad-domain[.]example,http,2026-06-03,pcap
+hash,abcdef1234567890,sha256,2026-06-03,pcap
