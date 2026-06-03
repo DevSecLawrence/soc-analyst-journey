@@ -1,4 +1,8 @@
-type,value,protocol,first_seen,source
-ip,1.2.3.4,https,2026-06-03,pcap
-domain,bad-domain[.]example,http,2026-06-03,pcap
-hash,abcdef1234567890,sha256,2026-06-03,pcap
+type,value,confidence,context
+ip,198[.]12[.]66[.]108,high,Malicious server — served jojo.exe
+ip,10[.]0[.]0[.]179,high,Infected Windows host (ASUSTekCOMPU)
+ip,10[.]0[.]0[.]10,low,Internal DNS server — legitimate
+url,hxxp://198[.]12[.]66[.]108/jojo[.]exe,high,Malware download URL
+filename,jojo.exe,high,Malicious PE executable 326KB
+useragent,Mozilla/4.0 (compatible; Win32; WinHttpRequest.5),medium,Programmatic downloader UA
+etag,4f9c0-5b01040d1a640,medium,Server ETag for jojo.exe — can identify same file on other servers
