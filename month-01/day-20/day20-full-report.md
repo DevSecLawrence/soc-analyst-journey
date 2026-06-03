@@ -31,9 +31,18 @@ All times in UTC based on packet timestamps.
 16:04:41 — Capture begins. Host 10.0.0.179
 begins DNS resolution activity.
 DNS server: 10.0.0.10.
+
+![Protocol hierarchy showing protocols and byte distribution](./screenshots/Screenshot_2026-06-03_23_07_16.png)
+*Protocol hierarchy — TLS and TCP dominate the capture.*
+
+![Endpoints summary table (bytes / packets)](./screenshots/Screenshot_2026-06-03_23_08_34.png)
+*Endpoints overview — internal host 10.0.0.179 and external 198.12.66.108 show heavy traffic.*
 16:04:41 — DNS queries observed from 10.0.0.179
 to internal DNS server. Multiple query
 and response pairs.
+
+![DNS queries captured in the PCAP (hex view)](./screenshots/Screenshot_2026-06-03_23_09_18.png)
+*DNS queries — domain list needs clearer extraction.*
 16:04:44 — HTTP GET request initiated:
 10.0.0.179 → 198.12.66.108
 GET /jojo.exe HTTP/1.1
@@ -50,6 +59,12 @@ Content-Length: 326080
 Content-Type: application/octet-stream
 Response body begins with MZ header
 — confirmed Windows PE executable.
+
+![HTTP follow stream showing response headers and PE file header (MZ)](./screenshots/Screenshot_2026-06-03_23_10_00.png)
+*Follow TCP stream — HTTP 200 serving a PE file (MZ header visible).*
+
+![Packet list filtered for HTTP showing GET /jojo.exe](./screenshots/Screenshot_2026-06-03_23_11_03.png)
+*Packet list — HTTP GET for jojo.exe.*
 16:04:44 to 16:46:00 — Large volume TLS traffic
 observed. 459 TLS packets, 1.54MB.
 Likely C2 communication established
@@ -165,5 +180,8 @@ programmatically, not by a user opening a browser.
 9. Create SIEM rule to alert on
    WinHttpRequest user-agent in proxy logs
 10. Block or alert on direct IP HTTP connections
-    — legitimate traffic uses domain names,
-    not raw IPs
+   — legitimate traffic uses domain names,
+   not raw IPs
+
+---
+

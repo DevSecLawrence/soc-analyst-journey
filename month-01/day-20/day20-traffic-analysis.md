@@ -25,6 +25,12 @@ body starts with MZ — that's the Windows PE
 executable header. This host downloaded and likely
 executed a malicious binary.
 
+![HTTP follow stream showing response headers and PE file header (MZ)](./screenshots/Screenshot_2026-06-03_23_10_00.png)
+*Follow TCP stream — HTTP 200 serving a PE file (MZ header visible).*
+
+![Packet list filtered for HTTP showing GET /jojo.exe](./screenshots/Screenshot_2026-06-03_23_11_03.png)
+*Packet list — HTTP GET for jojo.exe.*
+
 The TLS traffic at 11.6% of packets and 60.8%
 of bytes is disproportionately large. After a
 malware download you'd expect to see C2 traffic
@@ -60,12 +66,18 @@ infection spam activity from the compromised host.
 - HTTP: 0.1% — only 2 packets, but they're the
   most important ones in the whole capture
 
+![Protocol hierarchy showing protocols and byte distribution](./screenshots/Screenshot_2026-06-03_23_07_16.png)
+*Protocol hierarchy — TLS and TCP dominate the capture.*
+
 **3. What is the likely scenario?**
 Malware infection with payload delivery over HTTP
 followed by encrypted C2 communication. The
 presence of Kerberos and LDAP suggests the attacker
 may be attempting to move laterally or enumerate
 the Active Directory environment post-infection.
+
+![Endpoints summary table (bytes / packets)](./screenshots/Screenshot_2026-06-03_23_08_34.png)
+*Endpoints overview — internal host 10.0.0.179 and external 198.12.66.108 show heavy traffic.*
 
 ---
 
@@ -91,6 +103,9 @@ me whether the host was directed to 198.12.66.108
 by a malicious domain or contacted it by IP directly.
 Getting the full domain list from the DNS filter
 would complete the picture.
+
+![DNS queries captured in the PCAP (hex view)](./screenshots/Screenshot_2026-06-03_23_09_18.png)
+*DNS queries — needs clearer extraction for full domain list.*
 
 I also don't know what jojo.exe actually does
 beyond the fact that it's a Windows PE executable.
