@@ -1,24 +1,21 @@
-title: Detect whoami.exe execution
-id: 
+title: Whoami Execution - Reconnaissance Activity
+id: a9c3c5f1-8b2d-4e6a-9f0d-1c2b3a4d5e6f
 status: experimental
-description: Detects execution of whoami.exe (basic recon).
-author: 
-date: 2026-06-04
-references:
-  - 
+description: Detects execution of whoami.exe which attackers use during post-exploitation to identify the current user context and privileges. Commonly seen in Day 9 Windows Event ID 4688 logs.
+author: Lawrence
+date: 2026/06/03
 tags:
-  - attack.discovery
-  - attack.t1033
+    - attack.discovery
+    - attack.t1033
 logsource:
-  category: process_creation
-  product: windows
+    category: process_creation
+    product: windows
 detection:
-  selection:
-    Image|endswith: '\\whoami.exe'
-  condition: selection
-fields:
-  - Image
-  - CommandLine
+    selection:
+        Image|endswith: '\whoami.exe'
+    condition: selection
 falsepositives:
-  - Legitimate administrative use
+    - Legitimate administrators checking user context
+    - IT deployment scripts
+    - Monitoring agents
 level: low
