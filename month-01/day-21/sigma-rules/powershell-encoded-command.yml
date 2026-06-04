@@ -1,27 +1,29 @@
-title: Detect PowerShell encoded command
-id: 
+title: Suspicious PowerShell Encoded Command
+id: b7d4e2f3-9c1a-4b5e-8d0f-2e3c4a5b6d7e
 status: experimental
-description: Detects PowerShell usage with -enc/-encodedcommand.
-author: 
-date: 2026-06-04
-references:
-  - 
+description: Detects PowerShell execution with base64 encoded commands. Attackers use encoding to hide malicious script content from basic string detection. Mapped to T1059.001 from Day 15 MITRE ATT&CK work.
+author: Lawrence
+date: 2026/06/03
 tags:
-  - attack.execution
-  - attack.t1059.001
+    - attack.execution
+    - attack.t1059.001
+    - attack.defense_evasion
+    - attack.t1027
 logsource:
-  category: process_creation
-  product: windows
+    category: process_creation
+    product: windows
 detection:
-  selection:
-    Image|endswith: '\\powershell.exe'
-    CommandLine|contains:
-      - -enc
-      - -encodedcommand
-  condition: selection
-fields:
-  - Image
-  - CommandLine
+    selection:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        CommandLine|contains:
+            - ' -enc '
+            - ' -EncodedCommand '
+            - ' -encoded '
+    condition: selection
 falsepositives:
-  - Legitimate automation scripts
-level: medium
+    - Legitimate admin scripts using encoding
+    - Software deployment tools
+    - SCCM and other management platforms
+level: high
