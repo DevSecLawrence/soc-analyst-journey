@@ -2,7 +2,7 @@ title: Detect new local admin account creation
 id: 
 status: experimental
 description: Detects creation of a new local account added to Administrators.
-author: 
+author: Lawrence
 date: 2026-06-04
 references:
   - 
@@ -26,3 +26,32 @@ fields:
 falsepositives:
   - Legitimate account provisioning
 level: medium
+
+
+title: New Local Administrator Account Created
+id: c8e5f3a4-0d2b-5c6f-9e1a-3f4d5b6c7e8f
+status: experimental
+description: Detects creation of new local user accounts followed by addition to the administrators group. Attackers create backdoor admin accounts for persistence. Connects to day 9 work on Windows Event Log monitoring.
+author: Lawrence
+date: 2026/06/03
+tags:
+    - attack.persistence
+    - attack.t1136.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_create:
+        Image|endswith: '\net.exe'
+        CommandLine|contains: 'user'
+        CommandLine|contains: '/add'
+    selection_admin:
+        Image|endswith: '\net.exe'
+        CommandLine|contains: 'localgroup'
+        CommandLine|contains: 'administrators'
+        CommandLine|contains: '/add'
+    condition: selection_create or selection_admin
+falsepositives:
+    - IT account provisioning
+    - Legitimate admin adding service accounts
+level: high
