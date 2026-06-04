@@ -8,22 +8,22 @@ Sigma conversion works, but it is not clean. It gives you a usable starting poin
 ## Conversion Results
 
 ### Rule 1 — whoami.exe execution
-- Sigma file:
+- Sigma file: ./sigma-rules/whoami-execution.yml
 - Splunk SPL:
 - Elastic KQL:
 - Notes: Splunk conversion ran successfully from the `sigma-rules` folder. Output still needs field name validation against your event IDs/logs.
 
 ### Rule 2 — PowerShell encoded command
-- Sigma file:
+- Sigma file: ./sigma-rules/powershell-encoded-command.yml
 - Splunk SPL:
 - Elastic KQL:
 - Notes: Not converted yet. This rule will need careful field mapping for `CommandLine` vs `process.command_line` depending on the platform.
 
 ### Rule 3 — New local admin account creation
-- Sigma file:
+- Sigma file: ./sigma-rules/new-local-admin.yml
 - Splunk SPL:
 - Elastic KQL:
-- Notes: Needs cleanup first (the file currently has two rules). After split, convert each separately.
+- Notes: Security-event rule is ready. There is also a separate net.exe behavior rule in ./sigma-rules/net-local-admin-add.yml.
 
 ## Field Mapping Issues
 

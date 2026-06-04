@@ -5,5 +5,5 @@ Short mission: learn Sigma, write portable detection logic, and convert rules to
 ## Files
 - [day21-sigma-rules.md](./day21-sigma-rules.md)
 - [day21-conversion-comparison.md](./day21-conversion-comparison.md)
-- [day21-sigma-rules](./day21-sigma-rules/)
+- [sigma-rules](./sigma-rules/)
 - [screenshots](./screenshots/)
