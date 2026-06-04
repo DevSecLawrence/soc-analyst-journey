@@ -1,0 +1,27 @@
+title: Detect PowerShell encoded command
+id: 
+status: experimental
+description: Detects PowerShell usage with -enc/-encodedcommand.
+author: 
+date: 2026-06-04
+references:
+  - 
+tags:
+  - attack.execution
+  - attack.t1059.001
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '\\powershell.exe'
+    CommandLine|contains:
+      - -enc
+      - -encodedcommand
+  condition: selection
+fields:
+  - Image
+  - CommandLine
+falsepositives:
+  - Legitimate automation scripts
+level: medium

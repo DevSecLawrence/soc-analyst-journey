@@ -1,0 +1,24 @@
+title: Detect whoami.exe execution
+id: 
+status: experimental
+description: Detects execution of whoami.exe (basic recon).
+author: 
+date: 2026-06-04
+references:
+  - 
+tags:
+  - attack.discovery
+  - attack.t1033
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '\\whoami.exe'
+  condition: selection
+fields:
+  - Image
+  - CommandLine
+falsepositives:
+  - Legitimate administrative use
+level: low
