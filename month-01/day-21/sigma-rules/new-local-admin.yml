@@ -1,0 +1,28 @@
+title: Detect new local admin account creation
+id: 
+status: experimental
+description: Detects creation of a new local account added to Administrators.
+author: 
+date: 2026-06-04
+references:
+  - 
+tags:
+  - attack.persistence
+  - attack.t1136.001
+logsource:
+  category: security
+  product: windows
+detection:
+  selection:
+    EventID: 4720
+  selection_admin_group:
+    EventID: 4732
+    GroupName: Administrators
+  condition: selection or selection_admin_group
+fields:
+  - EventID
+  - TargetUserName
+  - GroupName
+falsepositives:
+  - Legitimate account provisioning
+level: medium
