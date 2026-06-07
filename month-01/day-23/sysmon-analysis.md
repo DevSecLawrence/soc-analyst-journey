@@ -105,3 +105,14 @@ The parent/child process relationship is everything. That's what turns a list of
 I assumed UAC bypass techniques were rare or complex. `fodhelper.exe` is a built-in Windows binary — it's been on every Windows 10 machine since day one. Attackers don't need to bring exotic tools when the OS itself has trusted binaries that auto-elevate. That was a gap in how I was thinking about living-off-the-land attacks.
  
 ---
+
+## Uncertainty I Have
+ 
+I don't fully understand yet how to tune Sysmon config to reduce noise without missing things. 757 events from what looks like a short attack window is a lot to scroll through manually. In a real environment that'd be tens of thousands of events a day. I need to understand how the SwiftOnSecurity config filters events and where the tradeoffs are — what it logs by default vs what it ignores and why.
+ 
+---
+ 
+## Files
+- [day23-lab-setup.md](./day23-lab-setup.md) — local VM setup attempt (partial)
+- [day23-sysmon-analysis.md](./day23-sysmon-analysis.md) — this file
+ 
