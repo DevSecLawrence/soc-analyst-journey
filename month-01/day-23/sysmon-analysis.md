@@ -26,3 +26,13 @@ Rather than sit on an incomplete day, I moved to LetsDefend's browser-based lab.
 - **Total events:** 757 Sysmon events
 - **Log date range:** 3/13/2024
 ---
+
+## Setup Inside the Lab
+ 
+1. Connected to the LetsDefend Windows machine via browser VNC
+2. Opened the ChallengeFile folder on the Desktop
+3. Extracted `Sysmon_chall.zip`
+4. Opened Event Viewer → File → Open Saved Log → loaded the `.evtx` file
+5. Log appeared under Saved Logs → Sysmon with 757 events ready to analyse
+---
+ 
