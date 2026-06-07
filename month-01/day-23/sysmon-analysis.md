@@ -79,3 +79,23 @@ This is a classic persistence mechanism — anything written here executes autom
 **MITRE ATT&CK:** T1547.001 — Boot or Logon Autostart Execution: Registry Run Keys
  
 ---
+
+## What I Didn't Get To
+ 
+Free lab access ended before I could complete:
+- The dropped file location (Event ID 11)
+- The technique name and ID for the dropped EXE
+- The name of the attack
+- The EXE run under elevated privileges
+- The downloaded file name
+Will revisit this challenge when I have VIP access or find an equivalent lab with the same Sysmon evtx file to finish the investigation.
+ 
+---
+ 
+## What I Concluded
+ 
+Sysmon adds a completely different layer on top of standard Windows Event Logs. Native Windows logs tell you something happened — a process started, a user logged in. Sysmon tells you the full context — the parent process, the command line, the hash, the integrity level, the network connection it made. Without Sysmon you'd see `cmd.exe` started. With Sysmon you see `IDM.exe` spawned `cmd.exe` with a suspicious command line at Medium integrity, which then triggered `fodhelper.exe` to escalate to High. That's the difference between noise and an actual investigation trail.
+ 
+The parent/child process relationship is everything. That's what turns a list of process names into an attack timeline.
+ 
+---
