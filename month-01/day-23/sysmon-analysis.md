@@ -17,3 +17,12 @@ Original plan was to build a local detection lab — Windows 10 VM on VirtualBox
 Rather than sit on an incomplete day, I moved to LetsDefend's browser-based lab. Same concepts — Sysmon logs, Event Viewer, real attack investigation — just without the infrastructure setup. I'll rebuild the local lab when storage is sorted.
  
 ---
+
+## Environment
+ 
+- **Lab type:** Browser-based Windows VM via LetsDefend VNC
+- **Challenge:** Log Analysis With Sysmon (`app.letsdefend.io/challenge/log-analysis-with-sysmon`)
+- **Log file:** `C:\Users\LetsDefend\Desktop\ChallengeFile\Sysmon_chall.zip`
+- **Total events:** 757 Sysmon events
+- **Log date range:** 3/13/2024
+---
