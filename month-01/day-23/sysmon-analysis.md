@@ -99,3 +99,9 @@ Sysmon adds a completely different layer on top of standard Windows Event Logs. 
 The parent/child process relationship is everything. That's what turns a list of process names into an attack timeline.
  
 ---
+
+## Assumption I Made
+ 
+I assumed UAC bypass techniques were rare or complex. `fodhelper.exe` is a built-in Windows binary — it's been on every Windows 10 machine since day one. Attackers don't need to bring exotic tools when the OS itself has trusted binaries that auto-elevate. That was a gap in how I was thinking about living-off-the-land attacks.
+ 
+---
