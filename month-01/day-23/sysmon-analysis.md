@@ -67,3 +67,15 @@ IntegrityLevel: (visible in earlier entry — Medium on parent, escalates via fo
  
 ---
  
+ ### Persistence — Registry Run Key
+ 
+Found registry modification at:
+```
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+```
+ 
+This is a classic persistence mechanism — anything written here executes automatically when the user logs in. The attacker used this to make sure their tooling survived a reboot.
+ 
+**MITRE ATT&CK:** T1547.001 — Boot or Logon Autostart Execution: Registry Run Keys
+ 
+---
