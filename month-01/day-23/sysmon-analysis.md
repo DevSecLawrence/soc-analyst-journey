@@ -48,3 +48,22 @@ Filtered Event Viewer by Event ID 1 to look at all process creation events. Scro
  
 ---
 
+### Finding the UAC Bypass — Event ID 1 (Process Creation)
+ 
+Kept the Event ID 1 filter running and searched for `fodhelper`. Found it:
+ 
+```
+Image:         C:\Windows\System32\fodhelper.exe
+Description:   Features On Demand Helper
+FileVersion:   10.0.19041.1 (WinBuild.160101.0800)
+ParentImage:   C:\Windows\explorer.exe
+ParentUser:    DESKTOP-0V6VB41\Gabr
+IntegrityLevel: (visible in earlier entry — Medium on parent, escalates via fodhelper)
+```
+ 
+**Finding:** `fodhelper.exe` was used to bypass UAC. This is a well documented technique — fodhelper is a trusted Windows binary that auto-elevates without triggering a UAC prompt. Attackers write a malicious command to `HKCU\Software\Classes\ms-settings\shell\open\command` and when fodhelper runs it executes that command at High integrity.
+ 
+**MITRE ATT&CK:** T1548.002 — Abuse Elevation Control Mechanism: Bypass User Account Control
+ 
+---
+ 
