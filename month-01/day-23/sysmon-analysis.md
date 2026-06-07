@@ -36,3 +36,15 @@ Rather than sit on an incomplete day, I moved to LetsDefend's browser-based lab.
 5. Log appeared under Saved Logs → Sysmon with 757 events ready to analyse
 ---
  
+ ## Investigation
+ 
+### Finding Initial Access — Event ID 1 (Process Creation)
+ 
+Filtered Event Viewer by Event ID 1 to look at all process creation events. Scrolled through looking for anything that didn't belong — specifically processes being spawned by a parent that made no sense.
+ 
+**Finding:** `IDM.exe` — Internet Download Manager — was the file that gave the attacker initial access. A download manager spawning shells is an immediate red flag. Legitimate download managers don't do that.
+ 
+✅ Confirmed correct on the challenge.
+ 
+---
+
