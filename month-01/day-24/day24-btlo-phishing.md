@@ -96,3 +96,14 @@ The attacker used Blogspot specifically because it's a Google-owned domain. A lo
  
 ---
  
+## Assumption I Made
+ 
+I assumed the malicious URL would be in the main email body. It wasn't — it was inside a nested `.eml` attachment. That extra layer is deliberate. It adds friction for automated scanners and for analysts who don't dig into attachments carefully. I need to remember to always check attachments thoroughly, not just the email body.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+The reverse DNS came back as an Australian hosting provider. I don't know if that's where the attacker actually is or if they just rented a server there. IP geolocation and reverse DNS tell you where the infrastructure is, not where the attacker is. Those are two very different things and I need to be careful not to conflate them in a real investigation.
+ 
+---
