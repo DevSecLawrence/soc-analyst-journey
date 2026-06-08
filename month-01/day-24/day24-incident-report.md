@@ -56,3 +56,10 @@ The attack relied on two social engineering techniques:
  
 ---
  
+## Remediation Recommendations
+ 
+1. **Block the malicious domain** — Add `35000usdperwwekpodf.blogspot.sg` to the URL blocklist even though the page is down. The domain could be reactivated.
+2. **Tune email scanner to inspect nested attachments** — If the scanner only checks top-level email content, nested `.eml` files will bypass it. Configure it to recursively inspect all attachment types.
+3. **User awareness training** — Delivery failure lures are common. Users should be trained to verify unexpected bounce notifications by checking their sent mail directly rather than opening attachments.
+4. **Consider Blogspot category blocking** — Depending on the organisation's risk tolerance, blocking or flagging free blogging platforms (Blogspot, WordPress.com, etc.) in email links is worth evaluating. Legitimate business emails rarely link to free blog hosting.
+---
