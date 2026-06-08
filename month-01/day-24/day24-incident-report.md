@@ -29,3 +29,15 @@ A user received a phishing email disguised as a delivery failure notification. T
  
 ---
  
+ ## Root Cause Analysis
+ 
+The attack relied on two social engineering techniques:
+ 
+**1. Delivery failure lure** — The subject line `Undeliverable: Website contact form submission` tricks the target into thinking a legitimate email they sent has bounced. This creates urgency and a legitimate reason to open the attachment.
+ 
+**2. Nested attachment evasion** — The malicious URL was not in the main email body but inside a `.eml` file attached to the email. This adds a layer that some automated email scanners miss if they only inspect the top-level message.
+ 
+**3. Trusted infrastructure abuse** — The malicious page was hosted on Blogspot (Google). Many email security tools whitelist Google domains. Hosting malicious content on Blogspot means the domain itself won't trigger a URL block.
+ 
+---
+ 
