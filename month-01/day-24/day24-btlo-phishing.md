@@ -87,3 +87,12 @@ The page was already taken down by the time I investigated — but the URL2PNG c
 | Page heading (via URL2PNG) | `Blog has been removed` |
  
 ---
+
+## What I Concluded
+ 
+This was a delivery failure lure — the attacker disguised the phishing email as a bounce notification to get the target to open the attachment. The attachment contained a second `.eml` file with the malicious Blogspot link inside it. The double-layer approach (email inside email) adds one more step between the target and the malicious URL, which can bypass some automated email scanners that only check the top-level email.
+ 
+The attacker used Blogspot specifically because it's a Google-owned domain. A lot of email security tools whitelist Google domains by default. That's the whole point — the malicious content lives on a trusted infrastructure.
+ 
+---
+ 
