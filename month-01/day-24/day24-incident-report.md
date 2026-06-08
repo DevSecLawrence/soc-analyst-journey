@@ -14,3 +14,18 @@ A user received a phishing email disguised as a delivery failure notification. T
  
 ---
 
+## Timeline of Events
+ 
+| Time | Event |
+|------|-------|
+| Unknown | Attacker sets up malicious Blogspot page at `35000usdperwwekpodf.blogspot.sg` |
+| Unknown | Attacker crafts phishing email disguised as delivery failure notice |
+| Received | Email sent to `kinnar1975@yahoo.co.uk` from Australian hosting infrastructure |
+| Post-receipt | User forwards email to SOC for investigation |
+| Investigation | SOC analyst opens `.eml` in VS Code, extracts headers and attachment |
+| Investigation | Nested `.eml` attachment opened — malicious URL identified |
+| Investigation | URL2PNG used to safely preview the Blogspot page |
+| Confirmed | Blogspot page already taken down — heading: "Blog has been removed" |
+ 
+---
+ 
