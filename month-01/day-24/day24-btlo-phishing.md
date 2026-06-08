@@ -56,3 +56,21 @@ A `.eml` file inside a `.eml` file — the phishing email contained another emai
  
 The domain name alone (`35000usdperwwekpodf`) is a massive red flag — no legitimate service uses a domain like that.
 
+### Step 3 — Identify the hosting service
+ 
+The malicious URL is on `blogspot.sg` — that's **Blogspot**, Google's free blogging platform. Attackers abuse free hosting services because:
+- They're free and easy to set up
+- They use trusted domains that bypass basic URL filters
+- They get taken down eventually but the attacker has already collected credentials by then
+**Hosting service:** Blogspot
+ 
+### Step 4 — URL2PNG
+ 
+Pasted the URL into `url2png.com` to safely preview the page without visiting it.
+ 
+**Heading text on the page:** `Blog has been removed`
+ 
+The page was already taken down by the time I investigated — but the URL2PNG cache still had the heading confirming it existed. This is a standard finding in phishing investigations — by the time a user reports it and the SOC investigates, the page is often already down.
+ 
+---
+ 
