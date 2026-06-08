@@ -73,4 +73,17 @@ Pasted the URL into `url2png.com` to safely preview the page without visiting it
 The page was already taken down by the time I investigated — but the URL2PNG cache still had the heading confirming it existed. This is a standard finding in phishing investigations — by the time a user reports it and the SOC investigates, the page is often already down.
  
 ---
+
+## Findings Summary
  
+| Artifact | Value |
+|---------|-------|
+| Recipient | `kinnar1975@yahoo.co.uk` |
+| Subject | `Undeliverable: Website contact form submission` |
+| Sending IP resolved host | `c5s2-1e-syd.hosting-services.net.au` |
+| Attached file | `Website contact form submission.eml` |
+| Malicious URL | `https://35000usdperwwekpodf.blogspot.sg?p=3D9swg` |
+| Hosting service | Blogspot |
+| Page heading (via URL2PNG) | `Blog has been removed` |
+ 
+---
