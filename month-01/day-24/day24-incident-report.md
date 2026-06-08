@@ -41,3 +41,18 @@ The attack relied on two social engineering techniques:
  
 ---
  
+ ## IOCs
+ 
+| Type | Value |
+|------|-------|
+| Sender email | Unknown (sending via hosting provider) |
+| Sending infrastructure | `c5s2-1e-syd.hosting-services.net.au` |
+| Recipient | `kinnar1975@yahoo.co.uk` |
+| Subject | `Undeliverable: Website contact form submission` |
+| Attachment name | `Website contact form submission.eml` |
+| Malicious URL | `https://35000usdperwwekpodf.blogspot.sg?p=3D9swg` |
+| Malicious domain | `35000usdperwwekpodf.blogspot.sg` |
+| Hosting platform | Blogspot (Google) |
+ 
+---
+ 
