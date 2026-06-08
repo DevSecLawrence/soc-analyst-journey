@@ -63,3 +63,11 @@ The attack relied on two social engineering techniques:
 3. **User awareness training** — Delivery failure lures are common. Users should be trained to verify unexpected bounce notifications by checking their sent mail directly rather than opening attachments.
 4. **Consider Blogspot category blocking** — Depending on the organisation's risk tolerance, blocking or flagging free blogging platforms (Blogspot, WordPress.com, etc.) in email links is worth evaluating. Legitimate business emails rarely link to free blog hosting.
 ---
+
+## Lessons Learned
+ 
+- Always inspect attachments, not just the email body. Malicious content is often one layer deeper than expected.
+- IP geolocation tells you where the infrastructure is, not where the attacker is. Don't conflate the two.
+- Trusted domains (Google, Microsoft, Dropbox) get abused specifically because they bypass security controls. Domain reputation alone is not enough.
+- URL2PNG is useful even when the page is down — it may have a cached screenshot that confirms the page existed.
+ 
