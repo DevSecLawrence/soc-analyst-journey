@@ -107,3 +107,12 @@ I assumed the malicious URL would be in the main email body. It wasn't — it wa
 The reverse DNS came back as an Australian hosting provider. I don't know if that's where the attacker actually is or if they just rented a server there. IP geolocation and reverse DNS tell you where the infrastructure is, not where the attacker is. Those are two very different things and I need to be careful not to conflate them in a real investigation.
  
 ---
+
+## Hypothesis Evolution
+ 
+Started thinking: credential harvesting → fake login page → link in email body.
+ 
+Actual attack: delivery failure lure → nested .eml attachment → Blogspot page → unknown payload (page already taken down).
+ 
+The lure technique was more sophisticated than I expected for an "Easy" challenge. The nested attachment approach is something I hadn't seen before and it makes sense as an evasion technique once you understand it.
+ 
