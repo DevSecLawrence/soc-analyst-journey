@@ -26,3 +26,9 @@ The user email was harder than it looked too. You have to be honest about what h
  
 ---
 
+## Assumption I Made
+ 
+I assumed more technical detail meant a better report. It doesn't — it means a better report for one specific audience. Dumping IOC tables and MITRE IDs into an executive summary doesn't show competence, it shows you don't understand who you're writing for. The skill is knowing what to include and what to cut for each audience.
+ 
+---
+ 
