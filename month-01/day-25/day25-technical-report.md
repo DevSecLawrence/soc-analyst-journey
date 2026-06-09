@@ -95,3 +95,10 @@ URL2PNG confirmed the page existed but has since been removed. Heading at time o
 - **Victim compromise:** Unknown — investigation limited to email artifact only
 ---
 
+## Recommendations
+ 
+1. **Block the malicious domain** — Add `35000usdperwwekpodf.blogspot.sg` to blocklist. Domain could be reactivated.
+2. **Configure email scanner to parse nested attachments** — Current gap allows `.eml` inside `.eml` to bypass inspection.
+3. **Flag free hosting platforms in URL filtering** — Blogspot, WordPress.com, and similar platforms should be flagged for closer inspection when appearing in email links.
+4. **Contact affected user** — Confirm whether they clicked anything before forwarding to SOC.
+5. **User awareness training** — Delivery failure lures are a common social engineering technique. Users should verify bounces directly in their sent mail rather than opening attachments.
