@@ -78,3 +78,20 @@ URL2PNG confirmed the page existed but has since been removed. Heading at time o
  
 ---
  
+ ## MITRE ATT&CK Mapping
+ 
+| Technique | ID | Notes |
+|-----------|-----|-------|
+| Phishing | T1566.001 | Spearphishing via email attachment |
+| Obfuscated Files or Information | T1027 | Nested .eml to hide malicious URL from scanners |
+ 
+---
+ 
+## Confidence Levels
+ 
+- **Initial access method:** High — delivery failure lure with nested attachment is well documented
+- **Malicious URL:** High — confirmed in attachment, verified via URL2PNG
+- **Payload delivered:** Unknown — page taken down before full analysis
+- **Victim compromise:** Unknown — investigation limited to email artifact only
+---
+
