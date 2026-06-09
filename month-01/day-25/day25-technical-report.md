@@ -53,4 +53,14 @@ Inside the nested `.eml`, the following malicious URL was found:
 https://35000usdperwwekpodf.blogspot.sg?p=3D9swg
 ```
  
+ ### Destination Analysis
+ 
+The malicious URL resolves to a Blogspot page — Google's free blogging platform. Attackers use free hosting services for three reasons:
+ 
+1. Free and fast to set up with no identity verification
+2. Google's domain reputation bypasses many URL filtering tools
+3. Easy to take down and rebuild on a new subdomain
+URL2PNG confirmed the page existed but has since been removed. Heading at time of capture: `Blog has been removed`.
+ 
+---
  
