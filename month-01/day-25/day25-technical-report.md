@@ -30,3 +30,16 @@ A user (`kinnar1975@yahoo.co.uk`) received a phishing email disguised as a deliv
  
 ---
  
+ ## Technical Findings
+ 
+### Email Headers
+ 
+| Field | Value |
+|-------|-------|
+| Recipient | `kinnar1975@yahoo.co.uk` |
+| Subject | `Undeliverable: Website contact form submission` |
+| Sending IP resolved host | `c5s2-1e-syd.hosting-services.net.au` |
+| Encoding | `base64` |
+ 
+The subject line is a social engineering lure — a fake bounce notification. The goal is to make the target believe a legitimate email they sent has failed to deliver, prompting them to open the attachment to investigate.
+
