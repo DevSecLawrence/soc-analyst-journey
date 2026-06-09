@@ -32,3 +32,12 @@ I assumed more technical detail meant a better report. It doesn't — it means a
  
 ---
  
+ ## Uncertainty I Have
+ 
+I don't know how to calibrate confidence levels properly yet. I wrote "High" for the malicious URL and "Unknown" for payload delivery — but I don't have a standard framework for what High, Medium, and Low actually mean in a real SOC environment. Different organisations use different scales and different thresholds. I need to find out what the standard is before I write a real report with those labels.
+ 
+---
+ 
+## Why This Day Matters
+ 
+Every analyst I've read about who moves up — into threat intel, detection engineering, incident response leadership — talks about writing. Not code, not tools, writing. The ability to explain a technical finding to a non-technical executive in plain English is rare. Most people coming up through security are technical first and communicators second, if at all. This is the skill that separates analysts who stay at Tier 1 from the ones who don't.
