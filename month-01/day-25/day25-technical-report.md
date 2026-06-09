@@ -14,3 +14,19 @@ A user (`kinnar1975@yahoo.co.uk`) received a phishing email disguised as a deliv
  
 ---
 
+## Timeline
+ 
+| Timestamp | Event |
+|-----------|-------|
+| Unknown | Attacker registers Blogspot page at `35000usdperwwekpodf.blogspot.sg` |
+| Unknown | Phishing email crafted and sent to target |
+| Received | Email received by `kinnar1975@yahoo.co.uk` |
+| Post-receipt | User forwards email to SOC for triage |
+| Investigation | `.eml` file opened in VS Code — headers extracted |
+| Investigation | Sending IP identified — reverse DNS run via whois.domaintools.com |
+| Investigation | Nested `.eml` attachment opened — malicious URL extracted |
+| Investigation | URL2PNG used to safely preview destination page |
+| Confirmed | Destination page already taken down — "Blog has been removed" |
+ 
+---
+ 
