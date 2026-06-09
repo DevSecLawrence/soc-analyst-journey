@@ -64,4 +64,17 @@ URL2PNG confirmed the page existed but has since been removed. Heading at time o
  
 ---
  
+ ## IOC Summary
+ 
+| Type | Value |
+|------|-------|
+| Recipient | `kinnar1975@yahoo.co.uk` |
+| Subject | `Undeliverable: Website contact form submission` |
+| Sending infrastructure | `c5s2-1e-syd.hosting-services.net.au` |
+| Attachment | `Website contact form submission.eml` |
+| Malicious URL | `https://35000usdperwwekpodf.blogspot.sg?p=3D9swg` |
+| Malicious domain | `35000usdperwwekpodf.blogspot.sg` |
+| Hosting platform | Blogspot (Google) |
+ 
+---
  
