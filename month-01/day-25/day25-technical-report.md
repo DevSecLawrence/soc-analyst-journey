@@ -43,3 +43,14 @@ A user (`kinnar1975@yahoo.co.uk`) received a phishing email disguised as a deliv
  
 The subject line is a social engineering lure — a fake bounce notification. The goal is to make the target believe a legitimate email they sent has failed to deliver, prompting them to open the attachment to investigate.
 
+### Attachment Analysis
+ 
+The attachment was a `.eml` file named `Website contact form submission.eml` — a second email embedded inside the first. This nested structure is a deliberate evasion technique. Many email scanners only inspect the top-level message and don't recursively parse attachments.
+ 
+Inside the nested `.eml`, the following malicious URL was found:
+ 
+```
+https://35000usdperwwekpodf.blogspot.sg?p=3D9swg
+```
+ 
+ 
