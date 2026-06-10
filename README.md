@@ -118,8 +118,8 @@ All activity is local and controlled. No external targeting. No real credentials
 
 ## Connect
 
-- **LinkedIn:** [linkedin.com/Okol Chiemerie Lawrence](https://www.linkedin.com/in/okoli-chiemerie-lawrence-552415377/)
-- **X:** [@DevSecLawrence](https://x.com/DevSecLawrence)
+- **LinkedIn:** [linkedin.com/Okoli Chiemerie Lawrence](https://www.linkedin.com/in/okoli-chiemerie-lawrence-552415377/)
+- **X:** [@only_Lawrence](https://x.com/only_lawrence)
 - **GitHub:** [github.com/DevSecLawrence](https://github.com/DevSecLawrence)
 
 
