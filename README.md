@@ -1,4 +1,4 @@
-# SOC Analyst Journey — 180 Days, No Shortcuts
+# SOC Analyst Journey — 180 Days
 
 I'm Lawrence. I'm teaching myself to become a SOC analyst through a structured 180-day roadmap — daily labs, real investigations, and everything documented publicly. No bootcamp, no paid course, just consistent work and honest documentation.
 
