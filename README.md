@@ -4,7 +4,7 @@ I'm Lawrence. I'm teaching myself to become a SOC analyst through a structured 1
 
 This repo is my proof of work. Every day has a write-up, artifacts, and my actual reasoning — including where I got stuck, what I got wrong, and what I still don't understand. I'm not trying to look perfect. I'm trying to get good.
 
-**Currently working on:** Month 1 — Foundations (Day 26 of 180)
+**Currently working on:** Month 1 — Foundations
 
 ---
 
@@ -118,7 +118,7 @@ All activity is local and controlled. No external targeting. No real credentials
 
 ## Connect
 
-- **LinkedIn:** [linkedin.com/Okoli Chiemerie Lawrence](https://www.linkedin.com/in/okoli-chiemerie-lawrence-552415377/)
+- **LinkedIn:** [Okoli Chiemerie Lawrence](https://www.linkedin.com/in/okoli-chiemerie-lawrence-552415377/)
 - **X:** [@only_Lawrence](https://x.com/only_lawrence)
 - **GitHub:** [github.com/DevSecLawrence](https://github.com/DevSecLawrence)
 
