@@ -28,3 +28,26 @@ I don't know if my self-ratings are accurate. I might be overconfident on some t
  
 ---
 
+## Biggest Accomplishments
+ 
+- BTLO Phishing Analysis — 10/10 — this felt like real SOC work
+- Writing 3 original YARA rules and testing them in Kali — nobody told me what to write, I built them from scratch
+- Investigating the LetsDefend Sysmon challenge — found the attack chain, mapped it to MITRE, documented it properly
+- The incident report rewrite — same facts, three completely different documents. That took more thinking than any of the technical labs
+- 28 days of consistent daily commits on GitHub — didn't miss a day
+---
+ 
+## Biggest Gaps
+ 
+- **EDR platforms** — this is the most critical gap. Real SOC environments run on CrowdStrike or SentinelOne. I've never touched either.
+- **Cloud security** — showed up in 6/10 job descriptions. I have no AWS or Azure experience.
+- **Active Directory** — a huge part of enterprise environments and attack surface. I know what it is, I've never worked with it.
+- **Python for security** — I know Python basics from uni but haven't applied it to anything security-related. Automating log analysis, writing scripts for IOC extraction — this would make me more useful.
+- **Security+** — still no cert. It keeps appearing in job descriptions and it unlocks higher salary bands.
+---
+ 
+## Where I Stand Honestly
+ 
+I'm not job-ready yet. But I'm more prepared than I thought I'd be at 28 days. The work is documented, the GitHub is real, and I can point to specific investigations with specific findings. That's more than most people in month one of learning cybersecurity can say.
+ 
+Month 2 needs to be more targeted. Less breadth, more depth on the gaps that matter for remote SOC roles specifically.
