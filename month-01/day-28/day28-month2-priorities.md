@@ -66,4 +66,34 @@ Month 2 is not about learning new things for the sake of it. It's about closing 
 **Critical or nice-to-have:** Medium. More critical for cloud-first companies, less so for traditional enterprise SOC roles. Still worth understanding the basics.
  
 ---
+
+## Priority 5 — Security+ (High Priority)
  
+**Gap:** No certification. Came up in 5/10 job descriptions and directly affects salary bands.
+ 
+**Plan:**
+- Target sitting the exam at the end of Month 4 or start of Month 5
+- Use Professor Messer's free Security+ course on YouTube alongside the roadmap
+- Don't let exam prep replace hands-on work — do both in parallel
+- Budget for the exam voucher now so it's not a surprise
+**Critical or nice-to-have:** High priority. Not urgent for Month 2 but needs to be in progress.
+ 
+---
+ 
+## Month 2 Focus Summary
+ 
+| Priority | Topic | Urgency |
+|----------|-------|---------|
+| 1 | EDR platforms | Critical |
+| 2 | Active Directory | Critical |
+| 3 | Python for security | High |
+| 4 | Cloud security basics | Medium |
+| 5 | Security+ prep | High |
+ 
+---
+ 
+## What I'm NOT Adding to Month 2
+ 
+Malware analysis, firewall configuration, IDS/IPS — these came up in job descriptions but they're not as common in remote junior SOC roles as the 5 priorities above. I'll get to them but they're not Month 2 material.
+ 
+Month 2 is about closing the gaps that are blocking me from applying with confidence. Everything else comes after.
