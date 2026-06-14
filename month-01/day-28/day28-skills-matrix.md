@@ -44,3 +44,22 @@ I tried to be honest here. It's easy to give yourself 4s and 5s when nobody's ch
  
 ---
 
+## What Kept Showing Up
+ 
+Every single job description mentioned log analysis, SIEM experience, and MITRE ATT&CK. Those three are non-negotiable. The good news is I've touched all three.
+ 
+The things that surprised me: EDR platforms came up in 7 out of 10 JDs. I have zero hands-on with CrowdStrike, Carbon Black, or SentinelOne. That's a real gap because a lot of SOC work in real environments is done through an EDR, not just a SIEM.
+ 
+Cloud security came up more than I expected. 6 out of 10 JDs mentioned AWS or Azure at least once. That's not something I've planned for yet.
+ 
+Scripting (Python or PowerShell) appeared in 5 JDs. I know Python from uni but I've never applied it to anything security-related. That's a gap I can close faster than the others.
+ 
+---
+ 
+## Top 5 Gaps
+ 
+1. EDR platforms — CrowdStrike, Carbon Black, SentinelOne
+2. Cloud security — AWS/Azure fundamentals
+3. Scripting — Python applied to security tasks
+4. Active Directory — attacks and defence
+5. Security+ certification
