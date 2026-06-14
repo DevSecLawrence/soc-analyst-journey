@@ -28,3 +28,42 @@ Month 2 is not about learning new things for the sake of it. It's about closing 
  
 ---
 
+## Priority 2 — Active Directory (Critical)
+ 
+**Gap:** Know what it is, never administered or attacked/defended it. Came up in 4/10 job descriptions but is fundamental to enterprise environments.
+ 
+**Plan:**
+- TryHackMe has free Active Directory rooms — work through them
+- Set up a basic AD lab in VirtualBox once the local lab is rebuilt (Domain Controller + Windows 10 client)
+- Learn common AD attack techniques — Pass the Hash, Kerberoasting, DCSync — from a defender's perspective
+- Map findings to MITRE ATT&CK
+**Critical or nice-to-have:** Critical for enterprise SOC roles. Slightly less critical for cloud-first companies.
+ 
+---
+ 
+## Priority 3 — Python for Security (High Priority)
+ 
+**Gap:** Know Python basics from uni, never applied it to security. Came up in 5/10 job descriptions.
+ 
+**Why it exists:** University Python is academic. Security Python is practical. I never bridged the gap.
+ 
+**Plan:**
+- Write small scripts that automate things I'm already doing manually — IOC extraction from emails, log parsing, hash lookups via VirusTotal API
+- Start simple: a script that reads a .eml file and extracts all URLs and IPs automatically
+- Document each script in GitHub with what it does and why I wrote it
+**Critical or nice-to-have:** High priority. Automation is increasingly expected even at Tier 1.
+ 
+---
+ 
+## Priority 4 — Cloud Security Fundamentals (Medium Priority)
+ 
+**Gap:** No AWS or Azure experience. Came up in 6/10 job descriptions.
+ 
+**Plan:**
+- AWS has a free tier — spin up a basic environment and explore CloudTrail logs (AWS's equivalent of Windows Event Logs)
+- Microsoft Azure has free credits for students — explore Azure Sentinel (now Microsoft Sentinel), which is a cloud SIEM
+- Focus on log sources and detection in cloud environments, not infrastructure management
+**Critical or nice-to-have:** Medium. More critical for cloud-first companies, less so for traditional enterprise SOC roles. Still worth understanding the basics.
+ 
+---
+ 
