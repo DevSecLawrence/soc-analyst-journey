@@ -16,3 +16,15 @@ The thing I'm most confident in: detection engineering. YARA rules, Sigma rules,
  
 ---
 
+## Assumption I Made
+ 
+I assumed that doing the labs was enough. It's not — at least not for every skill. Some things like log analysis and phishing investigation I've practiced enough that I'd be comfortable in an interview. But other things like cloud security and EDR platforms I've barely touched, and just knowing they exist doesn't close the gap. Month 2 needs to be more deliberate about which skills I'm actually building versus just reading about.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't know if my self-ratings are accurate. I might be overconfident on some things and underconfident on others. The only real test is doing actual work — not labs, not challenges, but real incidents in a real environment. I don't have that yet and I won't until I get a job. So I'm working with the best information I have, which is how well I can explain things and how comfortable I feel navigating the tools.
+ 
+---
+
