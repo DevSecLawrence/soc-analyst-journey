@@ -29,3 +29,21 @@ Writing detection rules for files is harder than it looks. The specificity vs co
 **4. Sigma rules**
 Portable detection logic that converts to any SIEM query language. This clicked for me when I realised Sigma is basically the "write once, run anywhere" of detection engineering. Wrote rules for PowerShell abuse, recon commands, and persistence — converted to Splunk SPL and Elastic KQL.
 
+**5. Splunk**
+Going from "I've heard of Splunk" to actually writing SPL queries, building detection logic, and understanding how a SIEM processes events was probably the biggest practical jump of the month. Not production experience, but I'm no longer starting from zero.
+ 
+---
+ 
+## Top 3 Things That Surprised Me
+ 
+**1. How much writing matters**
+I went into this thinking the technical work was the job. It's half the job. The other half is explaining what you found, to who, in what format. Day 25 — rewriting one incident three ways — was more cognitively demanding than any of the labs.
+ 
+**2. Splunk's depth**
+I knew it was widely used. I didn't know how deep it goes — the query language, the data pipeline, the way fields get extracted, the difference between a good detection and a noisy one. There's a lot under the surface and I've only scratched it.
+ 
+**3. That I actually stayed consistent**
+Genuinely didn't know if I'd make it through a full month alongside university coursework. Some days the roadmap got whatever hours were left after everything else. But I didn't miss a day. That surprised me more than any technical finding.
+ 
+---
+ 
