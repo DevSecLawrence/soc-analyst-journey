@@ -18,3 +18,23 @@ I assumed that by Day 30 I'd feel confident. I don't feel confident. I feel capa
  
 ---
 
+## Uncertainty I Have
+ 
+I don't know if Month 1 is enough to get noticed. The GitHub is real, the work is documented, the investigations are legitimate — but I have no external signal yet that any of it translates to opportunity. No recruiter has reached out. No interview. I'm 30 days in and still operating entirely on faith that consistency compounds. I believe it does. I haven't seen proof yet.
+ 
+---
+ 
+## What I Would Tell Day 1 Me
+ 
+Don't try to learn everything. Pick a direction — blue team, SOC, detection — and go deep in that one direction for the whole month. The temptation to explore everything is real and it's a trap. Depth in one area is worth more than surface knowledge across five.
+ 
+And build in public from Day 1. Not when you feel ready. Not when you have something impressive to show. From Day 1. The discomfort of showing incomplete work is exactly the accountability mechanism that keeps you showing up. Use it.
+ 
+---
+ 
+## Month 2 Starts Tomorrow
+ 
+EDR platforms. Active Directory. Python for security. Cloud security basics. Security+ prep.
+ 
+Rest today. Tomorrow, we escalate.
+
