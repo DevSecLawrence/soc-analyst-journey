@@ -64,3 +64,36 @@ Traced a full web application attack chain from a single PCAP file — port scan
  
 ---
 
+### Sigma Rules Collection
+**Days 20–21 | Converted to Splunk SPL and Elastic KQL**
+ 
+Detection rules covering:
+- PowerShell abuse (T1059.001) — encoded commands, download cradles
+- System recon (T1033) — whoami execution post-compromise
+- Persistence (T1136.001) — new local admin account creation
+→ [sigma-rules-collection repo](https://github.com/DevSecLawrence/sigma-rules-collection)
+ 
+---
+ 
+## Professional Reports
+ 
+### Phishing Incident — 3 Audiences, 3 Formats
+**Day 25 | Based on Day 24 BTLO investigation**
+ 
+The same phishing incident rewritten three completely different ways:
+ 
+**Technical report (SOC manager)** — full detail, timeline, IOC table, MITRE mapping, confidence levels, recommendations
+ 
+**Executive summary (CISO)** — one paragraph, no jargon, business risk, clear action items
+ 
+**User email (affected user)** — three sentences, plain English, no blame, one specific question
+ 
+This is the document I'm most proud of from Month 1. Finding the incident is half the job. The other half is explaining it clearly to the right person.
+ 
+→ [Technical report](../day-25/day25-technical-report.md)
+→ [Executive summary](../day-25/day25-executive-summary.md)
+→ [User email](../day-25/day25-user-email.md)
+→ [incident-reports repo](https://github.com/DevSecLawrence/incident-reports)
+ 
+---
+
