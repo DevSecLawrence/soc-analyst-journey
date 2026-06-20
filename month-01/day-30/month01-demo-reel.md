@@ -24,3 +24,43 @@ Investigated a real phishing email forwarded to the SOC. Found a nested `.eml` a
  
 ---
 
+### Sysmon Attack Chain Investigation — LetsDefend
+**Day 23 | LetsDefend | 757 Sysmon events**
+ 
+Investigated a compromised Windows endpoint. Traced the full attack chain through Sysmon event logs — identified initial access via IDM.exe spawning shells, UAC bypass via fodhelper.exe (auto-elevation without prompting), and persistence via registry run keys.
+ 
+**Key findings:**
+ 
+| Finding | Detail | MITRE |
+|---------|--------|-------|
+| Initial access | IDM.exe spawning cmd.exe | T1566 |
+| UAC bypass | fodhelper.exe | T1548.002 |
+| Persistence | HKCU\...\CurrentVersion\Run | T1547.001 |
+ 
+→ [Full investigation notes](../day-23/day23-sysmon-analysis.md)
+ 
+---
+ 
+### Network Analysis — Web Shell — BTLO
+**Day 29 | Blue Team Labs Online | Wireshark PCAP**
+ 
+Traced a full web application attack chain from a single PCAP file — port scan, directory brute force, PHP web shell upload, command execution, and reverse shell establishment. Attack chain visible end to end in Wireshark with the right filters.
+ 
+→ [Full investigation notes](../day-29/day29-btlo-webshell.md)
+ 
+---
+ 
+## Detection Rules
+ 
+### YARA Rules Collection
+**Day 22 | Kali Linux | YARA 4.5.5**
+ 
+3 original rules written from scratch and tested against real files:
+- `suspicious_strings.yar` — detects cmd.exe/powershell.exe references
+- `high_entropy.yar` — flags files above 7.0 entropy (possible packing/encryption)
+- `unusual_pe_sections.yar` — detects UPX-packed binaries by section name
+→ [yara-rules-collection repo](https://github.com/DevSecLawrence/yara-rules-collection)
+→ [Day 22 write-up](../day-22/day22-yara-rules.md)
+ 
+---
+
