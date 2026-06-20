@@ -97,3 +97,38 @@ This is the document I'm most proud of from Month 1. Finding the incident is hal
  
 ---
 
+## GitHub Portfolio
+ 
+### Main Journey Repo
+**github.com/DevSecLawrence/soc-analyst-journey**
+ 
+30 days of daily commits. Every day has a write-up, artifacts, and three analyst prompts answered honestly — what I concluded, what assumption I made, and what I still don't understand. No polishing, no pretending I understood everything first time.
+ 
+### Standalone Showcase Repos
+ 
+| Repo | Contents |
+|------|----------|
+| [yara-rules-collection](https://github.com/DevSecLawrence/yara-rules-collection) | 3 original YARA rules, tested in Kali |
+| [sigma-rules-collection](https://github.com/DevSecLawrence/sigma-rules-collection) | Sigma rules with ATT&CK mappings and SPL/KQL conversions |
+| [incident-reports](https://github.com/DevSecLawrence/incident-reports) | Phishing and Sysmon investigation write-ups, multi-audience reports |
+ 
+---
+ 
+## Skills Demonstrated
+ 
+| Skill | Evidence |
+|-------|----------|
+| Phishing analysis | BTLO 10/10, full IOC extraction, nested attachment evasion |
+| Sysmon log analysis | LetsDefend — full attack chain, MITRE mapped |
+| PCAP investigation | Wireshark — port scan to reverse shell |
+| YARA rule writing | 3 original rules, tested in Kali Linux |
+| Sigma rule writing | 3 rules, converted to SPL and KQL |
+| Incident reporting | Same incident, 3 formats, 3 audiences |
+| MITRE ATT&CK | Used for mapping in every investigation |
+| Detection engineering | Sigma + YARA — written, tested, documented |
+ 
+---
+ 
+*Full roadmap: github.com/DevSecLawrence/soc-analyst-journey*
+*LinkedIn: linkedin.com/in/okolichiemerie-lawrence-552415377*
+*X: @only_lawrence*
