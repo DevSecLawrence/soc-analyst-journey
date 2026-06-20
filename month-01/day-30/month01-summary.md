@@ -46,4 +46,27 @@ I knew it was widely used. I didn't know how deep it goes — the query language
 Genuinely didn't know if I'd make it through a full month alongside university coursework. Some days the roadmap got whatever hours were left after everything else. But I didn't miss a day. That surprised me more than any technical finding.
  
 ---
+
+## Top 3 Things I Struggled With
  
+**1. YARA rules**
+The PE module doesn't behave the same way on Linux ELF binaries as it does on Windows PE files. I ran into that wall on Day 22 and had to pivot. The rule logic made sense but the testing environment created friction I didn't anticipate.
+ 
+**2. Elastic / Kibana**
+Converting Sigma rules to KQL was straightforward enough, but I never got hands-on with an actual Elastic stack. Every job description mentions it alongside Splunk. Right now I've written KQL queries but never run them against real data in Elastic. That's a gap.
+ 
+**3. Time management with school**
+Some days this roadmap got 3 focused hours. Other days it got 45 minutes of whatever was left. The depth of the work varied because of it. I didn't miss a day but the quality wasn't equal every day — and I'm honest enough to admit that.
+ 
+---
+ 
+## Recommendations for Someone Starting Day 1
+ 
+Two things I'd tell myself if I was starting over:
+ 
+**Learn the basics first, properly.** The OSI model, TCP/IP, how logs actually work, what a SIEM does before you touch one. The temptation is to jump straight to the cool stuff — detection rules, malware analysis, incident response. Don't. Everything in this roadmap builds on the foundation. Rushing it means you're going back to fix gaps later.
+ 
+**Build a structured plan and stick to it publicly.** The reason I didn't quit is that my GitHub is public. Every day without a commit is visible. Public accountability is real — use it. And structure matters more than motivation. Motivation runs out. A plan tells you what to do on the days you don't feel like showing up.
+ 
+---
+
