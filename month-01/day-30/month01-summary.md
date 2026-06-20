@@ -70,3 +70,8 @@ Two things I'd tell myself if I was starting over:
  
 ---
 
+## What Month 2 Looks Like
+ 
+The skills matrix from Day 28 made it clear where the real gaps are. EDR platforms, Active Directory, Python for security, cloud security fundamentals, and Security+ prep. Month 2 is targeted, not exploratory.
+ 
+Month 1 was building the foundation. Month 2 is closing the distance to hireable.
