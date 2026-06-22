@@ -83,5 +83,19 @@ Contact
  
 ---
  
+## Narrative Arc
+ 
+**Page 1 (Home):** You land here and immediately know this is a working analyst in training, not a student who read some books. The skills are real. The projects are linked. There's a commit graph proving consistency.
+ 
+**Page 2 (Projects):** Each project is a mini case study — scenario, what I did, what I found, what I concluded, what I'd do differently. Written for two audiences: technical enough for a SOC manager, clear enough for HR.
+ 
+**Page 3 (Writing):** Professional reports and analysis documents. Shows I can communicate findings, not just find them.
+ 
+**Page 4 (About):** The human behind the work. Why I started, where I'm going, what I'm looking for. A CV to download.
+ 
+**Page 5 (Contact):** Simple. LinkedIn, GitHub, email. No forms.
+ 
+---
+
 
  
