@@ -97,5 +97,17 @@ Contact
  
 ---
 
+## 5 Hero Projects
+ 
+| # | Project | Why It's a Hero |
+|---|---------|----------------|
+| 1 | Phishing Email Investigation | 10/10 score, full IOC extraction, nested attachment evasion — real analyst work |
+| 2 | Sysmon Attack Chain | Full MITRE-mapped attack chain, real log investigation, UAC bypass identification |
+| 3 | Network Analysis — Web Shell | End-to-end PCAP investigation, port scan to reverse shell |
+| 4 | YARA Rules Collection | Original rules, tested in Kali, documented limitations — detection engineering proof |
+| 5 | Sigma Rules Collection | Written, converted to SPL/KQL, ATT&CK mapped — multi-SIEM detection work |
+ 
+---
+
 
  
