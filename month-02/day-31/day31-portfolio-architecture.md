@@ -20,3 +20,14 @@ My portfolio needs to answer one question in under 30 seconds: can this person a
  
 ---
 
+## Assumption I Made
+ 
+I assumed a portfolio needed to be technically impressive to be effective. It doesn't — it needs to be clear. A recruiter who doesn't know what YARA is should still be able to read about my YARA rules project and understand that I built something, tested it, and know its limitations. If they need to already understand the tool to appreciate the work, I've written it for the wrong audience.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't know how much weight a portfolio website actually carries vs a GitHub repo for SOC roles specifically. Some hiring managers might go deep on the portfolio. Others might not click past the GitHub link. I'm building it because it makes the work more accessible to non-technical screeners, but I genuinely don't know if it moves the needle for technical hiring managers who are already comfortable navigating GitHub. I'll find out.
+ 
+---
