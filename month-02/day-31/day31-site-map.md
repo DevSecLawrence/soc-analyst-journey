@@ -109,5 +109,20 @@ Contact
  
 ---
 
+## Homepage Copy
+ 
+**Headline:**
+`SOC Analyst in Training — 30 Days of Real Work, All Public`
+ 
+**Subheadline:**
+`I'm Lawrence. I'm teaching myself to become a SOC analyst through a public 180-day roadmap. Every investigation, every detection rule, every incident report — documented on GitHub from Day 1.`
+ 
+**CTA button:**
+`See the work →` (links to Projects page)
+ 
+**Quick stats bar:**
+`30 days completed · 3 standalone repos · 2 BTLO challenges · 0 missed days`
+ 
+---
 
  
