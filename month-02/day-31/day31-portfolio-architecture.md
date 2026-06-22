@@ -31,3 +31,7 @@ I assumed a portfolio needed to be technically impressive to be effective. It do
 I don't know how much weight a portfolio website actually carries vs a GitHub repo for SOC roles specifically. Some hiring managers might go deep on the portfolio. Others might not click past the GitHub link. I'm building it because it makes the work more accessible to non-technical screeners, but I genuinely don't know if it moves the needle for technical hiring managers who are already comfortable navigating GitHub. I'll find out.
  
 ---
+
+## Files in This Folder
+- [day31-site-map.md](./day31-site-map.md) — full site structure, narrative arc, hero projects, homepage copy
+- [day31-portfolio-architecture.md](./day31-portfolio-architecture.md) — this file
