@@ -42,3 +42,15 @@ A real attack almost always touches both layers. The initial compromise might be
  
 ---
 
+## 5 ATT&CK Techniques Mapped to Detection Source
+ 
+| Technique | ID | Best detected by | Why |
+|-----------|-----|-----------------|-----|
+| PowerShell with encoded commands | T1059.001 | EDR | Process creation with command line arguments — endpoint level, may not generate network traffic |
+| Pass the Hash | T1550.002 | SIEM | Authentication event anomaly — same account, no password, multiple machines |
+| Process injection | T1055 | EDR | Memory-level activity inside a process — invisible to network logs |
+| Lateral movement via SMB | T1021.002 | SIEM | Network authentication across machines — pattern only visible at infrastructure level |
+| Registry run key persistence | T1547.001 | EDR | Registry write event on the endpoint — SIEM won't see this unless registry telemetry is specifically forwarded |
+ 
+---
+
