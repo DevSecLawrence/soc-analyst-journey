@@ -54,3 +54,16 @@ A real attack almost always touches both layers. The initial compromise might be
  
 ---
 
+## In What Scenarios Would You Use Each as Primary?
+ 
+**Use EDR as primary when:**
+- Investigating a suspected malware infection on a specific machine
+- Hunting for fileless or memory-based attacks
+- Responding to an endpoint alert and tracing the full execution chain
+- Looking for persistence mechanisms on a compromised host
+**Use SIEM as primary when:**
+- Investigating suspicious authentication patterns across multiple systems
+- Hunting for lateral movement
+- Correlating events across different data sources (network, auth, endpoint)
+- Looking for C2 communication patterns in network logs
+- Investigating an alert that spans more than one machine
