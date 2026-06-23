@@ -38,3 +38,19 @@ Sends alerts and telemetry to a SIEM via API or syslog. In practice this means y
  
 ---
 
+### Microsoft Defender for Endpoint (MDE)
+ 
+**What telemetry it collects:**
+Process execution, file changes, registry changes, network connections, user activity, and behavioural signals from Office applications (so it can catch things like Word spawning PowerShell).
+ 
+**How detection works:**
+Behaviour-based detection using Microsoft's threat intelligence from billions of endpoints globally. It also has an "attack surface reduction" layer that blocks known dangerous behaviours before they even get flagged as alerts.
+ 
+**Response actions available:**
+Device isolation, file quarantine, run antivirus scan, restrict app execution, live response (basically a remote terminal to the machine).
+ 
+**SIEM integration:**
+Native integration with Microsoft Sentinel. Can also stream to third-party SIEMs. Since Microsoft owns both the EDR and the SIEM in this case, the integration is tighter than most.
+ 
+---
+
