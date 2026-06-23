@@ -32,3 +32,13 @@ Neither sees everything. Together they cover most of what matters.
 - **Cross-system correlation** — a user running whoami on Machine A, then accessing a file share on Machine B, then creating a new account on Machine C. Each event looks minor in isolation. SIEM correlates them into a full picture.
 ---
 
+## How They Complement Each Other
+ 
+The way I think about it: EDR is the microscope, SIEM is the map.
+ 
+EDR zooms in on one endpoint and shows you everything happening at a granular level — process by process, memory region by memory region. SIEM zooms out and shows you the entire environment — how events across dozens of machines relate to each other.
+ 
+A real attack almost always touches both layers. The initial compromise might be endpoint-level (malware executing on one machine, caught by EDR). The subsequent lateral movement is network-level (authentication events across machines, caught by SIEM). You need both to see the full attack.
+ 
+---
+
