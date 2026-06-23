@@ -20,3 +20,21 @@ The way I think about it now: antivirus is like a bouncer checking IDs at the do
  
 ---
 
+## The 3 Platforms
+ 
+### CrowdStrike Falcon
+ 
+**What telemetry it collects:**
+Process creation and execution, parent-child process relationships, network connections, file system changes, registry modifications, user logon events, and memory activity.
+ 
+**How detection works:**
+Three layers — signature matching for known malware, behavioural analysis that looks at what a process is doing rather than what it is, and machine learning that flags things that don't match normal patterns even if they don't match any known attack either.
+ 
+**Response actions available:**
+Network isolation (cut the machine off from everything else while keeping it manageable), process kill, file quarantine, and remote shell access for investigation.
+ 
+**SIEM integration:**
+Sends alerts and telemetry to a SIEM via API or syslog. In practice this means your CrowdStrike alerts end up in Splunk or Elastic alongside your network and authentication logs so you can correlate across everything.
+ 
+---
+
