@@ -54,3 +54,19 @@ Native integration with Microsoft Sentinel. Can also stream to third-party SIEMs
  
 ---
 
+### Carbon Black (VMware)
+ 
+**What telemetry it collects:**
+Continuous recording of process activity — every process that runs, every file it touches, every network connection it makes. Unlike the others it keeps a full historical record rather than just alerting on suspicious events.
+ 
+**How detection works:**
+The continuous recording means you can go back in time and replay exactly what happened before and after an alert. Detection is behaviour-based but the differentiator is the retrospective investigation capability.
+ 
+**Response actions available:**
+Process ban (block a specific hash from ever running again), live response, network isolation.
+ 
+**SIEM integration:**
+API-based integration with major SIEMs. The continuous recording data can be queried directly or forwarded.
+ 
+---
+
