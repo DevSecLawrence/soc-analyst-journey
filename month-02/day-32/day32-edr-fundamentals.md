@@ -84,3 +84,12 @@ You need both. That's the actual answer.
  
 ---
 
+## Assumption I Made
+ 
+I assumed that because EDR watches the endpoint more closely than SIEM, it must be more powerful overall. That's wrong. More powerful for endpoint-level threats, yes. But SIEM has breadth that EDR doesn't — it can correlate events across your entire infrastructure simultaneously. A SOC that only has EDR is blind to network-level attacks. A SOC that only has SIEM is blind to fileless malware and memory-based attacks. Neither is complete alone.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I still don't fully understand how EDR handles encrypted or fileless malware. If malware runs entirely in memory and never writes to disk, YARA rules won't catch it (no file to scan) and signature-based detection won't catch it. EDR vendors claim they can catch this through behavioural analysis — but I don't understand exactly what behavioural signals they're looking at when there's no file to examine. That's something I need to go deeper on.
