@@ -18,3 +18,13 @@
  
 ---
 
+## What Stands Out About Each
+ 
+**CrowdStrike** — the market leader for a reason. The machine learning is trained on data from a huge number of endpoints globally which means it's seen more attack patterns than any other platform. The "threat graph" (how it visualises process relationships) is genuinely useful for investigation — you can see the full chain of what spawned what at a glance.
+ 
+**Microsoft Defender for Endpoint** — if your organisation runs on Microsoft everything, this makes the most sense. It integrates with Azure AD, Microsoft Sentinel, and Microsoft 365 natively. The attack surface reduction rules are genuinely useful for hardening. And since most enterprise environments are Microsoft-heavy, this is the one a junior SOC analyst is most likely to encounter in a real job.
+ 
+**Carbon Black** — the continuous recording is the differentiator. Most EDRs tell you what happened when they detected something. Carbon Black tells you everything that happened before and after. For incident response and forensics this is extremely powerful. The tradeoff is storage and cost.
+ 
+---
+
