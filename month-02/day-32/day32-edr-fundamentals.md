@@ -70,3 +70,17 @@ API-based integration with major SIEMs. The continuous recording data can be que
  
 ---
 
+## What I Concluded
+ 
+EDR and SIEM are not the same thing and one doesn't replace the other. I went into this thinking EDR was just a more advanced version of what a SIEM does. It's not — they see completely different things.
+ 
+EDR lives on the endpoint. It watches what processes do, how they behave, what they touch in memory and on disk. It sees things that never generate a network log — a process injecting into another process, a registry key being written silently, a file being dropped and immediately executed.
+ 
+SIEM lives on the network and across infrastructure. It sees authentication events, network flows, VPN connections, firewall logs. It correlates across many machines simultaneously.
+ 
+A piece of malware running on one endpoint might not generate any network traffic at all. SIEM misses it completely. EDR catches it. A pass-the-hash attack moving between machines laterally might not touch the endpoint in a way EDR would flag — but the authentication logs in the SIEM show an account being used in two places simultaneously with no password prompt. EDR misses it. SIEM catches it.
+ 
+You need both. That's the actual answer.
+ 
+---
+
