@@ -23,3 +23,12 @@ Neither sees everything. Together they cover most of what matters.
 - **Registry persistence** — a malicious value written to a registry run key. SIEM doesn't see registry changes unless you've specifically forwarded that telemetry.
 ---
 
+## What SIEM Catches That EDR Misses
+ 
+- **Lateral movement between machines** — an attacker moving from one machine to another shows up as authentication events across multiple systems. EDR on each individual machine only sees its own activity, not the pattern across machines.
+- **Pass the Hash / Pass the Ticket** — credential-based attacks that use valid authentication tokens. The endpoint looks normal. The SIEM sees the same account authenticating in two places simultaneously with no password prompt.
+- **Network-level C2 traffic** — command and control communication over the network shows up in firewall and proxy logs. If the malware is careful about how it behaves on the endpoint, EDR may not flag it — but the network traffic is visible in SIEM.
+- **VPN anomalies** — impossible travel (someone logging in from Nigeria and the UK within 30 minutes). Pure network/authentication data, nothing to do with endpoint behaviour.
+- **Cross-system correlation** — a user running whoami on Machine A, then accessing a file share on Machine B, then creating a new account on Machine C. Each event looks minor in isolation. SIEM correlates them into a full picture.
+---
+
