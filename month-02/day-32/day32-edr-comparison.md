@@ -28,3 +28,6 @@
  
 ---
 
+## Which One Will I See in a Junior SOC Role?
+ 
+Realistically — Microsoft Defender for Endpoint is the most common in mid-size enterprises. CrowdStrike is dominant in larger organisations and tech companies. Carbon Black shows up in organisations with mature security programs that prioritise forensics. As a junior analyst, MDE is probably the most important to get comfortable with first.
