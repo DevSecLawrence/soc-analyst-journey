@@ -31,3 +31,22 @@ I chose SOC246 - Forced Authentication Detected to investigate first because "We
  
 ---
 
+## What I Concluded
+ 
+The biggest thing today wasn't the investigation itself — it was the access issue with MDE. That's a real-world problem. Tools that look freely accessible turn out to require enterprise infrastructure, organisational accounts, or paid licenses that aren't realistic for a student in Nigeria to get through the normal route.
+ 
+What I learned from that: in a real SOC job, the tool is provided. You just need to understand the investigation methodology well enough to apply it in whatever tool the organisation uses. LetsDefend uses a different interface than MDE but the questions I asked — what triggered this, where did it come from, what was the target, what action was taken, is this a true positive — are exactly the same questions I'd ask in MDE, Splunk, or any other platform.
+ 
+The interface is a tool. The methodology is the skill.
+ 
+---
+ 
+## Assumption I Made
+ 
+I assumed the MDE Developer Program sandbox would work for anyone. It doesn't — Microsoft added restrictions at some point and accounts without an active development footprint get blocked. I wasted about 30 minutes on this before pivoting. Next time I hit an access wall I'll give it one serious attempt and move on faster rather than trying the same approach multiple ways.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I still haven't done hands-on work in an actual EDR console with real telemetry — process trees, memory events, file system monitoring. LetsDefend gives me alert triage experience but the deep endpoint forensics side of EDR is something I haven't touched yet. I need to find a way to get real EDR hands-on time. Either through a university resource, a CTF that uses EDR telemetry, or eventually through a job. This is a gap that research and browser-based labs can only partially close.
