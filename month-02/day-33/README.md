@@ -6,5 +6,5 @@ The interface changed. The questions didn't.
 
 ## Files
 - [day33-edr-alert-investigation.md](./day33-edr-alert-investigation.md) — main write-up, what happened, what I concluded
-- [day33-alert-investigations/](./day33-alert-investigations/)
-  - [SOC246-forced-authentication.md](./day33-alert-investigations/SOC246-forced-authentication.md) — full investigation: forced authentication / credential stuffing alert
+- [day33-alert-investigations/](./alert-investigations/)
+  - [SOC246-forced-authentication.md](./alert-investigations/SOC246-forced-authentication.md) — full investigation: forced authentication / credential stuffing alert
