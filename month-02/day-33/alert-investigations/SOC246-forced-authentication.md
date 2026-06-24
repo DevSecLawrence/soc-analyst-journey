@@ -81,3 +81,25 @@ I'd classify this as a **True Positive** pending further investigation.
 6. Check if this IP has hit any other endpoints on the server — lateral recon after finding an open login page is common
 ---
 
+## What I Concluded
+ 
+Forced authentication / credential stuffing alerts are some of the most common things a SOC analyst sees. They're also some of the most important to catch early because a single successful login can be the start of a much larger incident. The fact that the device action was "Permitted" means this one needed urgent action — the attack was live.
+ 
+The response priority here is: block the IP first, then check if any login succeeded, then investigate downstream from there. Order matters — blocking the IP while checking logs in parallel stops the bleeding while you figure out the damage.
+ 
+---
+ 
+## What Confused Me
+ 
+The alert says "Forced Authentication" but this looks more like credential stuffing or brute force to me. I looked up the difference: forced authentication is specifically about tricking a system or user into authenticating against an attacker-controlled resource (like an SMB relay attack). What this alert describes — repeated POST requests to a login endpoint — is more accurately credential stuffing or HTTP brute force.
+ 
+Either LetsDefend is using "Forced Authentication" loosely to mean any repeated authentication attempt, or there's something in the full alert details (beyond what's visible in this view) that justifies that specific category. I'd want to see the full packet data before being certain about the classification.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't know if any login attempts succeeded. The alert shows that traffic was permitted but doesn't show authentication outcomes. In a real SOC I'd correlate this alert with the web server's authentication logs to see if any of those POST requests returned a 200 OK with a session token — that would indicate a successful login and change this from "active brute force" to "confirmed account compromise."
+ 
+That correlation step — connecting an EDR/SIEM alert to a separate log source — is something I understand conceptually but haven't done in a live environment yet.
+ 
