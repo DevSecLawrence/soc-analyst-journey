@@ -60,3 +60,24 @@ This is the critical detail. The traffic wasn't blocked. That means either:
 - There is no automated blocking in place
 A "Permitted" status on a brute force alert means the attack was ongoing and potentially still running when this alert fired. This isn't a historical event — it's active.
 
+**Step 4 — Determine true positive or false positive**
+ 
+Is this a real attack or a misconfiguration / pen test?
+ 
+Arguments for true positive:
+- External IP hitting a login endpoint repeatedly
+- POST method to /accounts/login specifically — not random crawling
+- Alert trigger reason explicitly says "multiple POST requests from the same IP"
+- Traffic was permitted — no internal blocking suggests this wasn't an authorised test
+I'd classify this as a **True Positive** pending further investigation.
+ 
+**Step 5 — What I'd do next**
+ 
+1. Block the source IP `120.48.36.175` at the firewall level immediately
+2. Check authentication logs for the login endpoint — did any of the attempts succeed? If yes, which account and when?
+3. If any attempt succeeded — lock that account, force password reset, investigate what the account accessed after login
+4. Check for other IPs hitting the same endpoint in the same timeframe — brute force campaigns often use multiple IPs simultaneously
+5. Recommend rate limiting and account lockout policies to the web server team if they're not already in place
+6. Check if this IP has hit any other endpoints on the server — lateral recon after finding an open login page is common
+---
+
