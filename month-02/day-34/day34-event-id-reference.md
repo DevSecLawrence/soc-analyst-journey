@@ -57,3 +57,38 @@ Word spawning cmd spawning PowerShell with encoded command = almost certainly ma
  
 ---
 
+## Event ID 11 — File Created
+ 
+**What it logs:** Every file written to disk. Includes the process that created it and the full path.
+ 
+**What makes it powerful:** Catches malware dropping files — payloads, scripts, additional tools — at the moment they land on disk.
+ 
+**Key detection use cases:**
+- Executables created in Temp, AppData, or user-writable directories
+- Files created by browser or email processes (phishing delivery)
+- Script files (.ps1, .bat, .vbs) created in unusual locations
+- Files with randomised names (common in malware)
+**Example suspicious pattern:**
+```
+Image: C:\Program Files\Google\Chrome\Application\chrome.exe
+TargetFilename: C:\Users\labuser\AppData\Local\Temp\update.exe
+```
+Chrome dropping an executable into Temp = immediate investigation.
+ 
+---
+ 
+## Event ID 13 — Registry Value Set
+ 
+**What it logs:** Every registry value written. Includes the process that wrote it, the full registry key path, and the new value data.
+ 
+**What makes it powerful:** Catches persistence mechanisms at the moment they're established, not after the next reboot.
+ 
+**Key detection use cases:**
+- Writes to Run/RunOnce keys (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`)
+- Writes to services registry keys
+- Modifications to security policy keys
+- Any registry write by a process that has no reason to touch the registry
+**MITRE ATT&CK:** T1547.001 — Boot or Logon Autostart Execution: Registry Run Keys
+ 
+---
+
