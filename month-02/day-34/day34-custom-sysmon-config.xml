@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Custom Sysmon Configuration
+    Author: Lawrence (DevSecLawrence)
+    Date: 2026-06-25
+    Based on: SwiftOnSecurity sysmon-config + Olaf Hartong sysmon-modular
+    Status: UNTESTED - Windows VM lab pending rebuild
+    Focus: PowerShell execution, non-standard network connections, Temp directory activity, registry persistence
+-->
+
+<Sysmon schemaversion="4.90">
+
+  <!-- Capture SHA256 hashes for all events -->
+  <HashAlgorithms>SHA256</HashAlgorithms>
+
+  <!-- Check revocation on signed binaries -->
+  <CheckRevocation/>
+
+  <EventFiltering>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 1 — Process Creation                                     -->
+    <!-- Log everything EXCEPT known-good noise                            -->
+    <!-- ================================================================ -->
+    <RuleGroup name="ProcessCreation" groupRelation="or">
+      <ProcessCreate onmatch="exclude">
+
+        <!-- Exclude Windows Update -->
+        <Image condition="contains">TiWorker.exe</Image>
+        <Image condition="contains">WaaSMedicAgent.exe</Image>
+        <Image condition="contains">UsoClient.exe</Image>
+
+        <!-- Exclude Windows Defender -->
+        <Image condition="contains">MsMpEng.exe</Image>
+        <Image condition="contains">MpCmdRun.exe</Image>
+
+        <!-- Exclude common system noise -->
+        <Image condition="contains">svchost.exe</Image>
+        <CommandLine condition="contains">-k netsvcs</CommandLine>
+
+      </ProcessCreate>
+    </RuleGroup>
+
+    <!-- Always log PowerShell regardless of exclude rules above -->
+    <RuleGroup name="PowerShellExecution" groupRelation="or">
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">powershell.exe</Image>
+        <Image condition="end with">pwsh.exe</Image>
+        <!-- Catch encoded commands specifically -->
+        <CommandLine condition="contains">-enc</CommandLine>
+        <CommandLine condition="contains">-EncodedCommand</CommandLine>
+        <CommandLine condition="contains">IEX</CommandLine>
+        <CommandLine condition="contains">Invoke-Expression</CommandLine>
+        <CommandLine condition="contains">DownloadString</CommandLine>
+        <CommandLine condition="contains">FromBase64String</CommandLine>
+        <CommandLine condition="contains">bypass</CommandLine>
+        <CommandLine condition="contains">-nop</CommandLine>
+      </ProcessCreate>
+    </RuleGroup>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 3 — Network Connection                                   -->
+    <!-- Log connections to non-standard ports                             -->
+    <!-- Exclude common legitimate traffic                                 -->
+    <!-- ================================================================ -->
+    <RuleGroup name="NetworkConnections" groupRelation="or">
+      <NetworkConnect onmatch="exclude">
+
+        <!-- Exclude standard web traffic -->
+        <DestinationPort condition="is">80</DestinationPort>
+        <DestinationPort condition="is">443</DestinationPort>
+        <DestinationPort condition="is">8080</DestinationPort>
+        <DestinationPort condition="is">8443</DestinationPort>
+
+        <!-- Exclude DNS -->
+        <DestinationPort condition="is">53</DestinationPort>
+
+        <!-- Exclude NTP -->
+        <DestinationPort condition="is">123</DestinationPort>
+
+        <!-- Exclude browser processes making standard connections -->
+        <Image condition="end with">chrome.exe</Image>
+        <Image condition="end with">msedge.exe</Image>
+        <Image condition="end with">firefox.exe</Image>
+
+      </NetworkConnect>
+    </RuleGroup>
+
+    <!-- Always log PowerShell and cmd.exe making ANY network connection -->
+    <RuleGroup name="SuspiciousNetworkProcesses" groupRelation="or">
+      <NetworkConnect onmatch="include">
+        <Image condition="end with">powershell.exe</Image>
+        <Image condition="end with">cmd.exe</Image>
+        <Image condition="end with">wscript.exe</Image>
+        <Image condition="end with">cscript.exe</Image>
+        <Image condition="end with">mshta.exe</Image>
+        <Image condition="end with">rundll32.exe</Image>
+        <Image condition="end with">regsvr32.exe</Image>
+      </NetworkConnect>
+    </RuleGroup>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 11 — File Created                                        -->
+    <!-- Focus on Temp directories and executable drops                    -->
+    <!-- ================================================================ -->
+    <RuleGroup name="FileCreation" groupRelation="or">
+      <FileCreate onmatch="include">
+
+        <!-- Temp directories -->
+        <TargetFilename condition="contains">\Temp\</TargetFilename>
+        <TargetFilename condition="contains">\tmp\</TargetFilename>
+        <TargetFilename condition="contains">\AppData\Local\Temp\</TargetFilename>
+        <TargetFilename condition="contains">\AppData\Roaming\</TargetFilename>
+
+        <!-- Executable files created anywhere -->
+        <TargetFilename condition="end with">.exe</TargetFilename>
+        <TargetFilename condition="end with">.dll</TargetFilename>
+        <TargetFilename condition="end with">.bat</TargetFilename>
+        <TargetFilename condition="end with">.ps1</TargetFilename>
+        <TargetFilename condition="end with">.vbs</TargetFilename>
+        <TargetFilename condition="end with">.hta</TargetFilename>
+
+      </FileCreate>
+    </RuleGroup>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 13 — Registry Value Set                                  -->
+    <!-- Focus on persistence keys                                         -->
+    <!-- ================================================================ -->
+    <RuleGroup name="RegistryPersistence" groupRelation="or">
+      <RegistryEvent onmatch="include">
+
+        <!-- Run keys - most common persistence mechanism -->
+        <TargetObject condition="contains">CurrentVersion\Run</TargetObject>
+        <TargetObject condition="contains">CurrentVersion\RunOnce</TargetObject>
+        <TargetObject condition="contains">CurrentVersion\RunOnceEx</TargetObject>
+
+        <!-- Services registry -->
+        <TargetObject condition="contains">SYSTEM\CurrentControlSet\Services</TargetObject>
+
+        <!-- Security policy modifications -->
+        <TargetObject condition="contains">SOFTWARE\Policies\Microsoft\Windows\PowerShell</TargetObject>
+
+        <!-- UAC bypass targets -->
+        <TargetObject condition="contains">ms-settings\shell\open\command</TargetObject>
+        <TargetObject condition="contains">fodhelper</TargetObject>
+
+      </RegistryEvent>
+    </RuleGroup>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 10 — ProcessAccess                                       -->
+    <!-- Catch LSASS credential dumping                                    -->
+    <!-- ================================================================ -->
+    <RuleGroup name="LsaasAccess" groupRelation="or">
+      <ProcessAccess onmatch="include">
+        <TargetImage condition="end with">lsass.exe</TargetImage>
+      </ProcessAccess>
+    </RuleGroup>
+
+    <!-- ================================================================ -->
+    <!-- EVENT ID 22 — DNS Query                                           -->
+    <!-- Log all DNS queries for C2 detection                             -->
+    <!-- Exclude known-good domains                                        -->
+    <!-- ================================================================ -->
+    <RuleGroup name="DnsQueries" groupRelation="or">
+      <DnsQuery onmatch="exclude">
+        <QueryName condition="end with">microsoft.com</QueryName>
+        <QueryName condition="end with">windows.com</QueryName>
+        <QueryName condition="end with">windowsupdate.com</QueryName>
+        <QueryName condition="end with">google.com</QueryName>
+        <QueryName condition="end with">googleapis.com</QueryName>
+        <QueryName condition="end with">digicert.com</QueryName>
+      </DnsQuery>
+    </RuleGroup>
+
+  </EventFiltering>
+
+</Sysmon>
