@@ -92,3 +92,25 @@ Chrome dropping an executable into Temp = immediate investigation.
  
 ---
 
+## Other Event IDs Worth Knowing
+ 
+| Event ID | Name | What it catches |
+|----------|------|----------------|
+| 2 | File creation time changed | Timestomping — attackers changing file timestamps to hide activity |
+| 4 | Sysmon service state changed | Someone stopping/starting Sysmon — could indicate attacker trying to disable logging |
+| 5 | Process terminated | Tracks when processes end — useful for timeline reconstruction |
+| 8 | CreateRemoteThread | Thread injection — one process creating a thread in another, classic injection technique |
+| 10 | ProcessAccess | One process opening a handle to another — catches LSASS credential dumping |
+| 12 | Registry object added/deleted | Registry key creation/deletion — broader than Event ID 13 |
+| 15 | FileCreateStreamHash | Alternate data streams — hiding data or executables in NTFS streams |
+| 22 | DNS query | Every DNS lookup a process makes — catches C2 communication via domain names |
+ 
+**Event ID 10 is the one that would have caught the LSASS credential dump from Day 33** — one process opening LSASS with read access. That's exactly the telemetry that lets EDR platforms detect credential dumping before the credentials are even used.
+ 
+---
+ 
+## Event IDs I Don't Fully Understand Yet
+ 
+- **Event ID 6 (Driver Loaded)** — I know rootkits load malicious drivers but I don't have enough context yet to know what good vs bad driver loading looks like
+- **Event ID 17/18 (Pipe Created/Connected)** — Named pipes are used in lateral movement tools like PsExec and some C2 frameworks. I understand the concept but haven't seen it in a real investigation yet
+- **Event ID 25 (Process Tampering)** — Process hollowing and herpaderping. I know what these techniques are from reading about them but I haven't investigated one in practice
