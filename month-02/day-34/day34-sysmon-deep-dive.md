@@ -41,3 +41,36 @@ CommandLine: cmd.exe /c whoami
 ParentImage: C:\Users\Gabr\Downloads\[malicious file]
 User: DESKTOP-0V6VB41\Gabr
 ```
+### Event ID 3 — Network Connection
+Every outbound network connection an application makes. Logs the source process, source IP/port, destination IP/port, and whether it was initiated or received.
+ 
+**Why it matters:** Malware almost always needs to communicate — downloading a payload, sending stolen data, receiving commands from C2. Event ID 3 shows you what process made the connection, not just that a connection was made. A network firewall log shows you the traffic. Sysmon Event ID 3 shows you which process on which machine generated it.
+ 
+**Example from LetsDefend logs:**
+```
+EventID: 3
+Image: C:\Windows\System32\powershell.exe
+DestinationIp: [edit with actual IP from challenge]
+DestinationPort: 4422
+Initiated: true
+```
+ 
+### Event ID 7 — Image Loaded
+Every time a process loads a DLL or module. Logs the process that loaded it, the path of the DLL, and the hash.
+ 
+**Why it matters:** DLL injection and DLL hijacking both involve loading malicious code into a legitimate process. If malware injects into explorer.exe by loading a malicious DLL, Event ID 7 shows explorer.exe loading a DLL from an unusual path — a path that doesn't match where that DLL should live.
+ 
+This one generates a lot of noise because legitimate software loads hundreds of DLLs. Good Sysmon configs filter out known-good DLLs aggressively and only alert on ones loading from unusual locations.
+ 
+### Event ID 11 — File Created
+Every time a file is written to disk. Logs the process that created it and the target path.
+ 
+**Why it matters:** Malware dropping files — payloads, scripts, persistence files — all show up here. The most suspicious patterns are files being created in Temp directories, AppData, or other non-standard locations by processes that have no business writing files there. A browser dropping a .exe into Temp is not normal.
+ 
+### Event ID 13 — Registry Value Set
+Every time a registry value is written. Logs which process wrote it, which key and value was modified, and what the new data is.
+ 
+**Why it matters:** Registry run keys are one of the most common persistence mechanisms. `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` being written by anything other than a known installer should always be investigated. Event ID 13 catches this at the moment it happens, not after the machine reboots and the malware is already running.
+ 
+---
+
