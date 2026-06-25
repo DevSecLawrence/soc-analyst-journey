@@ -74,3 +74,22 @@ Every time a registry value is written. Logs which process wrote it, which key a
  
 ---
 
+## What I Concluded
+ 
+The gap between "Sysmon installed" and "Sysmon useful" is entirely configuration. SwiftOnSecurity's config is nearly 1,500 lines long. Every line is a decision about what to log and what to exclude. Too permissive and you're generating gigabytes of noise that drowns out real signals. Too restrictive and you're missing the attacks you care about.
+ 
+Reading through Olaf Hartong's sysmon-modular project showed me that serious detection engineers treat Sysmon config like code — versioned, tested, modular, with specific rules for specific threat scenarios. That's a completely different mindset from "install and forget."
+ 
+The other thing that clicked: Sysmon is the answer to the MDE access problem from Day 33. Can't afford CrowdStrike? Can't get MDE access? Sysmon gives you endpoint telemetry that's good enough to catch most of what commercial EDR catches, for free, if you configure it properly. That's a genuinely useful skill for smaller organisations that can't spend $20 per endpoint per month on commercial EDR.
+ 
+---
+ 
+## Assumption I Made
+ 
+I assumed the default Sysmon install was doing something useful. After reading SwiftOnSecurity's config I realised the default logs almost nothing. The config is the entire value. Installing Sysmon without a proper config is like buying a CCTV system and pointing all the cameras at the ceiling — technically installed, functionally useless.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I wrote a custom config today but I haven't tested it. I don't know if my filtering logic is correct — specifically whether my exclusion rules are too broad (accidentally excluding malicious activity that looks like known-good noise) or too narrow (still logging too much noise). The only way to know is to deploy it in a real lab, generate known attack activity, and verify that the config catches what it should and ignores what it should. That testing has to wait until the Windows VM is rebuilt.
