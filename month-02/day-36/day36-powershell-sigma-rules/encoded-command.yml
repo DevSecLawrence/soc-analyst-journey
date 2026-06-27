@@ -1,0 +1,32 @@
+title: Suspicious PowerShell Encoded Command
+id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+status: experimental
+description: Detects PowerShell execution with encoded command flag — commonly used to obfuscate malicious scripts
+author: Lawrence (DevSecLawrence)
+date: 2026-06-27
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        CommandLine|contains:
+            - ' -enc '
+            - ' -EncodedCommand '
+            - ' -ec '
+    condition: selection
+falsepositives:
+    - Legitimate admin scripts using encoded commands to handle special characters
+    - Software deployment tools (SCCM, Ansible) using encoded PowerShell
+    - Development tools with complex parameter passing
+level: medium
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.defense_evasion
+    - attack.t1027
+    
