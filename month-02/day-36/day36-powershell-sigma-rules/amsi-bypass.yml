@@ -1,0 +1,29 @@
+title: PowerShell AMSI Bypass Attempt
+id: c3d4e5f6-a7b8-9012-cdef-123456789012
+status: experimental
+description: Detects PowerShell attempts to disable AMSI (Antimalware Scan Interface) via amsiInitFailed or related methods
+author: Lawrence (DevSecLawrence)
+date: 2026-06-27
+references:
+    - https://attack.mitre.org/techniques/T1562/001/
+logsource:
+    category: ps_script
+    product: windows
+    definition: Script block logging must be enabled (Event ID 4104)
+detection:
+    selection:
+        ScriptBlockText|contains:
+            - 'amsiInitFailed'
+            - 'AmsiUtils'
+            - 'amsiContext'
+            - '[Runtime.InteropServices.Marshal]'
+            - 'GetField'
+    condition: selection
+falsepositives:
+    - Security research in isolated environments
+    - Legitimate security tools that test AMSI functionality
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1562.001
+    
