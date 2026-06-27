@@ -1,0 +1,38 @@
+title: PowerShell Spawning Suspicious LOLBin
+id: e5f6a7b8-c9d0-1234-efab-345678901234
+status: experimental
+description: Detects PowerShell spawning known LOLBins commonly abused for payload delivery or execution
+author: Lawrence (DevSecLawrence)
+date: 2026-06-27
+references:
+    - https://attack.mitre.org/techniques/T1218/
+    - https://lolbas-project.github.io/
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_parent:
+        ParentImage|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    selection_child:
+        Image|endswith:
+            - '\certutil.exe'
+            - '\mshta.exe'
+            - '\regsvr32.exe'
+            - '\rundll32.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\bitsadmin.exe'
+    condition: selection_parent and selection_child
+falsepositives:
+    - Legitimate admin scripts that call these binaries for valid purposes
+    - Software installation scripts using certutil for certificate operations
+    - Development environments
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1218
+    - attack.execution
+    - attack.t1059.001
+
