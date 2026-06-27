@@ -1,0 +1,38 @@
+title: PowerShell IEX Download Cradle
+id: b2c3d4e5-f6a7-8901-bcde-f12345678901
+status: experimental
+description: Detects PowerShell using IEX or Invoke-Expression with WebClient to download and execute code in memory
+author: Lawrence (DevSecLawrence)
+date: 2026-06-27
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+    - https://attack.mitre.org/techniques/T1105/
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_process:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    selection_commandline:
+        CommandLine|contains:
+            - 'IEX'
+            - 'Invoke-Expression'
+            - 'DownloadString'
+            - 'DownloadData'
+            - 'WebClient'
+            - 'Net.WebClient'
+    condition: selection_process and selection_commandline
+falsepositives:
+    - Legitimate software installers using PowerShell download mechanisms
+    - Package managers (Chocolatey, Scoop) during installation
+    - Development and CI/CD pipelines
+level: high
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.command_and_control
+    - attack.t1105
+    - attack.defense_evasion
+    - attack.t1027
