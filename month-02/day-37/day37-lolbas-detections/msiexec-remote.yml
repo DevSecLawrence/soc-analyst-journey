@@ -20,4 +20,13 @@ detection:
         Image|endswith: '\wmic.exe'
         CommandLine|contains: '/node:'
     condition: selection_create or selection_remote
-
+falsepositives:
+    - Legitimate IT admin scripts using wmic for remote management
+    - Software deployment tools using wmic for process management
+    - Monitoring agents that query wmic
+level: medium
+tags:
+    - attack.execution
+    - attack.t1047
+    - attack.lateral_movement
+    
