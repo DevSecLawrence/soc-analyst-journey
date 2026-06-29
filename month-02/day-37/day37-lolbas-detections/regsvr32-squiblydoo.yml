@@ -1,0 +1,9 @@
+itle: Regsvr32 Squiblydoo — Remote Scriptlet Execution
+id: b3c4d5e6-f7a8-9012-cdef-123456789013
+status: experimental
+description: Detects regsvr32.exe loading a scriptlet from a remote URL — the Squiblydoo technique for bypassing application whitelisting
+author: Lawrence (DevSecLawrence)
+date: 2026-06-28
+references:
+    - https://attack.mitre.org/techniques/T1218/010/
+    - https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/
