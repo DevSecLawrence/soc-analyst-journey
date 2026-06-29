@@ -1,32 +1,34 @@
-title: WMIC Remote Process Creation
-id: c4d5e6f7-a8b9-0123-defa-234567890124
+title: Msiexec Remote Package Installation or DLL Execution
+id: d5e6f7a8-b9c0-1234-efab-345678901235
 status: experimental
-description: Detects wmic.exe being used to create processes locally or on remote systems — common for lateral movement and parent process obfuscation
+description: Detects msiexec.exe installing packages from remote URLs or executing DLLs via /y or /z flags
 author: Lawrence (DevSecLawrence)
 date: 2026-06-28
 references:
-    - https://attack.mitre.org/techniques/T1047/
-    - https://lolbas-project.github.io/lolbas/Binaries/Wmic/
+    - https://attack.mitre.org/techniques/T1218/007/
+    - https://lolbas-project.github.io/lolbas/Binaries/Msiexec/
 logsource:
     category: process_creation
     product: windows
 detection:
-    selection_create:
-        Image|endswith: '\wmic.exe'
-        CommandLine|contains: 'process'
-        CommandLine|contains: 'call'
-        CommandLine|contains: 'create'
-    selection_remote:
-        Image|endswith: '\wmic.exe'
-        CommandLine|contains: '/node:'
-    condition: selection_create or selection_remote
+    selection_url:
+        Image|endswith: '\msiexec.exe'
+        CommandLine|contains:
+            - 'http://'
+            - 'https://'
+            - 'ftp://'
+    selection_dll:
+        Image|endswith: '\msiexec.exe'
+        CommandLine|contains:
+            - ' /y '
+            - ' /z '
+    condition: selection_url or selection_dll
 falsepositives:
-    - Legitimate IT admin scripts using wmic for remote management
-    - Software deployment tools using wmic for process management
-    - Monitoring agents that query wmic
+    - Software deployments installing packages from internal HTTP distribution points
+    - SCCM or Intune software deployment
+    - Legitimate software using msiexec with internal URLs
 level: medium
 tags:
+    - attack.defense_evasion
+    - attack.t1218.007
     - attack.execution
-    - attack.t1047
-    - attack.lateral_movement
-    
