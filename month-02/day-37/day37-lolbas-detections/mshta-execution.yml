@@ -1,0 +1,19 @@
+title: Mshta Executing Remote Script or Inline Code
+id: a2b3c4d5-e6f7-8901-bcde-f12345678902
+status: experimental
+description: Detects mshta.exe executing code from a URL or inline script — used for proxy execution and bypass of application whitelisting
+author: Lawrence (DevSecLawrence)
+date: 2026-06-28
+references:
+    - https://attack.mitre.org/techniques/T1218/005/
+    - https://lolbas-project.github.io/lolbas/Binaries/Mshta/
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_url:
+        Image|endswith: '\mshta.exe'
+        CommandLine|contains:
+            - 'http://'
+            - 'https://'
+            - 'ftp://'
