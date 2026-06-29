@@ -224,3 +224,17 @@ odbcconf.exe /A {REGSVR malicious.dll}
  
 ---
 
+## Summary Table
+ 
+| Binary | Abuse type | Key suspicious argument | MITRE ID |
+|--------|-----------|------------------------|----------|
+| certutil.exe | Download | `-urlcache -f [URL]` | T1105 |
+| mshta.exe | Execution | `http://` or `vbscript:` argument | T1218.005 |
+| regsvr32.exe | Execution | `/i:[URL]` with scrobj.dll | T1218.010 |
+| wmic.exe | Execution / Lateral | `process call create` with payload | T1047 |
+| msiexec.exe | Download / Execution | `/i [URL]` or `/y [DLL]` | T1218.007 |
+| rundll32.exe | Execution | `javascript:` or URL arguments | T1218.011 |
+| bitsadmin.exe | Download | `/transfer [URL]` | T1197 |
+| cmstp.exe | Execution / UAC bypass | `.inf` from unusual path | T1218.003 |
+| wscript.exe | Execution | Script from Temp/Downloads | T1059.005 |
+| odbcconf.exe | Execution | `/A {REGSVR [DLL]}` | T1218.008 |
