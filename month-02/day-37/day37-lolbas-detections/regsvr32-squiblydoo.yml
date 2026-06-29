@@ -7,3 +7,28 @@ date: 2026-06-28
 references:
     - https://attack.mitre.org/techniques/T1218/010/
     - https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\regsvr32.exe'
+        CommandLine|contains:
+            - '/i:'
+        CommandLine|contains:
+            - 'http://'
+            - 'https://'
+            - 'ftp://'
+    selection_scrobj:
+        Image|endswith: '\regsvr32.exe'
+        CommandLine|contains: 'scrobj.dll'
+    condition: selection or selection_scrobj
+falsepositives:
+    - Software installations using regsvr32 with internal network paths
+    - IT scripts registering DLLs from network shares
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1218.010
+    - attack.execution
+ 
