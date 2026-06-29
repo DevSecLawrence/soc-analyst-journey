@@ -17,3 +17,18 @@ detection:
             - 'http://'
             - 'https://'
             - 'ftp://'
+    selection_inline:
+        Image|endswith: '\mshta.exe'
+        CommandLine|contains:
+            - 'vbscript:'
+            - 'javascript:'
+    condition: selection_url or selection_inline
+falsepositives:
+    - Legacy enterprise applications using .hta files from internal servers
+    - Known internal HTA-based admin tools
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1218.005
+    - attack.execution
+ 
