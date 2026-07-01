@@ -1,0 +1,20 @@
+title: Suspicious Service Creation
+id: 1d1f3e95-8c9d-4d1c-9b4d-38a1a0a00003
+status: experimental
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith:
+      - '\\sc.exe'
+    CommandLine|contains:
+      - ' create '
+  condition: selection
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+falsepositives:
+  - Legitimate service installation and endpoint tooling
+level: high

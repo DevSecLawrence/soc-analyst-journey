@@ -1,0 +1,18 @@
+title: Suspicious Startup Folder Shortcut
+id: 1d1f3e95-8c9d-4d1c-9b4d-38a1a0a00005
+status: experimental
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    TargetFilename|contains:
+      - '\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\'
+  condition: selection
+fields:
+  - Image
+  - TargetFilename
+  - User
+falsepositives:
+  - Legitimate startup shortcuts created by software installers
+level: medium

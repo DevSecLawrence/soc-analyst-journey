@@ -1,0 +1,20 @@
+title: WMI Event Subscription Persistence
+id: 1d1f3e95-8c9d-4d1c-9b4d-38a1a0a00004
+status: experimental
+logsource:
+  product: windows
+  category: wmi_event
+detection:
+  selection:
+    EventType:
+      - Create
+      - Modify
+    Namespace|contains: 'root\\subscription'
+  condition: selection
+fields:
+  - EventType
+  - Namespace
+  - User
+falsepositives:
+  - Rare, but some admin tooling may use WMI
+level: high

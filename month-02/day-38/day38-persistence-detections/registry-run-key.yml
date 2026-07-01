@@ -1,0 +1,19 @@
+title: Suspicious Registry Run Key Persistence
+id: 1d1f3e95-8c9d-4d1c-9b4d-38a1a0a00001
+status: experimental
+logsource:
+  product: windows
+  category: registry_event
+detection:
+  selection:
+    TargetObject|contains:
+      - '\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'
+      - '\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce'
+  condition: selection
+fields:
+  - Image
+  - TargetObject
+  - Details
+falsepositives:
+  - Legitimate software installers and updaters
+level: medium
