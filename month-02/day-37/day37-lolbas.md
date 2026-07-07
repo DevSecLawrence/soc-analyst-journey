@@ -30,6 +30,10 @@ That's a harder detection problem than "block bad file hash" — and it's why LO
 
 The other thing that hit me: LOLBAS detection is exactly what the Sigma rules and process tree analysis from Days 35 and 36 were building toward. The parent process context, the command line arguments, the network connections from unexpected processes — all of that becomes the detection layer when the binary itself looks clean.
 
+## Screenshot Evidence
+
+![LOLBAS project homepage used as the source for binary abuse research and ATT&CK mappings](./screenshots/Screenshot%202026-06-29%20212851.png)
+
 ---
 
 ## Assumption I Made
