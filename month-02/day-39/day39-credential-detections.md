@@ -127,3 +127,40 @@ level: medium
  
 **Technique:** T1555.003 — Credentials from Web Browsers
 **Log source:** Sysmon Event ID 11
+```yaml
+title: Suspicious Access to Browser Credential Store
+id: d39-004
+status: experimental
+description: Detects unexpected processes accessing browser saved password databases
+references:
+    - https://attack.mitre.org/techniques/T1555/003/
+author: Lawrence
+date: 2026-07-07
+tags:
+    - attack.credential_access
+    - attack.t1555.003
+logsource:
+    product: windows
+    category: file_event
+detection:
+    selection:
+        TargetFilename|contains:
+            - '\Google\Chrome\User Data\Default\Login Data'
+            - '\Microsoft\Edge\User Data\Default\Login Data'
+            - '\Mozilla\Firefox\Profiles\'
+        TargetFilename|endswith:
+            - 'Login Data'
+            - 'logins.json'
+    filter_legitimate:
+        Image|contains:
+            - '\chrome.exe'
+            - '\msedge.exe'
+            - '\firefox.exe'
+    condition: selection and not filter_legitimate
+falsepositives:
+    - Backup software accessing browser profiles
+    - Password manager extensions accessing credential stores
+level: high
+```
+ 
+---
