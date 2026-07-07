@@ -106,3 +106,40 @@ This is effective because service accounts often have weak passwords, don't expi
 - Monitor for unusual Kerberos ticket requests in volume or targeting
 ---
 
+## Technique 5 — Browser Credential Theft
+ 
+**MITRE:** T1555.003
+ 
+**How it works:**
+Modern browsers (Chrome, Edge, Firefox) save passwords locally — and they're encrypted using Windows DPAPI (Data Protection API), which ties the encryption to the current user's account. Any process running as that user can decrypt them.
+ 
+Chrome stores passwords in:
+```
+%LOCALAPPDATA%\Google\Chrome\User Data\Default\Login Data
+```
+ 
+This is an SQLite database. While Chrome is closed, any process can read and decrypt it using the user's DPAPI key. Tools like `LaZagne` automate this across multiple browsers simultaneously.
+ 
+**What telemetry reveals it:**
+- **Sysmon Event ID 1** — Unexpected process accessing Chrome's `Login Data` file
+- **Sysmon Event ID 11** — File creation in browser profile directories (attacker copying the database)
+- DPAPI decryption calls from unexpected processes (visible in some EDR telemetry)
+**Protections:**
+- Don't save passwords in browsers for privileged accounts — use a password manager
+- EDR behavioral detection for unexpected DPAPI access
+- Monitor for SQLite access to browser profile directories from non-browser processes
+---
+ 
+## Event IDs Summary
+ 
+| Event ID | Source | What it catches |
+|----------|--------|-----------------|
+| Sysmon 10 | Sysmon | LSASS process access |
+| Sysmon 1 | Sysmon | Suspicious process execution (mimikatz, vssadmin, cmdkey) |
+| 4624 | Windows Security | Successful logon |
+| 4625 | Windows Security | Failed logon |
+| 4768 | Windows Security | Kerberos TGT requested |
+| 4769 | Windows Security | Kerberos service ticket requested — key for Kerberoasting |
+| 4771 | Windows Security | Kerberos pre-auth failed |
+| 4104 | PowerShell | Script block logging — catches PowerShell credential access |
+| 8222 | VSS | Shadow copy created |
