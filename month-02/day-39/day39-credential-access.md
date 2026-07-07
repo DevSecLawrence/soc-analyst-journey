@@ -20,6 +20,18 @@ That's the scary part. Once credentials are stolen, the attacker looks legitimat
 This is why credential protection (Credential Guard, PPL, LAPS, strong passwords on service accounts) is just as important as detection. Detection catches the theft attempt. Protection stops it from succeeding even if the attempt happens.
  
 The other thing that hit me: browser credential theft is massively underestimated. People save their work passwords in Chrome without thinking twice. Chrome encrypts those passwords with DPAPI — which means any process running as that user can decrypt them. No privilege escalation required. If a user opens a malicious email attachment and the malware runs as their user account, it can vacuum up every saved browser password in seconds.
+
+## Screenshot Evidence
+
+![MITRE ATT&CK T1003.001 page for LSASS Memory credential dumping](./screenshots/Screenshot%202026-07-07%20234159.png)
+
+![MITRE ATT&CK T1003.002 page for SAM credential dumping](./screenshots/Screenshot%202026-07-07%20234252.png)
+
+![ADSecurity reference page for Mimikatz and Active Directory Kerberos attacks](./screenshots/Screenshot%202026-07-07%20234314.png)
+
+![Microsoft Learn Credential Guard overview used for protection controls](./screenshots/Screenshot%202026-07-07%20234344.png)
+
+![Microsoft Learn Configure added LSA protection page used for LSASS hardening guidance](./screenshots/Screenshot%202026-07-07%20234404.png)
  
 ---
 
