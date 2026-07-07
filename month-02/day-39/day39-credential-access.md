@@ -23,3 +23,12 @@ The other thing that hit me: browser credential theft is massively underestimate
  
 ---
 
+## Assumption I Made
+ 
+I assumed Kerberoasting required special tools or elevated privileges. It doesn't — any authenticated domain user can request service tickets for any SPN in the domain. That's by design. The protocol was built that way. Kerberoasting abuses a legitimate feature, not a vulnerability. That makes it harder to prevent at the protocol level and harder to detect because the ticket requests themselves look completely normal — it's only the volume, the timing, and the encryption type that give it away.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't fully understand how to detect Kerberoasting without access to domain controller logs. Event ID 4769 only fires on the domain controller, not on the machine running the attack. In an environment where I'm a tier 1 analyst without DC log access, I might never see the Kerberoasting attempt in my SIEM. I need to understand what the SOC visibility model looks like for DC logs — who has access, how they're forwarded, and what the latency is — before I can say I can actually detect Kerberoasting in practice.
