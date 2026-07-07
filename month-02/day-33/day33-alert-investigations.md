@@ -31,6 +31,24 @@ I chose SOC246 - Forced Authentication Detected to investigate first because "We
  
 ---
 
+## Screenshot Evidence
+
+### MDE access and sandbox blockers
+
+![MDE sign-in error showing AADSTS500200 personal account restriction](./screenshots/Screenshot%202026-06-24%20154235.png)
+
+![Microsoft Defender for Endpoint page request not found during access attempt](./screenshots/Screenshot%202026-06-24%20154317.png)
+
+![Microsoft 365 Developer Program profile flow used as a workaround attempt](./screenshots/Screenshot%202026-06-24%20161215.png)
+
+![Microsoft 365 Developer Program dashboard showing sandbox subscription not granted](./screenshots/Screenshot%202026-06-24%20214449.png)
+
+### LetsDefend alert queue and selected investigation
+
+![LetsDefend Monitoring alert queue with SOC246 Forced Authentication details expanded](./screenshots/Screenshot%202026-06-24%20221834.png)
+
+---
+
 ## What I Concluded
  
 The biggest thing today wasn't the investigation itself — it was the access issue with MDE. That's a real-world problem. Tools that look freely accessible turn out to require enterprise infrastructure, organisational accounts, or paid licenses that aren't realistic for a student in Nigeria to get through the normal route.
