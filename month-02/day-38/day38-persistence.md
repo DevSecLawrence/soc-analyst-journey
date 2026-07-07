@@ -21,6 +21,12 @@ The local Windows VM was down, so I did not pretend that was fine. I used ATT&CK
 - [day38-persistence-baseline.md](./day38-persistence-baseline.md) — normal vs suspicious persistence locations
 - [day38-persistence-detections/](./day38-persistence-detections/) — Sigma rules for the five persistence types
 
+## Screenshot Evidence
+
+![MITRE ATT&CK Registry Run Keys and Startup Folder technique page used for persistence mapping](./screenshots/Screenshot%202026-07-06%20214510.png)
+
+![Red Canary threat detection report used to support persistence detection context](./screenshots/Screenshot%202026-07-06%20214722.png)
+
 ## What I Concluded
 Persistence is not just a malware trick. It is a trail. If I can see where an attacker tried to survive a reboot, I can usually tell what kind of access they wanted and how much effort they spent hiding it.
 
