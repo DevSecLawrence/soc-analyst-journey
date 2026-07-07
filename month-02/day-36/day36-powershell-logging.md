@@ -83,6 +83,20 @@ After enabling all three, Group Policy showed:
 
 All three logging mechanisms active simultaneously on my Windows host.
 
+## Screenshot Evidence
+
+### Validation in Event Viewer
+
+![Event Viewer PowerShell Operational log showing Event ID 4104 entries and script block details](./screenshots/Screenshot%202026-06-27%20222147.png)
+
+### Group Policy state while configuring logging
+
+![Local Group Policy Editor showing Script Block Logging enabled](./screenshots/Screenshot%202026-06-27%20222203.png)
+
+![PowerShell terminal used to generate test activity with Get-Process](./screenshots/Screenshot%202026-06-27%20222216.png)
+
+![Local Group Policy Editor showing Module Logging, Script Block Logging, and Transcription enabled](./screenshots/Screenshot%202026-06-27%20230619.png)
+
 ---
 
 ## What I Concluded
