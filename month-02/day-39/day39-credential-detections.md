@@ -164,3 +164,33 @@ level: high
 ```
  
 ---
+## Detection 5 — Cmdkey Credential Enumeration
+ 
+**Technique:** T1555.004 — Windows Credential Manager
+**Log source:** Sysmon Event ID 1
+ 
+```yaml
+title: Credential Manager Enumeration via Cmdkey
+id: d39-005
+status: experimental
+description: Detects cmdkey being used to enumerate stored credentials in Windows Credential Manager
+references:
+    - https://attack.mitre.org/techniques/T1555/004/
+author: Lawrence
+date: 2026-07-07
+tags:
+    - attack.credential_access
+    - attack.t1555.004
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection:
+        Image|endswith: '\cmdkey.exe'
+        CommandLine|contains: '/list'
+    condition: selection
+falsepositives:
+    - IT admins legitimately checking stored credentials
+    - Helpdesk troubleshooting credential issues
+level: medium
+```
