@@ -48,3 +48,61 @@ Attackers get around this using Volume Shadow Copies (VSS) — backup snapshots 
 vssadmin list shadows
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\System32\config\SAM C:\Temp\SAM
 ```
+Then they extract password hashes offline using tools like `secretsdump.py` from Impacket.
+ 
+**What telemetry reveals it:**
+- **Sysmon Event ID 1** — Process creation showing `vssadmin.exe` being run by an unexpected process
+- **Windows Event ID 8222** — Shadow copy created
+- File access to the SAM file from a non-system process
+- `reg save HKLM\SAM` command in process creation logs — another way to extract SAM
+**Protections:**
+- Restrict access to `vssadmin.exe` via application control
+- Monitor shadow copy creation and deletion (attackers also delete shadows to prevent recovery)
+- Ensure local admin accounts use unique passwords per machine (LAPS)
+---
+ 
+## Technique 3 — Credential Manager Access
+ 
+**MITRE:** T1555.004
+ 
+**How it works:**
+Windows Credential Manager stores saved passwords — things like saved network credentials, RDP passwords, and in some cases browser credentials. Attackers can dump these using built-in Windows tools:
+```
+cmdkey /list
+```
+Or via PowerShell:
+```powershell
+[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]::new().RetrieveAll()
+```
+ 
+**What telemetry reveals it:**
+- **Sysmon Event ID 1** — `cmdkey.exe` execution, especially if run by an unexpected parent process
+- PowerShell reading Credential Manager via API — visible in Script Block Logging (Event ID 4104)
+- Access to `%APPDATA%\Microsoft\Credentials\` directory
+**Protections:**
+- Don't save credentials in Credential Manager for privileged accounts
+- Monitor Credential Manager access via PowerShell Script Block Logging
+- Use a proper PAM (Privileged Access Management) solution for privileged credentials
+---
+ 
+## Technique 4 — Kerberos Ticket Extraction (Kerberoasting)
+ 
+**MITRE:** T1558.003
+ 
+**How it works:**
+Kerberos is the authentication protocol used in Active Directory environments. When you authenticate to a service (like a file share or database), Windows requests a Kerberos service ticket encrypted with the service account's password hash.
+ 
+Kerberoasting exploits this: any authenticated domain user can request service tickets for any service principal name (SPN). The attacker requests a ticket, takes it offline, and brute-forces the service account's password from the ticket's encryption.
+ 
+This is effective because service accounts often have weak passwords, don't expire, and have high privileges.
+ 
+**What telemetry reveals it:**
+- **Windows Event ID 4769** — Kerberos Service Ticket Requested. Look for: `TicketEncryptionType = 0x17` (RC4 encryption — what Kerberoasting uses), multiple tickets requested in a short time, tickets requested for accounts that don't normally have Kerberos activity
+- **Event ID 4768** — Kerberos Ticket Granting Ticket (TGT) requested
+**Protections:**
+- Use AES encryption for Kerberos instead of RC4 (makes offline cracking much harder)
+- Enforce strong passwords on all service accounts (25+ characters)
+- Use Group Managed Service Accounts (gMSA) — Windows manages the passwords automatically and they rotate regularly
+- Monitor for unusual Kerberos ticket requests in volume or targeting
+---
+
