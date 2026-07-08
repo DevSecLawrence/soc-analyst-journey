@@ -1,0 +1,35 @@
+title: Lateral Movement via PowerShell Remoting / WinRM
+id: d40-003
+status: experimental
+description: Detects network connections to WinRM ports from unusual sources — indicator of PowerShell remoting lateral movement
+references:
+    - https://attack.mitre.org/techniques/T1021/006/
+author: Lawrence
+date: 2026-06-21
+tags:
+    - attack.lateral_movement
+    - attack.t1021.006
+logsource:
+    product: windows
+    category: network_connection
+detection:
+    selection:
+        DestinationPort:
+            - 5985
+            - 5986
+        Initiated: 'true'
+    filter_legitimate:
+        Image|contains:
+            - '\System32\wsmprovhost.exe'
+            - '\System32\svchost.exe'
+    condition: selection and not filter_legitimate
+falsepositives:
+    - Legitimate admin PowerShell remoting sessions
+    - IT management tools using WinRM
+level: medium
+fields:
+    - SourceIp
+    - DestinationIp
+    - DestinationPort
+    - Image
+    - User
