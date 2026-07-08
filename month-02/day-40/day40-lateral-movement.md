@@ -14,6 +14,10 @@ This is also where defenders have one of the best chances to catch an attack in 
 
 The hard part: every technique used for lateral movement is also a legitimate admin tool. PSExec, WMI, WinRM, RDP — IT teams use all of these daily. Detection is about context and anomaly, not the tool itself.
 
+I used MITRE's SMB/Windows Admin Shares page as the anchor for the PSExec section.
+
+![MITRE ATT&CK SMB/Windows Admin Shares page used to ground the PSExec research](./screenshots/Screenshot%202026-07-08%20214530.png)
+
 ---
 
 ## The 5 Techniques
@@ -65,6 +69,10 @@ WMI (Windows Management Instrumentation) has remote execution capability via DCO
 **Why it's stealthy:**
 WMI is a built-in Windows service that's always running. It generates minimal default logging. Without Sysmon configured specifically to log WMI events, many environments are completely blind to WMI-based lateral movement.
 
+I checked the MITRE WMI page here because the remote execution path is what matters.
+
+![MITRE ATT&CK Windows Management Instrumentation page used to verify WMI lateral movement details](./screenshots/Screenshot%202026-07-08%20214603.png)
+
 ---
 
 ### 3. PowerShell Remoting / WinRM (T1021.006)
@@ -89,6 +97,10 @@ Windows Remote Management (WinRM) is the Microsoft protocol for remote PowerShel
 
 **The visibility gap:**
 WinRM over HTTPS (port 5986) encrypts the payload. Network inspection won't show the commands. Host-based logging (PowerShell Script Block Logging, Sysmon) is essential here because network monitoring alone misses the content.
+
+I checked the MITRE WinRM page here because the protocol details decide what telemetry you can actually trust.
+
+![MITRE ATT&CK Windows Remote Management page used to verify WinRM lateral movement details](./screenshots/Screenshot%202026-07-08%20214621.png)
 
 ---
 
@@ -116,6 +128,10 @@ Remote Desktop Protocol allows interactive graphical sessions on remote machines
 **Why it's dangerous to miss:**
 RDP gives the attacker a fully interactive session — they can do anything a logged-in user can do. It's also one of the most commonly abused techniques in ransomware incidents because it's fast and gives full control.
 
+I checked the MITRE RDP page here because the logon type and session artifacts are the real signal.
+
+![MITRE ATT&CK Remote Desktop Protocol page used to verify RDP lateral movement details](./screenshots/Screenshot%202026-07-08%20214637.png)
+
 ---
 
 ### 5. Scheduled Task Remote Creation (T1053.005)
@@ -138,6 +154,10 @@ Windows allows creating scheduled tasks on remote machines via `schtasks /create
 - Scheduled tasks created outside of business hours
 - Tasks pointing to files in user-writable directories
 - Tasks with action fields containing base64 or obfuscated commands
+
+I checked the MITRE Scheduled Task page here because the remote task creation trail is what usually gives it away.
+
+![MITRE ATT&CK Scheduled Task/Job page used to verify remote scheduled task lateral movement details](./screenshots/Screenshot%202026-07-08%20214655.png)
 
 ---
 

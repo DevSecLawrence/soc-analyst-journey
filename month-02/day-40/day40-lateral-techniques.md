@@ -46,6 +46,10 @@ Windows logon types are critical for lateral movement detection:
 
 For lateral movement hunting: **focus on logon types 3 and 10.** They represent remote access and are the most common types seen during lateral movement.
 
+I cross-checked the event ID list against a Windows Security Log reference so I wasn't guessing the telemetry.
+
+![Windows Security Log Events reference used to sanity-check the lateral movement event IDs](./screenshots/Screenshot%202026-07-08%20214838.png)
+
 ---
 
 ## What Distinguishes Admin from Attacker
@@ -67,3 +71,7 @@ This is the hardest part of lateral movement detection. Both a legitimate IT adm
 - Moving fast — multiple targets in short succession (velocity anomaly)
 
 The detection logic therefore needs to ask: is this account moving between these machines at this time at this speed? Not just: did remote access happen?
+
+I kept the response side in mind too, because once lateral movement starts turning into a real incident, the IR question becomes bigger than the single alert.
+
+![Mandiant cybersecurity consulting page used to keep the lateral movement work tied to real incident response context](./screenshots/Screenshot%202026-07-08%20214958.png)
