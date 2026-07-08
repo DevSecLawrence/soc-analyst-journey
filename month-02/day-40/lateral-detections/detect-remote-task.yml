@@ -1,0 +1,32 @@
+title: Remote Scheduled Task Creation — Lateral Movement
+id: d40-005
+status: experimental
+description: Detects scheduled task creation via network logon — indicates remote task scheduling used for lateral movement
+references:
+    - https://attack.mitre.org/techniques/T1053/005/
+author: Lawrence
+date: 2026-06-21
+tags:
+    - attack.lateral_movement
+    - attack.execution
+    - attack.t1053.005
+logsource:
+    product: windows
+    service: security
+detection:
+    task_created:
+        EventID: 4698
+    remote_logon:
+        EventID: 4624
+        LogonType: 3
+    filter_system:
+        SubjectUserName|endswith: '$'
+    condition: task_created and not filter_system
+falsepositives:
+    - SCCM and enterprise software deployment creating tasks remotely
+    - Legitimate admin scripting creating tasks across machines
+level: high
+fields:
+    - SubjectUserName
+    - TaskName
+    - TaskContent
