@@ -8,3 +8,4 @@ The hardest part isn't detecting the tools — it's distinguishing attacker use 
 - [day40-lateral-movement.md](./day40-lateral-movement.md) — how each technique works, artifacts, detection opportunities, conclusions
 - [day40-lateral-techniques.md](./day40-lateral-techniques.md) — quick reference table, logon types guide, admin vs attacker patterns
 - [day40-lateral-detections/](./day40-lateral-detections/) — 5 Sigma detection rules
+- [screenshots](./screenshots/)
