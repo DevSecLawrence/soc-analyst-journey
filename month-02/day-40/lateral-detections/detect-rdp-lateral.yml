@@ -1,0 +1,35 @@
+title: Suspicious RDP Lateral Movement
+id: d40-004
+status: experimental
+description: Detects RDP logon (logon type 10) from unusual source machines — possible lateral movement via RDP
+references:
+    - https://attack.mitre.org/techniques/T1021/001/
+author: Lawrence
+date: 2026-06-21
+tags:
+    - attack.lateral_movement
+    - attack.t1021.001
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624
+        LogonType: 10
+    filter_legitimate:
+        IpAddress: '127.0.0.1'
+    suspicious_source:
+        IpAddress|startswith:
+            - '10.'
+            - '192.168.'
+            - '172.'
+    condition: selection and suspicious_source and not filter_legitimate
+falsepositives:
+    - Legitimate admin RDP sessions from known admin workstations
+    - Helpdesk remote support sessions
+level: medium
+fields:
+    - TargetUserName
+    - IpAddress
+    - LogonType
+    - WorkstationName
