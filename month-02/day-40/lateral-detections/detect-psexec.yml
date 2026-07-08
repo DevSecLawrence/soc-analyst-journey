@@ -1,0 +1,32 @@
+title: Lateral Movement via PSExec / SMB Admin Share
+id: d40-001
+status: experimental
+description: Detects service creation on a target machine consistent with PSExec-style lateral movement
+references:
+    - https://attack.mitre.org/techniques/T1021/002/
+author: Lawrence
+date: 2026-06-21
+tags:
+    - attack.lateral_movement
+    - attack.t1021.002
+logsource:
+    product: windows
+    service: system
+detection:
+    selection:
+        EventID: 7045
+        ServiceFileName|contains:
+            - '\ADMIN$\'
+            - '\C$\'
+    filter_legitimate:
+        ServiceName|contains:
+            - 'PSEXESVC'
+    condition: selection
+falsepositives:
+    - Legitimate IT admin use of PSExec for remote management
+    - Software deployment tools that use admin shares
+level: high
+fields:
+    - ServiceName
+    - ServiceFileName
+    - AccountName
