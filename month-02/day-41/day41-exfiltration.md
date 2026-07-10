@@ -41,3 +41,27 @@ Cloud backup software, software update checks, video calls, any SaaS platform th
 Alert on any single outbound connection that transfers more than [X] MB to a destination with no prior history in the environment. The threshold depends on baseline — which is why you need a baseline.
  
 ---
+### 2. DNS Tunneling (T1071.004)
+ 
+**How it works:**
+DNS is one of the most universally allowed protocols — almost no network blocks outbound DNS queries. Attackers exploit this by encoding data inside DNS queries and responses. A query for `aGVsbG8gd29ybGQ.malicious.com` looks like a legitimate DNS lookup but the subdomain contains base64-encoded data. The attacker's DNS server receives it, decodes it, and responds with more encoded data.
+ 
+**Why it's hard to detect:**
+DNS traffic is everywhere and most organisations don't inspect it closely. The data is hidden in the query itself — in the subdomain portion — which gets forwarded transparently by your DNS resolver.
+ 
+**What network telemetry reveals it:**
+- High entropy subdomains — random-looking character strings like `xK9mQr2pL1nZ.domain.com` instead of readable names
+- Unusually long DNS query strings — normal hostnames are short, tunneled data creates long subdomains
+- High volume of DNS queries to a single domain
+- DNS queries with unusually large response sizes (data coming back)
+- Queries to domains that have never been seen in the environment before
+**Detection approach:**
+Entropy analysis on DNS subdomain strings. Normal subdomains have low entropy (readable words, predictable patterns). Tunneled data has high entropy (random-looking base64 or hex). Calculate Shannon entropy on the subdomain portion and alert on values above a threshold.
+ 
+**Common tools used:**
+dnscat2, iodine, DNSExfiltrator
+ 
+**What legitimate activity looks similar:**
+Some CDN services use long, encoded subdomains. Some tracking pixels and analytics use high-entropy subdomains. Legitimate use tends to be consistent and matches known service patterns. Tunneling tends to be unique per session.
+ 
+---
