@@ -1,0 +1,33 @@
+title: Possible DNS Tunneling — High Entropy Subdomain
+id: d41-002
+status: experimental
+description: Detects DNS queries with unusually long or high-entropy subdomains — indicator of DNS tunneling for data exfiltration
+references:
+    - https://attack.mitre.org/techniques/T1071/004/
+author: Lawrence
+date: 2026-06-22
+tags:
+    - attack.exfiltration
+    - attack.command_and_control
+    - attack.t1071.004
+logsource:
+    product: zeek
+    service: dns
+detection:
+    selection:
+        query|re: '^[a-zA-Z0-9+/]{20,}\.'
+    filter_known_cdn:
+        query|contains:
+            - 'cloudfront.net'
+            - 'akamaiedge.net'
+            - 'fastly.net'
+    condition: selection and not filter_known_cdn
+falsepositives:
+    - Some CDN providers use long encoded subdomains
+    - Some tracking and analytics services
+    - Legitimate applications using base64-encoded hostnames
+level: high
+fields:
+    - query
+    - id.orig_h
+    - answers
