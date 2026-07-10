@@ -1,0 +1,35 @@
+title: Large Outbound Data Transfer to Unknown Destination
+id: d41-001
+status: experimental
+description: Detects unusually large outbound data transfers to destinations with no prior history — possible HTTP/HTTPS exfiltration
+references:
+    - https://attack.mitre.org/techniques/T1048/003/
+author: Lawrence
+date: 2026-06-22
+tags:
+    - attack.exfiltration
+    - attack.t1048.003
+logsource:
+    product: zeek
+    service: conn
+detection:
+    selection:
+        proto: tcp
+        orig_bytes|gt: 10000000
+        resp_bytes|lt: 1000000
+        dest_port:
+            - 80
+            - 443
+    condition: selection
+falsepositives:
+    - Cloud backup software (OneDrive, Dropbox, Google Drive sync)
+    - Software update distribution
+    - Video conferencing uploads
+    - Legitimate large file transfers to known business partners
+level: medium
+fields:
+    - id.orig_h
+    - id.resp_h
+    - id.resp_p
+    - orig_bytes
+    - resp_bytes
