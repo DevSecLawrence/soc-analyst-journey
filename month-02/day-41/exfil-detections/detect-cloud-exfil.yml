@@ -1,0 +1,40 @@
+title: Cloud Storage Upload from Unusual Endpoint
+id: d41-003
+status: experimental
+description: Detects large uploads to cloud storage services from machines with no prior history of cloud storage usage
+references:
+    - https://attack.mitre.org/techniques/T1567/002/
+author: Lawrence
+date: 2026-06-22
+tags:
+    - attack.exfiltration
+    - attack.t1567.002
+logsource:
+    product: windows
+    category: network_connection
+detection:
+    selection:
+        DestinationHostname|contains:
+            - 'dropbox.com'
+            - 'onedrive.live.com'
+            - 'drive.google.com'
+            - 'box.com'
+            - 'mega.nz'
+        Initiated: 'true'
+    suspicious_process:
+        Image|endswith:
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\rclone.exe'
+    condition: selection and suspicious_process
+falsepositives:
+    - Scripts that legitimately upload to cloud storage for backup purposes
+    - IT automation using PowerShell to manage cloud files
+level: high
+fields:
+    - Image
+    - DestinationHostname
+    - DestinationPort
+    - User
