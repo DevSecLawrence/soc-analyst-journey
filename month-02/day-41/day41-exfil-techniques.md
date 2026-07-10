@@ -39,3 +39,17 @@ The most useful data sources for exfiltration detection:
 | Endpoint process telemetry | Which process created the network connection — maps traffic to application |
  
 ---
+## The Baseline Problem
+ 
+Every exfiltration detection rule I've written has a version of the same problem — it needs a threshold, and the threshold depends on knowing what normal looks like.
+ 
+| Detection | Threshold needed | Baseline challenge |
+|-----------|-----------------|-------------------|
+| Large outbound upload | X MB per hour | Varies by role — a video editor vs an accountant have very different normal volumes |
+| DNS query frequency | N queries per minute to same domain | Varies by software — some apps are legitimately chatty with DNS |
+| Cloud upload volume | Y MB per day | Varies by whether the user actively uses cloud storage for work |
+| Email attachment size | Z MB per recipient | Varies by department — some teams send large files regularly |
+ 
+Without per-user and per-machine baselines, any fixed threshold will either miss attacks or flood analysts with false positives.
+ 
+---
