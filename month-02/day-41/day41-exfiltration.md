@@ -85,4 +85,25 @@ Literally every person who uses OneDrive, Dropbox, or Google Drive for work. Thi
 Native cloud sync clients, rclone (popular exfil tool that supports dozens of cloud providers), custom scripts using cloud provider APIs
  
 ---
+ ### 4. Email Exfiltration (T1048)
+ 
+**How it works:**
+The attacker sends data out via email — either as attachments to external addresses or encoded in the email body itself. If they have access to a compromised mail account, the traffic looks like normal email from a legitimate user.
+ 
+**Why it's hard to detect:**
+Sending email is legitimate behaviour for almost every user. A single large email with attachments is completely normal. The attack is only visible in the pattern or destination.
+ 
+**What network telemetry reveals it:**
+- Large email attachments sent to external addresses not in the organisation's contact history
+- Multiple emails sent to the same external address in rapid succession
+- Emails sent to personal email domains (gmail.com, yahoo.com) from corporate accounts — especially from accounts that don't normally do this
+- Emails sent outside business hours
+- SMTP connections from machines that don't normally send email (servers, internal systems)
+**DLP (Data Loss Prevention) is the primary control here:**
+Email DLP rules that flag attachments containing credit card numbers, SSNs, source code patterns, or large volumes of any structured data type. Content inspection is possible because email is often inspected by the email gateway.
+ 
+**Common tools used:**
+Native email client, PowerShell Send-MailMessage, SMTP scripts, compromised webmail accounts
+ 
+---
  
