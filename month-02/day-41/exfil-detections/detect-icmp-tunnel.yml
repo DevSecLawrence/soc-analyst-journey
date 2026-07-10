@@ -1,0 +1,30 @@
+title: Large ICMP Payload — Possible Protocol Tunneling
+id: d41-005
+status: experimental
+description: Detects ICMP traffic with unusually large payloads — indicator of data exfiltration via ICMP tunneling
+references:
+    - https://attack.mitre.org/techniques/T1048/001/
+author: Lawrence
+date: 2026-06-22
+tags:
+    - attack.exfiltration
+    - attack.t1048.001
+logsource:
+    product: zeek
+    service: conn
+detection:
+    selection:
+        proto: icmp
+        orig_bytes|gt: 1000
+    condition: selection
+falsepositives:
+    - Network diagnostic tools that use large ICMP payloads
+    - Some network monitoring software
+    - MTU path discovery using large ICMP packets
+level: medium
+fields:
+    - id.orig_h
+    - id.resp_h
+    - orig_bytes
+    - resp_bytes
+    - duration
