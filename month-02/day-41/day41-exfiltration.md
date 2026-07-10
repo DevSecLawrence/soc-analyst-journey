@@ -106,4 +106,49 @@ Email DLP rules that flag attachments containing credit card numbers, SSNs, sour
 Native email client, PowerShell Send-MailMessage, SMTP scripts, compromised webmail accounts
  
 ---
+ ### 5. Protocol Tunneling / Alternate Channels (T1048.001)
  
+**How it works:**
+Attackers use protocols that aren't normally used for data transfer to carry exfiltrated data. ICMP (ping) can carry data in the payload field. Other examples include encoding data in HTTP headers, using IRC, or tunneling over HTTPS to non-standard ports.
+ 
+**Why it's hard to detect:**
+These protocols are either always allowed (ICMP) or look like normal traffic from the outside (HTTPS on non-standard port might look like a developer tool or VPN).
+ 
+**What network telemetry reveals it:**
+- ICMP packets with unusually large payloads — normal pings are tiny, ICMP tunneling pings are large
+- Outbound connections on unusual ports that don't match any known application
+- HTTPS traffic to non-443 ports (could indicate tunneling or C2)
+- Any protocol showing consistent, regular communication that doesn't match known application behaviour
+**Common tools used:**
+ptunnel (ICMP tunneling), nping, custom scripts encoding data in protocol fields
+ 
+---
+ 
+## The Hard Truth About Exfiltration Detection
+ 
+All five of these techniques share one problem: they use legitimate channels. There's no "exfiltration protocol" that you can simply block. Detection requires:
+ 
+1. **A baseline** — you can't spot anomalies without knowing what normal looks like
+2. **Behavioural analysis** — looking at patterns over time, not just individual packets
+3. **Correlation** — combining endpoint alerts (a compromised machine) with network anomalies (unusual uploads from that machine)
+If you only detect at the network level, you'll miss encrypted exfiltration. If you only detect at the endpoint level, you'll miss exfiltration via legitimate tools. The combination is what gives you coverage.
+ 
+---
+ 
+## What I Concluded
+ 
+Exfiltration is the hardest stage to detect because it's the most legitimate-looking. An attacker uploading to Dropbox looks exactly like an employee backing up their files. The only difference is context — which machine, which account, what time, what volume, what destination. None of that is visible in any single packet or log entry. It requires stitching together endpoint telemetry, network flows, and user behaviour over time.
+ 
+The detection approach that makes most sense to me is layered: alert on large outbound volume anomalies from the network, correlate with endpoint telemetry showing which process created the traffic, and cross-reference with any prior alerts on that machine or user. Exfiltration caught in isolation looks like noise. Exfiltration in the context of a known compromised machine looks like an incident.
+ 
+---
+ 
+## Assumption I Made
+ 
+I assumed that HTTPS encryption made exfiltration via web channels essentially undetectable. It makes content inspection impossible, but metadata is still visible — destination IP/domain, volume transferred, timing, frequency. A machine that uploads 2GB to a domain it has never communicated with before at 3am is detectable even if the content is encrypted. The content is invisible but the behaviour is not.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't know how to set meaningful volume thresholds without historical baselines. How much outbound traffic is normal for a machine in my environment? Without knowing that number, any threshold I set is a guess — too low and I'm drowning in false positives from cloud backup software, too high and I'm missing real exfiltration. Building that baseline is a weeks-long process and I don't have a framework yet for doing it systematically. This is something I need to understand better before I could deploy any of these detections in a real environment.
