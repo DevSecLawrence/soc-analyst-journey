@@ -1,0 +1,41 @@
+title: Suspicious Email Exfiltration via SMTP
+id: d41-004
+status: experimental
+description: Detects SMTP connections from machines that don't normally send email — possible email-based exfiltration
+references:
+    - https://attack.mitre.org/techniques/T1048/
+author: Lawrence
+date: 2026-06-22
+tags:
+    - attack.exfiltration
+    - attack.t1048
+logsource:
+    product: windows
+    category: network_connection
+detection:
+    selection:
+        DestinationPort:
+            - 25
+            - 465
+            - 587
+        Initiated: 'true'
+    suspicious_process:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\cmd.exe'
+            - '\python.exe'
+            - '\wscript.exe'
+    filter_mail_clients:
+        Image|contains:
+            - '\Outlook\OUTLOOK.EXE'
+            - '\Thunderbird\thunderbird.exe'
+    condition: selection and suspicious_process and not filter_mail_clients
+falsepositives:
+    - Applications that legitimately send email via SMTP (monitoring tools, alerts)
+    - Development environments testing email functionality
+level: high
+fields:
+    - Image
+    - DestinationIp
+    - DestinationPort
+    - User
