@@ -22,6 +22,10 @@ The core problem with exfiltration detection: most exfiltration uses legitimate 
  
 **How it works:**
 The simplest approach — the attacker uploads data to an external server using HTTP POST requests or HTTPS uploads. Could be a file uploaded to a custom server, a web service, or even a legitimate file-sharing site.
+
+I anchored this section on MITRE T1048.003 to keep the HTTP/HTTPS exfil framing accurate.
+
+![MITRE ATT&CK T1048.003 page used for HTTP/HTTPS exfiltration mapping](./screenshots/Screenshot%202026-07-10%20204630.png)
  
 **Why it's hard to detect:**
 HTTPS encrypts the payload. Network inspection sees a connection to an IP or domain and the volume of data transferred, but not what the data is. Most organisations have enormous volumes of legitimate HTTPS traffic — an attacker's upload blends in easily.
@@ -45,6 +49,10 @@ Alert on any single outbound connection that transfers more than [X] MB to a des
  
 **How it works:**
 DNS is one of the most universally allowed protocols — almost no network blocks outbound DNS queries. Attackers exploit this by encoding data inside DNS queries and responses. A query for `aGVsbG8gd29ybGQ.malicious.com` looks like a legitimate DNS lookup but the subdomain contains base64-encoded data. The attacker's DNS server receives it, decodes it, and responds with more encoded data.
+
+I used MITRE T1071.004 as the base reference for the DNS tunneling behavior.
+
+![MITRE ATT&CK T1071.004 page used for DNS tunneling mapping](./screenshots/Screenshot%202026-07-10%20204645.png)
  
 **Why it's hard to detect:**
 DNS traffic is everywhere and most organisations don't inspect it closely. The data is hidden in the query itself — in the subdomain portion — which gets forwarded transparently by your DNS resolver.
@@ -57,6 +65,10 @@ DNS traffic is everywhere and most organisations don't inspect it closely. The d
 - Queries to domains that have never been seen in the environment before
 **Detection approach:**
 Entropy analysis on DNS subdomain strings. Normal subdomains have low entropy (readable words, predictable patterns). Tunneled data has high entropy (random-looking base64 or hex). Calculate Shannon entropy on the subdomain portion and alert on values above a threshold.
+
+I also reviewed a Unit 42 write-up to cross-check practical DNS tunneling behavior beyond ATT&CK summary text.
+
+![Unit 42 DNS tunneling research page used for practical detection context](./screenshots/Screenshot%202026-07-10%20204901.png)
  
 **Common tools used:**
 dnscat2, iodine, DNSExfiltrator
@@ -69,6 +81,10 @@ Some CDN services use long, encoded subdomains. Some tracking pixels and analyti
  
 **How it works:**
 The attacker uploads stolen data to a legitimate cloud storage service — Dropbox, OneDrive, Google Drive, Box. From a network perspective, the traffic looks completely normal because it IS going to a legitimate service. The data just isn't the attacker's data.
+
+I mapped this directly to MITRE T1567.002 for cloud storage exfiltration.
+
+![MITRE ATT&CK T1567.002 page used for cloud storage exfiltration mapping](./screenshots/Screenshot%202026-07-10%20204702.png)
  
 **Why it's hard to detect:**
 You can't block Dropbox without blocking legitimate business use. The upload traffic is encrypted HTTPS to a known, legitimate domain. Content inspection isn't possible without SSL inspection infrastructure.
@@ -110,6 +126,10 @@ Native email client, PowerShell Send-MailMessage, SMTP scripts, compromised webm
  
 **How it works:**
 Attackers use protocols that aren't normally used for data transfer to carry exfiltrated data. ICMP (ping) can carry data in the payload field. Other examples include encoding data in HTTP headers, using IRC, or tunneling over HTTPS to non-standard ports.
+
+I referenced the parent ATT&CK technique T1048 here because this section is about alternate protocol channels as a whole.
+
+![MITRE ATT&CK T1048 page used for alternate protocol exfiltration mapping](./screenshots/Screenshot%202026-07-10%20204715.png)
  
 **Why it's hard to detect:**
 These protocols are either always allowed (ICMP) or look like normal traffic from the outside (HTTPS on non-standard port might look like a developer tool or VPN).

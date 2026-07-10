@@ -5,6 +5,10 @@
 ---
  
 ## Quick Reference Table
+
+I built this table from ATT&CK technique pages first, then mapped each one to detection signals I can actually monitor.
+
+![MITRE ATT&CK T1048 page used while building the exfiltration quick reference mapping](./screenshots/Screenshot%202026-07-10%20204715.png)
  
 | Technique | MITRE ID | Channel used | Encrypted? | Key detection signal | Common tools |
 |-----------|----------|-------------|------------|---------------------|-------------|
@@ -18,6 +22,10 @@
 ## Detection Priority Order
  
 If I had to prioritise which exfiltration technique to detect first in a real environment:
+
+I ranked DNS tunneling first after checking ATT&CK plus Unit 42's practical abuse examples.
+
+![Unit 42 DNS tunneling research used to validate why DNS tunneling has a strong anomaly signal](./screenshots/Screenshot%202026-07-10%20204901.png)
  
 1. **DNS tunneling** — most detectable with entropy analysis, least legitimate use cases, clearest signal
 2. **HTTP/HTTPS uploads** — volume anomalies are detectable even without content inspection
