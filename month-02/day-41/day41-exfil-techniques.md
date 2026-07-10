@@ -53,3 +53,11 @@ Every exfiltration detection rule I've written has a version of the same problem
 Without per-user and per-machine baselines, any fixed threshold will either miss attacks or flood analysts with false positives.
  
 ---
+## What Legitimate Traffic Looks Like vs Exfiltration
+ 
+| Behaviour | Legitimate | Exfiltration |
+|-----------|-----------|-------------|
+| Cloud upload | Regular, consistent destination, during work hours, from cloud-enabled machine | Sudden large upload, new destination, off hours, from machine with no prior cloud activity |
+| DNS queries | Short subdomains, consistent patterns, match known applications | Long random subdomains, high entropy, high volume to single domain |
+| Email attachments | Known recipients, consistent size range, business content types | External recipients never contacted before, unusual file types, off-hours |
+| ICMP traffic | Small, infrequent pings | Large payloads, sustained over time, consistent intervals |
