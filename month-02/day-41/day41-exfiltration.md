@@ -65,3 +65,24 @@ dnscat2, iodine, DNSExfiltrator
 Some CDN services use long, encoded subdomains. Some tracking pixels and analytics use high-entropy subdomains. Legitimate use tends to be consistent and matches known service patterns. Tunneling tends to be unique per session.
  
 ---
+### 3. Cloud Storage Abuse (T1567.002)
+ 
+**How it works:**
+The attacker uploads stolen data to a legitimate cloud storage service — Dropbox, OneDrive, Google Drive, Box. From a network perspective, the traffic looks completely normal because it IS going to a legitimate service. The data just isn't the attacker's data.
+ 
+**Why it's hard to detect:**
+You can't block Dropbox without blocking legitimate business use. The upload traffic is encrypted HTTPS to a known, legitimate domain. Content inspection isn't possible without SSL inspection infrastructure.
+ 
+**What network telemetry reveals it:**
+- Abnormally large uploads to cloud storage services from a machine that doesn't normally use them
+- A machine that has never previously communicated with a cloud storage provider suddenly uploading hundreds of MB
+- Multiple machines uploading to the same cloud storage account in sequence (post-lateral movement exfiltration)
+- Uploads from machines that shouldn't have internet access (servers, kiosks)
+**What legitimate activity looks similar:**
+Literally every person who uses OneDrive, Dropbox, or Google Drive for work. This is why user behaviour baselining matters — an upload from an endpoint that normally uses OneDrive heavily is different from the same upload from a server that has never touched Dropbox before.
+ 
+**Common tools used:**
+Native cloud sync clients, rclone (popular exfil tool that supports dozens of cloud providers), custom scripts using cloud provider APIs
+ 
+---
+ 
