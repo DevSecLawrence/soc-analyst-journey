@@ -103,3 +103,33 @@ Any shell or scripting process (`cmd.exe`, `powershell.exe`) spawned with `WmiPr
 Some management tools (SCCM, antivirus) use WMI to spawn processes legitimately. Filter by known management tool process names.
  
 ---
+## Hypothesis 4 — Data Staged for Exfiltration
+ 
+**Hypothesis:**
+An attacker is staging data for exfiltration — compressing or copying files to an unusual location before moving them out of the network.
+ 
+**Why it matters:**
+Attackers rarely exfiltrate directly from the original file locations. They typically compress data (zip, rar, 7zip) and stage it in a temporary location first. This compression step is detectable before the actual exfiltration happens.
+ 
+**Data source:**
+Sysmon Event ID 1 — Process creation (compression tools being run)
+Sysmon Event ID 11 — File creation (compressed archives appearing in unusual locations)
+ 
+**Query approach (Splunk SPL):**
+```spl
+index=sysmon EventCode=1
+| where (Image LIKE "%7z.exe%" OR Image LIKE "%rar.exe%" OR Image LIKE "%zip%")
+    AND (CommandLine LIKE "%C:\\Users\\Public%"
+    OR CommandLine LIKE "%\\Temp\\%"
+    OR CommandLine LIKE "%\\AppData\\%")
+| table _time, ComputerName, User, Image, CommandLine
+| sort -_time
+```
+ 
+**Success criteria:**
+Compression tools creating archives in user-writable temporary directories, especially involving directories containing sensitive file types (`.docx`, `.xlsx`, `.pdf`, source code).
+ 
+**False positive risk:**
+Legitimate use of compression tools for backups or file transfers. Filter by destination path — legitimate backups typically go to known backup destinations, not `%TEMP%`.
+ 
+---
