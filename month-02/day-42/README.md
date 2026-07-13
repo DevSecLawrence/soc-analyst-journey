@@ -8,5 +8,5 @@ The thing that clicked today: a hunt that finds nothing is still valuable. Confi
 - [day42-threat-hunting.md](./day42-threat-hunting.md) — methodology, mindset shift, conclusions
 - [day42-hunt-hypotheses.md](./day42-hunt-hypotheses.md) — 5 hypotheses with queries, data sources, false positive analysis
 - [day42-hunt-template.md](./day42-hunt-template.md) — reusable hunt report template
-- [day42-hunt-reports/](./day42-hunt-reports/) — 2 executed hunt reports
+- [day42-hunt-reports/](./hunt-reports/) — 2 executed hunt reports
 -[Screenshots](./screenshots/)
