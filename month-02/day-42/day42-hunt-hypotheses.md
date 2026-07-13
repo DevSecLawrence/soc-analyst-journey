@@ -43,3 +43,63 @@ Any Event ID 4698 outside 06:00–22:00 from a non-admin account or pointing to 
 Legitimate backup software or scheduled maintenance tasks running overnight. Filter by known admin accounts and known task names to reduce noise.
  
 ---
+## Hypothesis 2 — PowerShell Used for Reconnaissance
+ 
+**Hypothesis:**
+An attacker is using PowerShell to enumerate the environment — running discovery commands like `Get-ADUser`, `net user`, `ipconfig`, `whoami` — shortly after initial access or lateral movement.
+ 
+**Why it matters:**
+Post-compromise reconnaissance almost always involves PowerShell on Windows. The commands are distinctive — they're things normal users never run, but attackers run within minutes of landing on a machine.
+ 
+**Data source:**
+PowerShell Script Block Logging — Event ID 4104
+Sysmon Event ID 1 — Process creation with CommandLine
+ 
+**Query approach (Splunk SPL):**
+```spl
+index=sysmon EventCode=1 Image="*\\powershell.exe"
+| where CommandLine LIKE "%Get-ADUser%" 
+    OR CommandLine LIKE "%net user%" 
+    OR CommandLine LIKE "%whoami%"
+    OR CommandLine LIKE "%ipconfig%"
+    OR CommandLine LIKE "%Get-NetIPAddress%"
+| table _time, ComputerName, User, CommandLine, ParentCommandLine
+| sort -_time
+```
+ 
+**Success criteria:**
+PowerShell running enumeration commands from a non-admin account, or from an admin account on a machine they don't normally administrate.
+ 
+**False positive risk:**
+IT admin scripts, software inventory tools, and monitoring agents. The key filter is context — which account ran it and from which machine.
+ 
+---
+ 
+## Hypothesis 3 — Lateral Movement via WMI Remote Execution
+ 
+**Hypothesis:**
+An attacker is moving between machines using WMI remote execution — spawning processes on remote machines via the WMI service.
+ 
+**Why it matters:**
+WMI-based lateral movement is stealthy. It doesn't install a service (no Event ID 7045), it doesn't use RDP (no logon type 10). The only reliable indicator is a process being spawned with `WmiPrvSE.exe` as the parent on the destination machine.
+ 
+**Data source:**
+Sysmon Event ID 1 — Process creation
+ 
+**Query approach (Splunk SPL):**
+```spl
+index=sysmon EventCode=1 ParentImage="*\\WmiPrvSE.exe"
+| where Image LIKE "%cmd.exe%" 
+    OR Image LIKE "%powershell.exe%"
+    OR Image LIKE "%wscript.exe%"
+| table _time, ComputerName, User, Image, CommandLine, ParentImage
+| sort -_time
+```
+ 
+**Success criteria:**
+Any shell or scripting process (`cmd.exe`, `powershell.exe`) spawned with `WmiPrvSE.exe` as the parent, especially on machines that don't normally run WMI-initiated processes.
+ 
+**False positive risk:**
+Some management tools (SCCM, antivirus) use WMI to spawn processes legitimately. Filter by known management tool process names.
+ 
+---
