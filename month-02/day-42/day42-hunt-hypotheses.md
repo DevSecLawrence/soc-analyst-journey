@@ -133,3 +133,41 @@ Compression tools creating archives in user-writable temporary directories, espe
 Legitimate use of compression tools for backups or file transfers. Filter by destination path — legitimate backups typically go to known backup destinations, not `%TEMP%`.
  
 ---
+## Hypothesis 5 — Trusted Binary Abused (Living Off the Land)
+ 
+**Hypothesis:**
+An attacker is using a legitimate Windows binary (`certutil`, `mshta`, `regsvr32`, `rundll32`) to download or execute malicious code — avoiding detection by hiding behind a trusted process.
+ 
+**Why it matters:**
+Living-off-the-land (LOLBin) techniques abuse built-in Windows tools. `certutil` is a certificate utility but can also download files. `mshta` runs HTML applications but can execute VBScript. These tools are whitelisted by most AV solutions because they're legitimate — making them perfect for attackers.
+ 
+**Data source:**
+Sysmon Event ID 1 — Process creation with command line arguments
+Sysmon Event ID 3 — Network connection (for download activity)
+ 
+**Query approach (Splunk SPL):**
+```spl
+index=sysmon EventCode=1
+| where (Image LIKE "%certutil.exe%" AND CommandLine LIKE "%-urlcache%")
+    OR (Image LIKE "%mshta.exe%" AND CommandLine LIKE "%http%")
+    OR (Image LIKE "%regsvr32.exe%" AND CommandLine LIKE "%scrobj%")
+    OR (Image LIKE "%rundll32.exe%" AND CommandLine LIKE "%javascript%")
+| table _time, ComputerName, User, Image, CommandLine, ParentImage
+| sort -_time
+```
+ 
+**Success criteria:**
+Any of the above LOLBins running with network-related arguments or executing scripts from non-standard locations.
+ 
+**False positive risk:**
+`certutil` is used legitimately by IT for certificate management. `regsvr32` is used legitimately to register COM objects. Filter by specific argument patterns that are only used maliciously (e.g. `certutil -urlcache -f` is almost never legitimate).
+ 
+
+
+
+
+
+
+
+
+
