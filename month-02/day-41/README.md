@@ -9,5 +9,5 @@ Researched 5 exfiltration techniques: HTTP/HTTPS uploads, DNS tunneling, cloud s
 ## Files
 - [day41-exfiltration.md](./day41-exfiltration.md) — how each technique works, detection opportunities, conclusions
 - [day41-exfil-techniques.md](./day41-exfil-techniques.md) — quick reference table, detection priority order, baseline problem
-- [day41-exfil-detections/](./day41-exfil-detections/) — 5 Sigma detection rules
+- [day41-exfil-detections/](./exfil-detections/) — 5 Sigma detection rules
 - [screenshots](./screenshots/)- Screenshots
