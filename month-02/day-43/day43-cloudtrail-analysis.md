@@ -41,3 +41,58 @@ CloudTrail stores logs as JSON files in an S3 bucket. Each file contains an arra
   }
 }
 ```
+**Reading this event:**
+- `userIdentity.userName` = "admin" — the admin user made this call
+- `eventName` = "CreateUser" — they created an IAM user
+- `requestParameters.userName` = "testuser" — the new user is named testuser
+- `sourceIPAddress` = "197.210.65.42" — this is where the call came from
+If I saw this event during an investigation and the source IP was not a known admin IP, that's suspicious — someone may have compromised the admin account and created a backdoor user.
+ 
+---
+ 
+### Sample Event — S3 Bucket Created
+ 
+```json
+{
+  "eventTime": "2026-06-24T14:45:22Z",
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "CreateBucket",
+  "userIdentity": {
+    "type": "IAMUser",
+    "userName": "admin"
+  },
+  "sourceIPAddress": "197.210.65.42",
+  "requestParameters": {
+    "bucketName": "my-test-bucket-day43"
+  },
+  "responseElements": null
+}
+```
+ 
+---
+ 
+### Sample Event — Console Login
+ 
+```json
+{
+  "eventTime": "2026-06-24T13:58:44Z",
+  "eventSource": "signin.amazonaws.com",
+  "eventName": "ConsoleLogin",
+  "userIdentity": {
+    "type": "IAMUser",
+    "userName": "admin"
+  },
+  "sourceIPAddress": "197.210.65.42",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",
+  "responseElements": {
+    "ConsoleLogin": "Success"
+  },
+  "additionalEventData": {
+    "MFAUsed": "Yes"
+  }
+}
+```
+ 
+**Key field here:** `additionalEventData.MFAUsed` = "Yes" — MFA was used. If this said "No" on a login event for a privileged account, that's worth investigating.
+ 
+---
