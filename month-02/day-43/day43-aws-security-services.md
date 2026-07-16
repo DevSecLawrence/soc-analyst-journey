@@ -58,3 +58,26 @@
 | CloudTrail disabled | No audit trail for incident response | CloudTrail: StopLogging event |
  
 ---
+## The Shared Responsibility Model
+ 
+```
+AWS RESPONSIBILITY (secured OF the cloud)
+├── Physical datacentres
+├── Hardware
+├── Hypervisor
+├── Network infrastructure
+└── Managed service platforms
+ 
+CUSTOMER RESPONSIBILITY (secured IN the cloud)
+├── IAM configuration
+├── Data encryption
+├── Network access controls (Security Groups, NACLs)
+├── Operating system patches (for EC2)
+├── Application security
+├── CloudTrail configuration
+└── S3 bucket policies
+```
+ 
+Most cloud breaches happen in the customer responsibility layer — not because AWS failed, but because something was misconfigured.
+ 
+---
