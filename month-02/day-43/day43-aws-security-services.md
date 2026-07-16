@@ -33,3 +33,16 @@
 **Root account rule:** The root account has unrestricted access to everything in the AWS account. It should only be used to create the first admin user and then locked away with MFA and no access keys generated.
  
 ---
+## CloudTrail Log Fields — Security Relevant
+ 
+| Field | What it contains | Why it matters |
+|-------|----------------|---------------|
+| `eventTime` | When the API call happened | Timeline reconstruction |
+| `eventName` | Which API was called | What action was taken |
+| `userIdentity` | Who made the call | Attribution |
+| `sourceIPAddress` | Where the call came from | Geolocation, anomaly detection |
+| `errorCode` | If the call failed, why | Failed actions = reconnaissance |
+| `requestParameters` | What parameters were passed | What was being done to what resource |
+| `responseElements` | What the API returned | Whether the action succeeded |
+ 
+---
