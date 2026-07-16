@@ -110,4 +110,66 @@ S3 buckets are the most commonly misconfigured AWS resource and one of the top c
 **The S3 breach pattern:** Developer creates a bucket, forgets to block public access, uploads sensitive data, data is indexed by a search engine or discovered by a threat actor scanning for open buckets. This has happened to major companies repeatedly.
  
 ---
-
+### VPC (Virtual Private Cloud) — Security Groups
+ 
+Security groups are stateful firewalls that control traffic to and from AWS resources. They work like a combination of Windows Firewall rules and network ACLs.
+ 
+**Default security group behaviour:** denies all inbound traffic, allows all outbound traffic. The principle of least privilege applied to networking.
+ 
+**Security group misconfiguration pattern:** Someone needs SSH access to an EC2 instance, adds a rule allowing TCP port 22 from `0.0.0.0/0` (the entire internet), forgets to remove it. That instance is now internet-facing on SSH indefinitely.
+ 
+---
+ 
+## 3 Detection Concepts for CloudTrail
+ 
+**Detection 1 — Root Account Login**
+```
+eventName = "ConsoleLogin" AND userIdentity.type = "Root"
+```
+The root account should never be used for day-to-day operations. Any root account login is suspicious and should alert immediately.
+ 
+**Detection 2 — IAM User Created Outside of Provisioning Process**
+```
+eventName = "CreateUser" AND sourceIPAddress != [known admin IPs]
+```
+New IAM users created from unknown IPs or outside business hours is a classic attacker persistence technique — they're creating a backdoor account.
+ 
+**Detection 3 — S3 Bucket Made Public**
+```
+eventName = "PutBucketAcl" AND requestParameters.accessControlList = "public-read"
+```
+Any S3 bucket access control change that makes a bucket publicly readable is a potential data exposure event that needs immediate review.
+ 
+---
+ ### VPC (Virtual Private Cloud) — Security Groups
+ 
+Security groups are stateful firewalls that control traffic to and from AWS resources. They work like a combination of Windows Firewall rules and network ACLs.
+ 
+**Default security group behaviour:** denies all inbound traffic, allows all outbound traffic. The principle of least privilege applied to networking.
+ 
+**Security group misconfiguration pattern:** Someone needs SSH access to an EC2 instance, adds a rule allowing TCP port 22 from `0.0.0.0/0` (the entire internet), forgets to remove it. That instance is now internet-facing on SSH indefinitely.
+ 
+---
+ 
+## 3 Detection Concepts for CloudTrail
+ 
+**Detection 1 — Root Account Login**
+```
+eventName = "ConsoleLogin" AND userIdentity.type = "Root"
+```
+The root account should never be used for day-to-day operations. Any root account login is suspicious and should alert immediately.
+ 
+**Detection 2 — IAM User Created Outside of Provisioning Process**
+```
+eventName = "CreateUser" AND sourceIPAddress != [known admin IPs]
+```
+New IAM users created from unknown IPs or outside business hours is a classic attacker persistence technique — they're creating a backdoor account.
+ 
+**Detection 3 — S3 Bucket Made Public**
+```
+eventName = "PutBucketAcl" AND requestParameters.accessControlList = "public-read"
+```
+Any S3 bucket access control change that makes a bucket publicly readable is a potential data exposure event that needs immediate review.
+ 
+---
+ 
