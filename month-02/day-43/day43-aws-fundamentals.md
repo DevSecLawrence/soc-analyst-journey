@@ -29,4 +29,24 @@ You secure **in** the cloud — your data, your applications, your OS configurat
 The practical implication: if you misconfigure an S3 bucket and make it publicly readable, that's your problem, not AWS's. AWS gave you the tool and secured the underlying infrastructure. You configured it wrong. This distinction is what makes cloud security breaches happen — not AWS failures, but customer misconfigurations.
  
 ---
+## AWS Security Services Explored
  
+### IAM (Identity and Access Management)
+ 
+This is the most critical AWS security service. Everything in AWS is controlled through IAM.
+ 
+**Users** — represent actual humans or applications that need to interact with AWS. Each user has credentials (password for console, access keys for API).
+ 
+**Roles** — like users but designed to be assumed temporarily. An EC2 instance can assume a role to get permissions to access S3 without needing hardcoded credentials. This is the right way to grant permissions in AWS.
+ 
+**Policies** — JSON documents that define what actions are allowed or denied on which resources. Attached to users, groups, or roles.
+ 
+**Key security principle — least privilege:** Every user and role should have only the permissions they actually need and nothing more. An IAM user that only needs to read from one S3 bucket should not have permissions to create EC2 instances.
+ 
+**What attackers do with IAM:**
+- Steal access keys (exposed in GitHub repos, environment variables) → gain all permissions that key has
+- Create new IAM users for persistence
+- Escalate privileges by exploiting misconfigured policies
+---
+
+
