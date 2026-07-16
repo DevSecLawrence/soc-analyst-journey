@@ -46,3 +46,15 @@
 | `responseElements` | What the API returned | Whether the action succeeded |
  
 ---
+## Common Misconfiguration Patterns
+ 
+| Misconfiguration | What it enables | How to detect |
+|-----------------|----------------|--------------|
+| S3 bucket public access | Data exposed to internet | S3 Block Public Access disabled, ACL set to public |
+| Security group 0.0.0.0/0 on port 22 | SSH brute force from internet | VPC Flow Logs + Security Group changes |
+| Root account used regularly | High-impact credentials in use daily | CloudTrail: ConsoleLogin with Root identity |
+| Access keys in GitHub repos | Stolen credentials, account compromise | GitHub secret scanning, CloudTrail unusual IP |
+| MFA not enabled on IAM users | Credential stuffing succeeds | IAM credential report |
+| CloudTrail disabled | No audit trail for incident response | CloudTrail: StopLogging event |
+ 
+---
