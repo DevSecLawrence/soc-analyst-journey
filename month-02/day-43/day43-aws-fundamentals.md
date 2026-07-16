@@ -181,4 +181,12 @@ The biggest practical difference: in on-premise security, misconfiguration usual
 The shared responsibility model is the thing I'll take forward from today. Before this I had a vague sense that "the cloud provider handles security." Now I understand exactly where that line is — and why most cloud breaches happen on the customer's side of it.
  
 ---
-
+## Assumption I Made
+ 
+I assumed that because AWS is a managed service, it would handle most of the security for me. It doesn't. AWS manages the physical infrastructure and the platform. Everything I deploy on top of it — IAM permissions, S3 bucket policies, security group rules, CloudTrail configuration — is entirely my responsibility. The shared responsibility model is not 50/50. In practice the customer side of it involves most of the decisions that actually get compromised.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't understand how CloudTrail correlates with GuardDuty findings in practice. If GuardDuty fires an alert, I assume I need to go back to CloudTrail to get the full picture — but I don't know what that investigation workflow looks like in a real AWS environment. How do you pivot from a GuardDuty finding to the relevant CloudTrail events efficiently? That's the workflow I need to see in practice, not just read about.
