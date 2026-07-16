@@ -96,3 +96,55 @@ If I saw this event during an investigation and the source IP was not a known ad
 **Key field here:** `additionalEventData.MFAUsed` = "Yes" — MFA was used. If this said "No" on a login event for a privileged account, that's worth investigating.
  
 ---
+## 3 Detection Concepts
+ 
+### Detection 1 — Root Account Activity
+ 
+**What to look for:**
+```
+eventName = "ConsoleLogin" 
+AND userIdentity.type = "Root"
+```
+ 
+**Why it matters:**
+Root account has unrestricted access to everything. It should never be used for normal operations. Any root login — successful or failed — should fire an immediate alert.
+ 
+**What a real alert looks like:**
+At 03:14 UTC, a ConsoleLogin event fires with `userIdentity.type = "Root"` from an IP address in Eastern Europe. The account's root credentials have never been used before. This is either the account owner doing something unusual, or their root credentials have been compromised.
+ 
+**Severity:** Critical
+ 
+---
+ 
+### Detection 2 — IAM User Created from Unknown IP
+ 
+**What to look for:**
+```
+eventName = "CreateUser"
+AND sourceIPAddress NOT IN [known admin IPs]
+```
+ 
+**Why it matters:**
+Creating a new IAM user is the cloud equivalent of creating a new local admin account for persistence. An attacker who compromises cloud credentials will often create a new user as a backup access method. If that creation comes from an IP that's never been seen in the environment before, it's a high-confidence indicator of compromise.
+ 
+**False positive risk:**
+New admin users legitimately added from home office IPs or a new corporate VPN. The context filter is the IP — is it a known corporate IP or VPN range?
+ 
+**Severity:** High
+ 
+---
+ 
+### Detection 3 — CloudTrail Logging Disabled
+ 
+**What to look for:**
+```
+eventName = "StopLogging"
+OR eventName = "DeleteTrail"
+```
+ 
+**Why it matters:**
+The only legitimate reason to stop CloudTrail logging is if you're rotating to a different trail configuration. An attacker who gains access to an AWS account will often try to disable CloudTrail immediately — it's the equivalent of clearing Windows Event Logs before running malicious commands. `StopLogging` or `DeleteTrail` events should always alert regardless of who triggered them.
+ 
+**Severity:** Critical — treat as incident until proven otherwise
+ 
+---
