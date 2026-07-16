@@ -49,4 +49,38 @@ This is the most critical AWS security service. Everything in AWS is controlled 
 - Escalate privileges by exploiting misconfigured policies
 ---
 
-
+### CloudTrail
+ 
+CloudTrail is the audit log for everything that happens in AWS. Every API call — creating a resource, deleting a resource, changing permissions, logging in — gets recorded.
+ 
+**What it captures:**
+- Who made the API call (which IAM user, role, or service)
+- What action was taken (which API call)
+- When it happened (timestamp with millisecond precision)
+- Where it came from (source IP address)
+- What the request parameters were
+- Whether it succeeded or failed
+**The log format is JSON.** Each event is a JSON object. An example entry looks like:
+ 
+```json
+{
+  "eventTime": "2026-06-24T14:23:01Z",
+  "eventName": "ConsoleLogin",
+  "sourceIPAddress": "45.156.23.138",
+  "userAgent": "Mozilla/5.0...",
+  "userIdentity": {
+    "type": "IAMUser",
+    "userName": "labuser"
+  },
+  "responseElements": {
+    "ConsoleLogin": "Success"
+  }
+}
+```
+ 
+**Security relevance:** CloudTrail is to AWS what Windows Security Event Logs are to Windows. Without it you're blind to what's happening in your account. With it you can reconstruct the full timeline of any incident.
+ 
+**Default behaviour:** CloudTrail is NOT enabled by default on a new AWS account. You have to turn it on. This is a common misconfiguration — many organisations don't realise their AWS activity is going unlogged.
+ 
+---
+ 
