@@ -172,4 +172,13 @@ eventName = "PutBucketAcl" AND requestParameters.accessControlList = "public-rea
 Any S3 bucket access control change that makes a bucket publicly readable is a potential data exposure event that needs immediate review.
  
 ---
+ ## What I Concluded
  
+Cloud security is not harder than on-premise security — it's just different. The tools are different, the log formats are different, the attack surface is different. But the analyst thinking is the same: who did what, when, from where, and does that make sense given the context?
+ 
+The biggest practical difference: in on-premise security, misconfiguration usually means someone opened a firewall port. In cloud security, misconfiguration can mean your entire database is publicly accessible to the internet via a misconfigured S3 policy. The blast radius of a single misconfiguration is much larger in cloud environments.
+ 
+The shared responsibility model is the thing I'll take forward from today. Before this I had a vague sense that "the cloud provider handles security." Now I understand exactly where that line is — and why most cloud breaches happen on the customer's side of it.
+ 
+---
+
