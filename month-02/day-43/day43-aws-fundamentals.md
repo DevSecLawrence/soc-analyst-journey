@@ -83,4 +83,31 @@ CloudTrail is the audit log for everything that happens in AWS. Every API call �
 **Default behaviour:** CloudTrail is NOT enabled by default on a new AWS account. You have to turn it on. This is a common misconfiguration — many organisations don't realise their AWS activity is going unlogged.
  
 ---
+ ### GuardDuty
  
+GuardDuty is AWS's managed threat detection service. It ingests CloudTrail logs, VPC Flow Logs, and DNS logs and applies threat intelligence and machine learning to identify suspicious activity.
+ 
+**What it detects:**
+- Unusual API calls (calling APIs not normally used in the account)
+- Calls from known malicious IPs
+- Credential exfiltration attempts
+- Cryptocurrency mining (EC2 instances generating crypto = high compute bills)
+- Unusual data access patterns in S3
+**Key difference from CloudTrail:** CloudTrail records what happened. GuardDuty tells you what was suspicious. CloudTrail is the raw data. GuardDuty is the detection layer on top of it.
+ 
+---
+ 
+### S3 (Simple Storage Service) — Security Considerations
+ 
+S3 buckets are the most commonly misconfigured AWS resource and one of the top causes of cloud data breaches. The configuration options that matter for security:
+ 
+**Block Public Access** — a setting that prevents any bucket or object from being made publicly accessible. Should be enabled by default on every bucket that doesn't need public access.
+ 
+**Bucket policies** — JSON documents defining who can access the bucket and what they can do. A misconfigured bucket policy that allows `"Principal": "*"` means the entire internet can access it.
+ 
+**Access logging** — logs every request made to the bucket. Off by default. For security-sensitive buckets should always be on.
+ 
+**The S3 breach pattern:** Developer creates a bucket, forgets to block public access, uploads sensitive data, data is indexed by a search engine or discovered by a threat actor scanning for open buckets. This has happened to major companies repeatedly.
+ 
+---
+
