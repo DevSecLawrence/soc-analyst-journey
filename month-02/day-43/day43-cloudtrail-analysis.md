@@ -148,3 +148,8 @@ The only legitimate reason to stop CloudTrail logging is if you're rotating to a
 **Severity:** Critical — treat as incident until proven otherwise
  
 ---
+## What CloudTrail Analysis Taught Me
+ 
+CloudTrail analysis is forensically very similar to Windows Event Log analysis. The same questions apply: who, what, when, from where. The format is different (JSON vs Windows XML) but the investigative logic is identical.
+ 
+The biggest practical difference is scale — a busy AWS account can generate millions of CloudTrail events per day. Querying them manually is not realistic. In production environments CloudTrail logs are ingested into a SIEM (Splunk, Elastic, or AWS Security Hub) and queried from there. The detection logic is the same, but the tooling for accessing it at scale is different.
