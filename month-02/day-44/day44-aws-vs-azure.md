@@ -60,3 +60,14 @@
 - Azure `operationName` uses a resource provider format (`Microsoft.X/Y/action`) — more verbose but more descriptive
 ---
  
+# Shared Responsibility — Both Clouds
+ 
+The shared responsibility model is identical in both:
+ 
+**Cloud provider secures:** Physical datacentres, hardware, hypervisor, network infrastructure, managed service platforms
+ 
+**Customer secures:** Identity configuration, data, application security, OS patches (for IaaS), network access controls, logging configuration
+ 
+The line is in the same place. The tools to manage your side of it are just different.
+ 
+---
