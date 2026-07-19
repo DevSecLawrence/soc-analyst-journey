@@ -43,3 +43,36 @@ This is the Azure equivalent of AWS IAM — but it's also more than that. Entra 
 - Privilege escalation via role assignment
 ---
  
+### Azure Activity Log
+ 
+The Azure equivalent of AWS CloudTrail. Records every operation performed on Azure resources — who did what, when, from where.
+ 
+**What it captures:**
+- Control plane operations (creating, modifying, deleting resources)
+- Who performed the action (which user, service principal, or managed identity)
+- When it happened
+- Whether it succeeded or failed
+- The source IP address
+**What it doesn't capture by default:**
+- Data plane operations (what's inside a storage blob, what queries ran against a database)
+- Guest OS level activity (you need Azure Monitor for that)
+**Log format:** JSON, similar to CloudTrail but different field names and structure.
+ 
+**Key difference from CloudTrail:** Activity Log is enabled by default and retained for 90 days. CloudTrail is NOT enabled by default. Azure gets credit here — you have at least 90 days of control plane audit history even on a new account.
+ 
+---
+ 
+### Microsoft Defender for Cloud
+ 
+Azure's version of AWS GuardDuty, but broader. Defender for Cloud provides:
+ 
+**Security posture management** — continuously assesses your Azure resources against security best practices and gives you a Secure Score. A lower score means more misconfigurations.
+ 
+**Threat protection** — detects active threats across Azure services, similar to GuardDuty's detection capability.
+ 
+**Regulatory compliance** — maps your configuration to compliance frameworks (PCI DSS, ISO 27001, NIST).
+ 
+**Key difference from GuardDuty:** GuardDuty is purely threat detection. Defender for Cloud combines threat detection with posture management — it tells you both "you're being attacked" and "you're configured in a way that makes attacks easier."
+ 
+---
+
