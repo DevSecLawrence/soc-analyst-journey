@@ -18,3 +18,45 @@
 | Query language | N/A (SPL for Splunk integration) | KQL (Sentinel native) | KQL is directly usable from Sigma rule conversion work |
  
 ---
+
+## Log Format Comparison
+ 
+### CloudTrail (AWS)
+```json
+{
+  "eventTime": "2026-06-24T14:23:01Z",
+  "eventName": "CreateUser",
+  "userIdentity": {
+    "type": "IAMUser",
+    "userName": "admin"
+  },
+  "sourceIPAddress": "197.210.65.42",
+  "requestParameters": {
+    "userName": "testuser"
+  }
+}
+```
+ 
+### Activity Log (Azure)
+```json
+{
+  "eventTimestamp": "2026-06-25T09:14:22Z",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "caller": "admin@tenant.onmicrosoft.com",
+  "callerIpAddress": "197.210.65.42",
+  "status": "Succeeded",
+  "resourceId": "/subscriptions/xxx/resourceGroups/rg-day44",
+  "properties": {
+    "roleDefinitionId": "Owner",
+    "principalId": "user-object-id"
+  }
+}
+```
+ 
+**Key differences:**
+- AWS uses `eventName`, Azure uses `operationName`
+- AWS uses `userIdentity.userName`, Azure uses `caller`
+- AWS uses `sourceIPAddress`, Azure uses `callerIpAddress`
+- Azure `operationName` uses a resource provider format (`Microsoft.X/Y/action`) — more verbose but more descriptive
+---
+ 
