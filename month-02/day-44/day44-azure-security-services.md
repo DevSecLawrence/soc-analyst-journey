@@ -33,3 +33,17 @@
  
 ---
 
+## Activity Log Fields — Security Relevant
+ 
+| Field | What it contains | Why it matters |
+|-------|----------------|---------------|
+| `operationName` | What action was taken | What happened |
+| `caller` | Who made the call | Attribution |
+| `eventTimestamp` | When it happened | Timeline |
+| `callerIpAddress` | Source IP | Geolocation, anomaly detection |
+| `status` | Success or failure | Failed operations = reconnaissance |
+| `resourceId` | Which resource was affected | Scope of action |
+| `properties` | Additional context | Specific details of the operation |
+ 
+---
+
