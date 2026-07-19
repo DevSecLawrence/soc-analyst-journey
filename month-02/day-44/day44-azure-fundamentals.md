@@ -132,3 +132,13 @@ The most important practical difference: Microsoft Sentinel is a real SIEM that 
 The second important difference: Entra ID's scope. A compromised Entra ID account potentially touches Office 365, Teams, SharePoint, and Azure all at once. The impact of an identity compromise in Azure is broader than in AWS because of the Microsoft ecosystem integration.
  
 ---
+## Assumption I Made
+ 
+I assumed Azure Active Directory was basically the same as on-premise Active Directory in the cloud. It's not — it's a different product that happens to share a name. On-premise AD uses Kerberos and NTLM for authentication. Entra ID uses OAuth2, OpenID Connect, and SAML. The concepts overlap (users, groups, roles) but the underlying protocols and attack surface are different. Pass-the-Hash doesn't work against Entra ID the same way it works against on-premise AD. The attacks are different too.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't understand how Microsoft Sentinel differs from a traditional SIEM like Splunk in practice. They both ingest logs, both have query languages, both have detection rules. The difference seems to be that Sentinel is cloud-native and scales automatically, while Splunk requires infrastructure management. But I don't know what that difference feels like to work in day-to-day, or which environments I'm more likely to encounter in entry-level SOC roles in Nigeria specifically. That's something I need to find out from people already working in the field.
+
