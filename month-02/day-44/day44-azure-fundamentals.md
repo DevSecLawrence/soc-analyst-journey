@@ -76,3 +76,27 @@ Azure's version of AWS GuardDuty, but broader. Defender for Cloud provides:
  
 ---
 
+### Microsoft Sentinel
+ 
+This is Azure's native SIEM — and it's a proper SIEM, not just a log aggregation service. Sentinel:
+ 
+- Ingests logs from Azure Activity Log, Entra ID, Defender, and non-Microsoft sources
+- Has built-in detection rules (similar to Sigma rules)
+- Has a query language (KQL — which you've already written in for Sigma rule conversion)
+- Has playbooks for automated response (equivalent of SOAR capabilities)
+**Key difference from AWS Security Hub:** Security Hub is primarily a findings aggregation dashboard. Sentinel is a full SIEM with detection, investigation, and response capabilities. They're not equivalent — Sentinel is significantly more powerful for a SOC analyst.
+ 
+**The KQL connection:** Everything in Sentinel is queried with KQL. If you've written Sigma rules converted to KQL, you can already write Sentinel queries. That's a real job skill that directly applies.
+ 
+---
+ 
+### Network Security Groups (NSGs)
+ 
+Azure's equivalent of AWS Security Groups. Stateful firewall rules controlling inbound and outbound traffic to Azure resources.
+ 
+Same concept, different interface. Rules are defined by source/destination IP, port, and protocol. Allow or deny.
+ 
+**Key difference:** Azure NSGs can be applied at both the subnet level and the individual NIC level simultaneously. AWS Security Groups apply at the instance/ENI level. The layering in Azure gives more granular control but also more complexity.
+ 
+---
+
