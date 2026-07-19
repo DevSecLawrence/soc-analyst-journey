@@ -85,4 +85,14 @@ The line is in the same place. The tools to manage your side of it are just diff
  
 ---
  
+## What Transfers Between Both Clouds
  
+If you understand security in one cloud, you're 70% of the way to understanding the other. The principles are identical:
+ 
+- Identity is the primary attack surface
+- Misconfiguration is the most common vulnerability
+- Logging is the foundation of detection
+- Shared responsibility defines what you're responsible for
+- Least privilege applies to all permissions
+What doesn't transfer: specific service names, log field names, console interfaces, and some capability nuances. Those you just have to look up.
+
