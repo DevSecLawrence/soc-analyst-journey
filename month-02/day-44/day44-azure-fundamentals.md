@@ -123,3 +123,12 @@ AND properties.principalType = "Guest"
 Inviting an external guest user and assigning them a role is a common attacker persistence technique. An external email address being granted access to your Azure tenant should always be reviewed — especially if it happens outside business hours or from an unusual source.
  
 ---
+## What I Concluded
+ 
+Azure and AWS security follow the same principles but use different terminology, different interfaces, and have some meaningful capability differences. The shared responsibility model is identical. Identity is still the primary attack surface. Logging and monitoring is still the foundation of detection.
+ 
+The most important practical difference: Microsoft Sentinel is a real SIEM that SOC analysts work in daily. AWS Security Hub is more of a findings dashboard. If you're working at an enterprise SOC that uses Azure, you'll likely be writing KQL in Sentinel — which means the Sigma-to-KQL conversion work from Month 1 is directly applicable to a Sentinel environment.
+ 
+The second important difference: Entra ID's scope. A compromised Entra ID account potentially touches Office 365, Teams, SharePoint, and Azure all at once. The impact of an identity compromise in Azure is broader than in AWS because of the Microsoft ecosystem integration.
+ 
+---
