@@ -100,3 +100,26 @@ Same concept, different interface. Rules are defined by source/destination IP, p
  
 ---
 
+## 3 Detection Concepts for Azure Activity Log
+ 
+**Detection 1 — Entra ID Role Assigned at Subscription Level**
+```
+operationName = "Microsoft.Authorization/roleAssignments/write"
+AND properties.scope = "/subscriptions/[subscription-id]"
+```
+Any role assignment at the subscription scope gives broad access across all resources. Attackers who compromise an account often try to assign themselves the Owner or Contributor role at subscription level. This should alert immediately regardless of who triggered it.
+ 
+**Detection 2 — Activity Log Diagnostic Settings Deleted**
+```
+operationName = "microsoft.insights/diagnosticSettings/delete"
+```
+The Azure equivalent of CloudTrail's StopLogging event. Deleting diagnostic settings removes the audit trail. Any deletion of diagnostic settings should be treated as a potential incident — there's no legitimate operational reason an attacker would leave this in place.
+ 
+**Detection 3 — Guest User Invited**
+```
+operationName = "Microsoft.Authorization/roleAssignments/write"
+AND properties.principalType = "Guest"
+```
+Inviting an external guest user and assigning them a role is a common attacker persistence technique. An external email address being granted access to your Azure tenant should always be reviewed — especially if it happens outside business hours or from an unusual source.
+ 
+---
