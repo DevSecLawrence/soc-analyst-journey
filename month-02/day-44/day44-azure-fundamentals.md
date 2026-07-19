@@ -13,3 +13,13 @@ Most enterprises don't use just one cloud. AWS dominates overall market share bu
 As a SOC analyst, this means knowing AWS alone isn't enough. Most large enterprises use both, and the Microsoft-heavy ones lean Azure. Understanding both makes you genuinely useful across more environments.
  
 ---
+
+## Azure vs AWS — The Mental Model
+ 
+Before getting into specifics, the biggest conceptual difference: Azure is Microsoft's product, built for organisations that already use Microsoft. AWS was built for developers and startups first, enterprises second. That difference shows up in how everything is structured.
+ 
+AWS thinks in terms of standalone services. Azure thinks in terms of suites — Azure Active Directory (now Entra ID) integrates with Office 365 integrates with Intune integrates with Defender. If you already use Microsoft products, Azure security feels native. If you don't, it feels complex.
+ 
+---
+ 
+## Azure Security Services
