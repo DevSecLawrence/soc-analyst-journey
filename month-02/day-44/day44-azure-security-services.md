@@ -47,3 +47,14 @@
  
 ---
 
+## Common Azure Misconfiguration Patterns
+ 
+| Misconfiguration | What it enables | Detection signal |
+|-----------------|----------------|-----------------|
+| Global Administrator overuse | Single account controls everything | Any GA login from unusual IP |
+| Guest users with high privileges | External account has broad access | Guest + Owner/Contributor role assignment |
+| No Conditional Access policies | MFA bypass possible | Successful login from risky location |
+| Storage blob public access enabled | Data exposed to internet | Storage account public access setting change |
+| NSG allowing 0.0.0.0/0 on RDP | Internet-facing RDP | NSG rule allowing port 3389 from any |
+| Diagnostic settings not configured | No audit trail | Activity Log retention gap |
+| No MFA on privileged accounts | Password alone = full access | Sign-in risk events without MFA |
