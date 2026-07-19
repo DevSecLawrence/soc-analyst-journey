@@ -71,3 +71,18 @@ The shared responsibility model is identical in both:
 The line is in the same place. The tools to manage your side of it are just different.
  
 ---
+## Which One Will I See in a SOC Role?
+ 
+**Entry level SOC in a large Nigerian enterprise or multinational:** More likely Azure — enterprises running Windows and Office 365 almost always extend to Azure
+ 
+**Tech companies and startups:** More likely AWS
+ 
+**Government and public sector:** Varies — increasingly cloud but often Microsoft-heavy
+ 
+**Remote roles for UK/EU/US companies:** Both, depending on the company. Many use both simultaneously
+ 
+**The practical advice:** Learn both conceptually. Go deeper on whichever platform appears in job descriptions you're targeting. The concepts transfer — the terminology doesn't.
+ 
+---
+ 
+ 
