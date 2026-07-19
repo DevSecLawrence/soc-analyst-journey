@@ -23,3 +23,23 @@ AWS thinks in terms of standalone services. Azure thinks in terms of suites — 
 ---
  
 ## Azure Security Services
+
+### Azure Entra ID (formerly Azure Active Directory)
+ 
+This is the Azure equivalent of AWS IAM — but it's also more than that. Entra ID is Microsoft's cloud identity platform and it does things AWS IAM doesn't.
+ 
+**Users and Groups** — same concept as AWS IAM users and groups. Users authenticate to Azure resources. Groups organise users for easier permission management.
+ 
+**Roles** — Azure has built-in roles (Owner, Contributor, Reader) and custom roles. Assigned at different scopes: subscription level, resource group level, or individual resource level.
+ 
+**Conditional Access** — this doesn't exist in AWS. Conditional Access lets you say "only allow login if the user is on a compliant device" or "require MFA if the login comes from outside the corporate network." It's policy-based access control on top of basic authentication.
+ 
+**The key difference from AWS IAM:** Entra ID also handles authentication for Office 365, Teams, SharePoint, and every other Microsoft service. A compromised Entra ID account doesn't just give access to Azure resources — it potentially gives access to the entire Microsoft ecosystem. The blast radius of an Entra ID compromise is much larger.
+ 
+**What attackers do with Entra ID:**
+- Password spray attacks against Office 365 logins (which use Entra ID)
+- Token theft — stealing authentication tokens to bypass MFA
+- Creating guest accounts for persistence
+- Privilege escalation via role assignment
+---
+ 
