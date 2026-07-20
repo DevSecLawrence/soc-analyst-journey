@@ -51,7 +51,7 @@ Real investigation write-ups from hands-on challenges — phishing email analysi
 | Month | Focus | Status |
 |-------|-------|--------|
 | [Month 1](./month-01/) | Foundations — packets, logs, SIEM, detection rules, lab setup | 🟡 In progress |
-| Month 2 | Threat intelligence, malware analysis, network forensics | 🟡 In progress |
+| [Month 2](./month-02/) | Threat intelligence, malware analysis, network forensics | 🟡 In progress |
 | Month 3 | Incident response, digital forensics, memory analysis | ⬜ Not started |
 | Month 4 | Cloud security, Active Directory attacks, advanced SIEM | ⬜ Not started |
 | Month 5 | Red team fundamentals, CTF challenges, detection gaps | ⬜ Not started |
