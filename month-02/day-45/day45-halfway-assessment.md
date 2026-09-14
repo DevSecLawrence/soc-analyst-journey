@@ -14,7 +14,7 @@ The concepts that stuck without any review: phishing investigation methodology, 
  
 What faded: specific Splunk SPL syntax, the exact YARA rule syntax, specific Event IDs for lateral movement detection. Those need to be re-touched before I'd be comfortable discussing them in an interview.
  
-That's actually useful information. It tells me what I genuinely internalised versus what I memorised temporarily. Month 2 going forward needs to focus on the things that faded — not re-learning them from scratch, but reinforcing them through more hands-on work so they stick properly.
+That's actually useful information, coz It tells me what genuinely stayed with me versus what I memorised temporarily. Month 2 going forward needs to focus on the things that faded — not re-learning them from scratch, but reinforcing them through more hands-on work so they stick properly in my head.
  
 ---
  
