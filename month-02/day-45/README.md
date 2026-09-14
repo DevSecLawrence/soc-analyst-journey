@@ -1,6 +1,6 @@
 # Day 45 — Halfway Checkpoint: Skill Assessment
 
-Took a month break for exams. I'm back now. Did an honest assessment — what stuck, what faded and what the remaining days need to fix. The break made me realise something: hands-on work stays longer in the head eading-only work fades. Month 3 onwards needs more doing.
+Took a month break for exams. I'm back now. Did an honest assessment — what stuck, what faded and what the remaining days need to fix. The break made me realise something: hands-on work stays longer in the head, readingand theory-only fades after sometime. Month 3 onwards needs more doing and practical work.
 
 ## Files
 - [day45-halfway-assessment.md](./day45-halfway-assessment.md) — honest evaluation of 45 days including the break
