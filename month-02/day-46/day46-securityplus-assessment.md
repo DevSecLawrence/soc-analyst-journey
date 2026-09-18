@@ -51,3 +51,12 @@ The brutal mentor note from the roadmap is accurate: certifications are gatekeep
 57% to 83% is a real gap. Closing it in 60 days of part-time study is achievable if the study is targeted. The domains I'm weak in — GRC, cryptography — are learnable. They just require dedicated time that isn't part of the current roadmap.
  
 ---
+## Assumption I Made
+ 
+I assumed 46 days of hands-on SOC work would put me closer to passing Security+ than it did. The overlap is real — Domain 4 (Security Operations) is 28% of the exam and my roadmap work helps there. But Domain 5 (Program Management and Oversight) is 20% of the exam and covers GRC, risk calculations, compliance frameworks, and policy development — none of which I've seriously studied. That 20% alone is the difference between passing and failing if I score well everywhere else.
+ 
+---
+ 
+## Uncertainty I Have
+ 
+I don't know if I should study Security+ in parallel with the roadmap or pause the roadmap to focus on it. Doing both at once risks doing neither properly. But pausing the roadmap to certify first means potentially being 90+ days without new hands-on work to show recruiters. The right answer probably depends on how close I am to applying for jobs — and based on the Day 45 plan, applications start at Day 60. That gives me 14 days to make a decision about how to sequence this.
