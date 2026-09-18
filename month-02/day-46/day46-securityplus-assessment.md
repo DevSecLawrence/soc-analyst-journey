@@ -30,3 +30,15 @@ The bad news: 57% means I'm still a long way from ready. This isn't something I 
  
 ---
 
+## What the Practice Test Revealed
+ 
+**Where I did okay:**
+Questions about attack types, malware behaviour, social engineering, incident response steps, and network security controls — these mapped to roadmap work. When the question described an attack scenario and asked what was happening, I could usually identify it.
+ 
+**Where I got destroyed:**
+Cryptography implementation details (RSA vs ECC vs AES — not just what they are but when to use which and why), PKI and certificate management, compliance frameworks (GDPR, HIPAA, PCI DSS — I know the names, not the specifics), risk management calculations (ALE, SLE, ARO), governance and policy questions. These are Security+ specific content that the roadmap hasn't covered and real-world SOC work doesn't constantly require.
+ 
+**The CompTIA question style:**
+It's not "what is X" — it's "a company needs X, which of these four reasonable options is BEST." All four options are plausible. You have to know which is most correct and why. That reasoning style requires practice, not just knowledge.
+ 
+---
