@@ -40,3 +40,15 @@ The risk: doing both at once means neither gets 100% attention. The answer to th
 **Daily:** 1 Professor Messer video (Domain 5) + 10 ExamCompass questions on that topic
  
 ---
+### Weeks 3–4 (Days 61–75) — Domain 1 (Cryptography)
+ 
+**Why next:** 12% of exam, I'm at ~20% ready. Cryptography is testable and learnable.
+ 
+- Symmetric vs asymmetric encryption — AES, RSA, ECC — when each is used
+- Hashing — MD5, SHA-256 — what they're for, not just what they are
+- PKI — certificates, CAs, certificate lifecycle
+- Common cryptographic use cases — TLS, digital signatures, key exchange
+**Daily:** 1 Professor Messer video (Domain 1 crypto sections) + 10 practice questions
+ 
+---
+
