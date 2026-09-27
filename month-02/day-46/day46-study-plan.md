@@ -52,4 +52,13 @@ The risk: doing both at once means neither gets 100% attention. The answer to th
  
 ---
 
+### Weeks 5–6 (Days 76–90) — Domain 3 (Architecture)
+ 
+- Data protection — DLP, classification, encryption at rest vs transit
+- Resilience — BCDR, RPO vs RTO (these definitions will be on the exam)
+- Cloud security architecture — builds on Days 43-44 work
+- Network segmentation, microsegmentation, zero trust architecture
+**Daily:** 1 Professor Messer video + 10 practice questions
+ 
+---
 
