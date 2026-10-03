@@ -60,6 +60,6 @@ The risk: doing both at once means neither gets 100% attention. The answer to th
 - Network segmentation, microsegmentation, zero trust architecture
 **Daily:** 1 Professor Messer video + 10 practice questions
  
----
+----
 
 
